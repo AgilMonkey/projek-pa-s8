@@ -1,0 +1,156 @@
+[gd_scene format=3 uid="uid://dxhc8vpixn80b"]
+
+[ext_resource type="Script" uid="uid://clgg1uep1pgk" path="res://scenes/client/register_ui.gd" id="1_vty6g"]
+
+[node name="RegisterUi" type="Control" unique_id=1415386876]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vty6g")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1138352998]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RegisterPanel" type="PanelContainer" parent="CenterContainer" unique_id=588208084]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/RegisterPanel" unique_id=1410142742]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/RegisterPanel/MarginContainer" unique_id=1756833337]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/RegisterPanel/MarginContainer/VBoxContainer" unique_id=1075269238]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Register"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UsernameContainer" type="HBoxContainer" parent="CenterContainer/RegisterPanel/MarginContainer/VBoxContainer" unique_id=7463513]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/RegisterPanel/MarginContainer/VBoxContainer/UsernameContainer" unique_id=550222497]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "Username: "
+
+[node name="UsernameLine" type="LineEdit" parent="CenterContainer/RegisterPanel/MarginContainer/VBoxContainer/UsernameContainer" unique_id=2131762851]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 24
+placeholder_text = "Username"
+max_length = 32
+expand_to_text_length = true
+
+[node name="PasswordContainer" type="HBoxContainer" parent="CenterContainer/RegisterPanel/MarginContainer/VBoxContainer" unique_id=749377268]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/RegisterPanel/MarginContainer/VBoxContainer/PasswordContainer" unique_id=1254247116]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 24
+text = "Password: "
+
+[node name="PasswordLine" type="LineEdit" parent="CenterContainer/RegisterPanel/MarginContainer/VBoxContainer/PasswordContainer" unique_id=540024754]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 24
+placeholder_text = "Password"
+max_length = 32
+expand_to_text_length = true
+secret = true
+
+[node name="PasswordAgainContainer" type="HBoxContainer" parent="CenterContainer/RegisterPanel/MarginContainer/VBoxContainer" unique_id=606848409]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/RegisterPanel/MarginContainer/VBoxContainer/PasswordAgainContainer" unique_id=1985876618]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 24
+text = "Type password again:"
+
+[node name="PasswordAgainLine" type="LineEdit" parent="CenterContainer/RegisterPanel/MarginContainer/VBoxContainer/PasswordAgainContainer" unique_id=1008895982]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 24
+placeholder_text = "Type password again"
+max_length = 32
+expand_to_text_length = true
+secret = true
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CenterContainer/RegisterPanel/MarginContainer/VBoxContainer" unique_id=25153415]
+layout_mode = 2
+alignment = 1
+
+[node name="BackButton" type="Button" parent="CenterContainer/RegisterPanel/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=1974340880]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Back"
+
+[node name="RegisterButton" type="Button" parent="CenterContainer/RegisterPanel/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=405780163]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Register"
+
+[node name="ErrorLabels" type="Control" parent="." unique_id=917069296]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ErrorLabels" unique_id=886178941]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+
+[node name="UsernameErrorLabel" type="RichTextLabel" parent="ErrorLabels/MarginContainer" unique_id=220290470]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "Test Username"
+
+[node name="PasswordErrorLabel" type="RichTextLabel" parent="ErrorLabels/MarginContainer" unique_id=256785766]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "Test Password"
