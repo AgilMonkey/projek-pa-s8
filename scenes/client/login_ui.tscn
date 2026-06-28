@@ -57,8 +57,24 @@ theme_override_font_sizes/font_size = 32
 placeholder_text = "Password"
 expand_to_text_length = true
 
-[node name="Button" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1496917648]
+[node name="LoginButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=996827429]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 32
 text = "Login"
+
+[node name="Control" type="Control" parent="CenterContainer/VBoxContainer" unique_id=2057648400]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1190280683]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 32
+text = "No Account? "
+
+[node name="RegisterButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=549295843]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 24
+text = "Register"
