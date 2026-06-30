@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Proyek Akhir S8"
-run/main_scene="uid://b6wenkvvnhcqj"
+run/main_scene="uid://b4q4v6wopywa"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 Config="*uid://dhpxsg7jsc60k"
 Networking="*uid://da3vwbk7toopk"
 AgilHelper="*uid://bf67pjmifh6ck"
+DatabaseManager="*uid://b8dod3mss1xur"
 
 [display]
 

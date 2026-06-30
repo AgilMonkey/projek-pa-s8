@@ -39,7 +39,12 @@ func _start_client():
 			
 			if _err == OK:
 				start_menu_ui.queue_free()
+				_client_connected_to_server()
 			else:
 				print("Error: %d" % _err)
 	)
 	add_child(start_menu_ui)
+
+
+func _client_connected_to_server():
+	pass
