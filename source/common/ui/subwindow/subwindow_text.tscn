@@ -1,12 +1,21 @@
-[gd_scene format=3 uid="uid://drc4t0hrrtk75"]
+[gd_scene format=3 uid="uid://0awrc1elwyes"]
 
-[ext_resource type="Script" uid="uid://bkqwodevh2pxs" path="res://source/common/ui/subwindow_component.gd" id="1_6qknb"]
+[ext_resource type="Script" uid="uid://blunbql3ukujf" path="res://source/common/ui/subwindow/subwindow_text.gd" id="1_rskx4"]
 
-[node name="SubwindowComponent" type="PanelContainer" unique_id=285145439]
+[node name="SubwindowText" type="PanelContainer" unique_id=285145439]
 custom_minimum_size = Vector2(150, 150)
-offset_right = 100.0
-offset_bottom = 100.0
-script = ExtResource("1_6qknb")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -75.0
+offset_right = 75.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rskx4")
 
 [node name="MainContent" type="VBoxContainer" parent="." unique_id=1069252783]
 layout_mode = 2
@@ -45,7 +54,8 @@ theme_override_constants/margin_bottom = 0
 layout_mode = 2
 alignment = 2
 
-[node name="Title" type="Label" parent="MainContent/TitleArea/MarginContainer/HBoxContainer" unique_id=599914814]
+[node name="WindowTitle" type="Label" parent="MainContent/TitleArea/MarginContainer/HBoxContainer" unique_id=599914814]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Title"
@@ -58,22 +68,23 @@ layout_mode = 2
 size_flags_horizontal = 8
 text = "X"
 
-[node name="MainContent" type="Control" parent="MainContent" unique_id=1592795239]
+[node name="MainContent" type="MarginContainer" parent="MainContent" unique_id=2000728038]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-
-[node name="MarginContainer" type="MarginContainer" parent="MainContent/MainContent" unique_id=2000728038]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
+
+[node name="MainText" type="RichTextLabel" parent="MainContent/MainContent" unique_id=1287295946]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+text = "Test test"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ResizeControl" type="Control" parent="." unique_id=823310411]
 layout_mode = 2

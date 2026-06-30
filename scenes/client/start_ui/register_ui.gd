@@ -1,4 +1,7 @@
+class_name RegisterUI
 extends Control
+
+signal on_registering(_data: Dictionary)
 
 @onready var error_labels: Control = %ErrorLabels
 @onready var username_error_label: RichTextLabel = %UsernameErrorLabel
@@ -38,6 +41,11 @@ func _ready() -> void:
 			if password_line.text != password_again_line.text:
 				_show_error("", "[color=red]Password is not the same retyping[/color]")
 				return
+			
+			on_registering.emit({
+				"username":username_line.text,
+				"password":password_line.text,
+			})
 	)
 
 

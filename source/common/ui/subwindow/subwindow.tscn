@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://drc4t0hrrtk75"]
+
+[ext_resource type="Script" uid="uid://bkqwodevh2pxs" path="res://source/common/ui/subwindow/subwindow_component.gd" id="1_ptj0n"]
+
+[node name="SubwindowComponent" type="PanelContainer" unique_id=285145439]
+custom_minimum_size = Vector2(150, 150)
+offset_right = 100.0
+offset_bottom = 100.0
+script = ExtResource("1_ptj0n")
+
+[node name="MainContent" type="VBoxContainer" parent="." unique_id=1069252783]
+layout_mode = 2
+
+[node name="TitleArea" type="Control" parent="MainContent" unique_id=451424592]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 6
+
+[node name="UpRightControl" type="Control" parent="MainContent/TitleArea" unique_id=180579056]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -10.0
+offset_bottom = 10.0
+grow_horizontal = 0
+mouse_default_cursor_shape = 11
+
+[node name="MarginContainer" type="MarginContainer" parent="MainContent/TitleArea" unique_id=960857095]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainContent/TitleArea/MarginContainer" unique_id=1559392282]
+layout_mode = 2
+alignment = 2
+
+[node name="Title" type="Label" parent="MainContent/TitleArea/MarginContainer/HBoxContainer" unique_id=599914814]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Title"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CloseButton" type="Button" parent="MainContent/TitleArea/MarginContainer/HBoxContainer" unique_id=720669781]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+text = "X"
+
+[node name="MainContent" type="Control" parent="MainContent" unique_id=1592795239]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MainContent/MainContent" unique_id=2000728038]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ResizeControl" type="Control" parent="." unique_id=823310411]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="UpLeftControl" type="Control" parent="ResizeControl" unique_id=574107698]
+custom_minimum_size = Vector2(20, 20)
+anchors_preset = 0
+offset_right = 20.0
+offset_bottom = 20.0
+mouse_default_cursor_shape = 12
+
+[node name="DownLeftControl" type="Control" parent="ResizeControl" unique_id=271479251]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -10.0
+offset_right = 10.0
+grow_vertical = 0
+mouse_default_cursor_shape = 11
+
+[node name="DownRightControl" type="Control" parent="ResizeControl" unique_id=1206715144]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = -10.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_default_cursor_shape = 12

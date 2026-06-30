@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b6wenkvvnhcqj"]
 
-[ext_resource type="Script" uid="uid://dc2sfgeiv2m3f" path="res://sqllite_test/sql_lite_test.gd" id="1_0ppnu"]
+[ext_resource type="Script" uid="uid://dc2sfgeiv2m3f" path="res://testing/sqllite_test/sql_lite_test.gd" id="1_0ppnu"]
 
 [node name="SqlLiteTest" type="Node2D" unique_id=432431239]
 script = ExtResource("1_0ppnu")

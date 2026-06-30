@@ -21,6 +21,7 @@ func _create_database():
 		if not DirAccess.dir_exists_absolute("res://database"):
 			DirAccess.make_dir_absolute("res://database")
 		
+		# Delete DB and reset basically
 		if OS.has_feature("clear_db"):
 			if FileAccess.file_exists("res://database/test_db.db"):
 				DirAccess.remove_absolute("res://database/test_db.db")

@@ -21,6 +21,8 @@ Config="*uid://dhpxsg7jsc60k"
 Networking="*uid://da3vwbk7toopk"
 AgilHelper="*uid://bf67pjmifh6ck"
 DatabaseManager="*uid://b8dod3mss1xur"
+UserManager="*uid://bey16o3mlyykl"
+SessionManager="*uid://bs43h0bf32eon"
 
 [display]
 

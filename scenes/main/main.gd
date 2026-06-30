@@ -2,6 +2,9 @@ extends Node
 
 
 const START_MENU_UI = preload("uid://c7o0k4lx31wtl")
+const CLIENT_MAIN = preload("uid://x0ori5xud1bs")
+
+var client_main: ClientMain
 
 
 func _ready() -> void:
@@ -47,4 +50,5 @@ func _start_client():
 
 
 func _client_connected_to_server():
-	pass
+	client_main = CLIENT_MAIN.instantiate()
+	add_child(client_main)
