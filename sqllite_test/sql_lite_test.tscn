@@ -1,0 +1,159 @@
+[gd_scene format=3 uid="uid://b6wenkvvnhcqj"]
+
+[ext_resource type="Script" uid="uid://dc2sfgeiv2m3f" path="res://sqllite_test/sql_lite_test.gd" id="1_0ppnu"]
+
+[node name="SqlLiteTest" type="Node2D" unique_id=432431239]
+script = ExtResource("1_0ppnu")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=217980907]
+
+[node name="Control" type="Control" parent="UI" unique_id=1370269041]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Control" unique_id=753266330]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 85.0
+offset_right = 398.0
+offset_bottom = 186.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Control/VBoxContainer" unique_id=1448157032]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/Control/VBoxContainer/HBoxContainer" unique_id=1955080564]
+layout_mode = 2
+text = "Username: "
+
+[node name="UsernameLine" type="LineEdit" parent="UI/Control/VBoxContainer/HBoxContainer" unique_id=497727860]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="UI/Control/VBoxContainer" unique_id=1302620734]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/Control/VBoxContainer/HBoxContainer3" unique_id=1600124922]
+layout_mode = 2
+text = "Password: "
+
+[node name="PasswordLine" type="LineEdit" parent="UI/Control/VBoxContainer/HBoxContainer3" unique_id=1805193614]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="InsertButton" type="Button" parent="UI/Control/VBoxContainer" unique_id=1317380275]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Insert Data"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="UI/Control" unique_id=151582413]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 260.0
+offset_right = 500.0
+offset_bottom = 868.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Control/VBoxContainer2" unique_id=250688214]
+layout_mode = 2
+
+[node name="ListButton" type="Button" parent="UI/Control/VBoxContainer2/HBoxContainer" unique_id=1944041396]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+text = "List"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="UI/Control/VBoxContainer2" unique_id=1561091980]
+layout_mode = 2
+
+[node name="SearchUserButton" type="Button" parent="UI/Control/VBoxContainer2/HBoxContainer2" unique_id=2048247352]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Search User"
+
+[node name="SearchUsernameLine" type="LineEdit" parent="UI/Control/VBoxContainer2/HBoxContainer2" unique_id=55938500]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Username"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="UI/Control/VBoxContainer2" unique_id=886558984]
+layout_mode = 2
+
+[node name="DeleteUserButton" type="Button" parent="UI/Control/VBoxContainer2/HBoxContainer3" unique_id=1572737489]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Delete User"
+
+[node name="DeleteUsernameLine" type="LineEdit" parent="UI/Control/VBoxContainer2/HBoxContainer3" unique_id=1721783067]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Username"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="UI/Control/VBoxContainer2" unique_id=886401979]
+layout_mode = 2
+
+[node name="UpdateUserButton" type="Button" parent="UI/Control/VBoxContainer2/HBoxContainer4" unique_id=784543745]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Update User"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Control/VBoxContainer2/HBoxContainer4" unique_id=2064748048]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="UpdateUsernameLine" type="LineEdit" parent="UI/Control/VBoxContainer2/HBoxContainer4/VBoxContainer" unique_id=746965469]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+placeholder_text = "Username"
+
+[node name="UpdatePasswordLine" type="LineEdit" parent="UI/Control/VBoxContainer2/HBoxContainer4/VBoxContainer" unique_id=1882641641]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+placeholder_text = "Password"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="UI/Control/VBoxContainer2" unique_id=982403543]
+layout_mode = 2
+
+[node name="LoginUserButton" type="Button" parent="UI/Control/VBoxContainer2/HBoxContainer5" unique_id=905038226]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Check Login"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Control/VBoxContainer2/HBoxContainer5" unique_id=1237683971]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LoginUsernameLine" type="LineEdit" parent="UI/Control/VBoxContainer2/HBoxContainer5/VBoxContainer" unique_id=1433788347]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+placeholder_text = "Username"
+
+[node name="LoginPasswordLine" type="LineEdit" parent="UI/Control/VBoxContainer2/HBoxContainer5/VBoxContainer" unique_id=1806038431]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+placeholder_text = "Password"
+
+[node name="Panel" type="PanelContainer" parent="UI/Control" unique_id=1009977650]
+layout_mode = 0
+offset_left = 646.0
+offset_top = 57.0
+offset_right = 1826.0
+offset_bottom = 898.0
+size_flags_vertical = 3
+
+[node name="TextPanelOutput" type="RichTextLabel" parent="UI/Control/Panel" unique_id=1468065697]
+unique_name_in_owner = true
+layout_mode = 2

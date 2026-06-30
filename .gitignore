@@ -1,3 +1,7 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+
+# This project specific ignores
+database/*
+!database/.gitkeep

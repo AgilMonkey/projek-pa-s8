@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Proyek Akhir S8"
-run/main_scene="uid://b4q4v6wopywa"
+run/main_scene="uid://b6wenkvvnhcqj"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -27,6 +27,10 @@ window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot-sqlite/plugin.cfg")
 
 [physics]
 

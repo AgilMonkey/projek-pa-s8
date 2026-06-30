@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://2fytaj1uhtfo"]
+
+[ext_resource type="Script" uid="uid://bo0r0sesgwsq5" path="res://testing/database_tutorial/quick_control_test.gd" id="1_ta7g5"]
+[ext_resource type="PackedScene" uid="uid://drc4t0hrrtk75" path="res://source/common/ui/subwindow.tscn" id="1_tfusi"]
+
+[node name="QuickControlTest" type="Control" unique_id=1958131343]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ta7g5")
+
+[node name="SubwindowComponent" parent="." unique_id=285145439 instance=ExtResource("1_tfusi")]
+layout_mode = 0
+offset_left = 590.0
+offset_top = 210.0
+offset_right = 740.0
+offset_bottom = 360.0

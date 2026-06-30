@@ -22,6 +22,8 @@ func _ready() -> void:
 
 func _start_server():
 	Networking.create(NetworkingBase.Role.SERVER, "*", Config.server_port)
+	
+	print("Server started at port: ", Config.server_port)
 
 
 func _start_client():
