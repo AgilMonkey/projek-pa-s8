@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://btk5fn3q5d2qc"]
+
+[ext_resource type="Script" uid="uid://b87lhmuybb6ls" path="res://scenes/testing/test_player_character.gd" id="1_jtymc"]
+[ext_resource type="Texture2D" uid="uid://mjna7o0lauja" path="res://assets/Eris Esra's Character Template 4.1/16x16/16x16 Idle-Sheet.png" id="2_cpdgw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tmeal"]
+height = 64.0
+
+[node name="TestPlayerCharacter" type="CharacterBody2D" unique_id=319763581]
+physics_interpolation_mode = 1
+collision_layer = 2
+motion_mode = 1
+script = ExtResource("1_jtymc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1727256642]
+texture_filter = 1
+position = Vector2(0, -45)
+scale = Vector2(5, 5)
+texture = ExtResource("2_cpdgw")
+hframes = 4
+vframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=349940447]
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_tmeal")
+
+[node name="UsernameLabel" type="Label" parent="." unique_id=686984245]
+unique_name_in_owner = true
+z_index = 100
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -144.0
+offset_right = 60.0
+offset_bottom = -121.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "TEST PLAYER NO INTERNET"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainCamera" type="Camera2D" parent="." unique_id=814354027]
+unique_name_in_owner = true
+position = Vector2(0, -48)
+process_callback = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0

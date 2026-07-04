@@ -18,7 +18,7 @@ func just_pressed(keycode: int) -> bool:
 
 
 ## Only use this inside of [method Node._input]
-static func key_just_pressed(event: InputEvent, keycode: int) -> bool:
+func key_just_pressed(event: InputEvent, keycode: int) -> bool:
 	return event is InputEventKey \
 		and event.pressed \
 		and not event.echo \

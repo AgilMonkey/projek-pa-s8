@@ -8,6 +8,16 @@ const SUBWINDOW_TEXT = preload("uid://0awrc1elwyes")
 @onready var subwindows_container: Control = %SubwindowsContainer
 
 
+func _input(event: InputEvent) -> void:
+	if not UserManager.client_is_logged_in: return
+	
+	var rand_pos = Vector2(randf_range(-100.0, 100.0), randf_range(-100.0, 100.0))
+	if AgilHelper.key_just_pressed(event, KEY_1):
+		WorldManager.ask_server_for_world_change(Worlds.TEST_WORLD, rand_pos)
+	elif AgilHelper.key_just_pressed(event, KEY_2):
+		WorldManager.ask_server_for_world_change(Worlds.TEST_WORLD_2, rand_pos)
+
+
 func _ready() -> void:
 	login_ui.on_login_button_pressed.connect(
 		func(data):
@@ -43,9 +53,14 @@ func _ready() -> void:
 	)
 	
 	UserManager.client_logged_in.connect(
-		func():
+		func(result, _data):
+			print("[Client %d]: %s" % [multiplayer.get_unique_id(), UserManager.LogInResult.keys()[result]])
+			if result != UserManager.LogInResult.OK: return
+			
 			$LoginRegisterUi.queue_free()
-			$QuickLogInCheck.show()
+			
+			# Enter world
+			WorldManager.ask_server_for_world_change(Worlds.TEST_WORLD)
 	)
 
 

@@ -8,6 +8,12 @@ func _ready() -> void:
 	
 	_create_database()
 	_create_users_table()
+	
+	if !OS.has_feature("production"):
+		# Create test users
+		UserManager.register_user("test1", "test1")
+		UserManager.register_user("test2", "test2")
+		UserManager.register_user("test3", "test3")
 
 
 func _create_database():
@@ -18,15 +24,15 @@ func _create_database():
 		pass
 	else:
 		# Test enviroment
-		if not DirAccess.dir_exists_absolute("res://database"):
-			DirAccess.make_dir_absolute("res://database")
+		if not DirAccess.dir_exists_absolute("user://database"):
+			DirAccess.make_dir_absolute("user://database")
 		
 		# Delete DB and reset basically
 		if OS.has_feature("clear_db"):
-			if FileAccess.file_exists("res://database/test_db.db"):
-				DirAccess.remove_absolute("res://database/test_db.db")
+			if FileAccess.file_exists("user://database/test_db.db"):
+				DirAccess.remove_absolute("user://database/test_db.db")
 	
-		database.path = "res://database/test_db.db"
+		database.path = "user://database/test_db.db"
 		database.open_db()
 
 

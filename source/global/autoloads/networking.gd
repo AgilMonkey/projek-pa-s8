@@ -12,6 +12,11 @@ func _ready() -> void:
 		func(id: int):
 			print("[Server]: Peer {%d} connected" % id)
 	)
+	
+	multiplayer.peer_disconnected.connect(
+		func(id: int):
+			print("[Server]: Peer {%d} disconnected" % id)
+	)
 
 
 #func _input(_event: InputEvent) -> void:
