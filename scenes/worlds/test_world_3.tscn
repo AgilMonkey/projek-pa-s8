@@ -1,0 +1,28 @@
+[gd_scene format=4 uid="uid://h6rw77bewpo2"]
+
+[ext_resource type="TileSet" uid="uid://7yfbldw34sxx" path="res://resources/tileset/test_tileset.tres" id="1_knrko"]
+[ext_resource type="Script" uid="uid://d02x282ski4xy" path="res://source/client/entity_spawner.gd" id="2_apbjv"]
+
+[node name="TestWorld3" type="Node2D" unique_id=2141809767]
+y_sort_enabled = true
+
+[node name="TestTileMap" type="TileMapLayer" parent="." unique_id=908591619]
+y_sort_enabled = true
+texture_filter = 1
+scale = Vector2(3, 3)
+tile_map_data = PackedByteArray("AAD//wAAAgAWABAAAAD0//f/AAABAAAAAAAMAPn/AAABAAAAAAAGAAsAAAABAAAAAAD1/wgAAAABAAAAAAAAAPb/AAABAAAAAAD2/wEAAAAGAAwAAAAIAAEAAAAGAAwAAAACAAUAAAAGAAwAAAD7/wUAAAAGAAwAAAAEAP3/AAAGAAwAAAA=")
+tile_set = ExtResource("1_knrko")
+metadata/_edit_lock_ = true
+
+[node name="EntitySpawner" type="Node2D" parent="." unique_id=810353219]
+y_sort_enabled = true
+script = ExtResource("2_apbjv")
+metadata/_custom_type_script = "uid://d02x282ski4xy"
+
+[node name="WorldLabel" type="Label" parent="." unique_id=1968516690]
+z_index = -1
+offset_left = -72.0
+offset_top = -144.0
+offset_right = 40.0
+offset_bottom = -121.0
+text = "TEST WORLD 3"

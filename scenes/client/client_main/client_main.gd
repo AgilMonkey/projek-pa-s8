@@ -16,6 +16,8 @@ func _input(event: InputEvent) -> void:
 		WorldManager.ask_server_for_world_change(Worlds.TEST_WORLD, rand_pos)
 	elif AgilHelper.key_just_pressed(event, KEY_2):
 		WorldManager.ask_server_for_world_change(Worlds.TEST_WORLD_2, rand_pos)
+	elif AgilHelper.key_just_pressed(event, KEY_3):
+		WorldManager.ask_server_for_world_change(Worlds.TEST_WORLD_3, rand_pos)
 
 
 func _ready() -> void:

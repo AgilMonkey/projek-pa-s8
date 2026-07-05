@@ -3,10 +3,12 @@ extends Node
 
 const TEST_WORLD = "test_world"
 const TEST_WORLD_2 = "test_world_2"
+const TEST_WORLD_3 = "test_world_3"
 
 var worlds := {
 	TEST_WORLD: preload("uid://pib3xwojg88o"),
 	TEST_WORLD_2: preload("uid://muhp4y16ej8f"),
+	TEST_WORLD_3: preload("uid://h6rw77bewpo2"),
 }
 
 
