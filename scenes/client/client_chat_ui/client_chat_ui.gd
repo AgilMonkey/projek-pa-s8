@@ -2,7 +2,9 @@ class_name ClientChatUI
 extends Control
 
 
+## Use this for like server stuff. Have chat manager maybe
 signal client_chat_send_msg(msg: String)
+signal client_is_chatting(is_chatting: bool)
 
 var max_panel_size := Vector2(800.0, 750.0)
 
