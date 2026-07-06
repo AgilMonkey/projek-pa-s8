@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://b3yc5dkhrnxas"]
+
+[ext_resource type="Script" uid="uid://bpheb8e527ots" path="res://scenes/client/client_chat_ui/client_chat_ui.gd" id="1_w55p3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w55p3"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+
+[node name="ClientChatUi" type="Control" unique_id=504970275]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_w55p3")
+
+[node name="MainPanelContainer" type="PanelContainer" parent="." unique_id=614987971]
+unique_name_in_owner = true
+layout_mode = 1
+offset_right = 121.0
+offset_bottom = 61.0
+
+[node name="MarginContainer" type="MarginContainer" parent="MainPanelContainer" unique_id=991000319]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainPanelContainer/MarginContainer" unique_id=1971118289]
+layout_mode = 2
+
+[node name="ChatButton" type="Button" parent="MainPanelContainer/MarginContainer/VBoxContainer" unique_id=1536659710]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Open Chat"
+
+[node name="TextChatContainerPanel" type="PanelContainer" parent="MainPanelContainer/MarginContainer/VBoxContainer" unique_id=1834232720]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ChatBoxText" type="RichTextLabel" parent="MainPanelContainer/MarginContainer/VBoxContainer/TextChatContainerPanel" unique_id=2125876053]
+layout_mode = 2
+focus_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_w55p3")
+bbcode_enabled = true
+text = "AAA
+AAAAAAaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaas
+AAAAAA
+AAAAAA
+AAAAAA
+AAAAAA
+AAAAAA
+AAAAAA
+AAAAAA
+AAAAAA
+AAAAAA
+AAAAAA
+AAAAAA
+AAAAAA
+AAAAAA
+AAAAAA
+AAAAAA
+AAA"
+selection_enabled = true
+
+[node name="ChatButtonsContainer" type="HBoxContainer" parent="MainPanelContainer/MarginContainer/VBoxContainer" unique_id=1541845145]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="TextEdit" type="TextEdit" parent="MainPanelContainer/MarginContainer/VBoxContainer/ChatButtonsContainer" unique_id=1465775981]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Text here"
+
+[node name="Button" type="Button" parent="MainPanelContainer/MarginContainer/VBoxContainer/ChatButtonsContainer" unique_id=532299192]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Send"
+
+[node name="ResizeControl" type="Control" parent="MainPanelContainer" unique_id=152513120]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+mouse_filter = 2
+
+[node name="RightDownResizeControl" type="Control" parent="MainPanelContainer/ResizeControl" unique_id=179979469]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(15, 15)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = -10.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_default_cursor_shape = 12

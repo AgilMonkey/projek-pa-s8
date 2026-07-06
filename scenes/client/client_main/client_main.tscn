@@ -52,3 +52,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 64
 text = "LOGGED IN"
+
+[node name="ClientMainUI" type="CanvasLayer" parent="." unique_id=989288175]
+unique_name_in_owner = true
