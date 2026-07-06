@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://vsqyws1ym86c" path="res://scenes/client/client_main/client_main.gd" id="1_cadt6"]
 [ext_resource type="PackedScene" uid="uid://b2drpmji4eop" path="res://scenes/client/start_ui/login_ui.tscn" id="2_evv05"]
 [ext_resource type="PackedScene" uid="uid://dxhc8vpixn80b" path="res://scenes/client/start_ui/register_ui.tscn" id="3_2g1po"]
+[ext_resource type="PackedScene" uid="uid://b3yc5dkhrnxas" path="res://scenes/client/client_chat_ui/client_chat_ui.tscn" id="4_clynu"]
 
 [node name="ClientMain" type="Node" unique_id=481541541]
 script = ExtResource("1_cadt6")
@@ -55,3 +56,24 @@ text = "LOGGED IN"
 
 [node name="ClientMainUI" type="CanvasLayer" parent="." unique_id=989288175]
 unique_name_in_owner = true
+visible = false
+
+[node name="MainGameUI" type="Control" parent="ClientMainUI" unique_id=306301389]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DummyControl" type="Control" parent="ClientMainUI/MainGameUI" unique_id=308078834]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+
+[node name="ClientChatUi" parent="ClientMainUI/MainGameUI" unique_id=504970275 instance=ExtResource("4_clynu")]
+layout_mode = 0

@@ -33,18 +33,20 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
+focus_mode = 0
 text = "Open Chat"
 
 [node name="TextChatContainerPanel" type="PanelContainer" parent="MainPanelContainer/MarginContainer/VBoxContainer" unique_id=1834232720]
 unique_name_in_owner = true
-visible = false
 custom_minimum_size = Vector2(300, 200)
 layout_mode = 2
 size_flags_vertical = 3
 
 [node name="ChatBoxText" type="RichTextLabel" parent="MainPanelContainer/MarginContainer/VBoxContainer/TextChatContainerPanel" unique_id=2125876053]
+unique_name_in_owner = true
 layout_mode = 2
-focus_mode = 2
+focus_mode = 0
+focus_behavior_recursive = 1
 theme_override_styles/normal = SubResource("StyleBoxEmpty_w55p3")
 bbcode_enabled = true
 text = "AAA
@@ -69,19 +71,23 @@ selection_enabled = true
 
 [node name="ChatButtonsContainer" type="HBoxContainer" parent="MainPanelContainer/MarginContainer/VBoxContainer" unique_id=1541845145]
 unique_name_in_owner = true
-visible = false
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 
-[node name="TextEdit" type="TextEdit" parent="MainPanelContainer/MarginContainer/VBoxContainer/ChatButtonsContainer" unique_id=1465775981]
+[node name="ChatTextEdit" type="TextEdit" parent="MainPanelContainer/MarginContainer/VBoxContainer/ChatButtonsContainer" unique_id=1465775981]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-placeholder_text = "Text here"
+focus_mode = 1
+placeholder_text = "Tulis Teks..."
+scroll_fit_content_height = true
 
-[node name="Button" type="Button" parent="MainPanelContainer/MarginContainer/VBoxContainer/ChatButtonsContainer" unique_id=532299192]
+[node name="SendButton" type="Button" parent="MainPanelContainer/MarginContainer/VBoxContainer/ChatButtonsContainer" unique_id=532299192]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
-text = "Send"
+focus_mode = 0
+text = "Kirim"
 
 [node name="ResizeControl" type="Control" parent="MainPanelContainer" unique_id=152513120]
 unique_name_in_owner = true

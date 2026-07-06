@@ -2,6 +2,8 @@ class_name ClientChatUI
 extends Control
 
 
+signal client_chat_send_msg(msg: String)
+
 var max_panel_size := Vector2(800.0, 750.0)
 
 var chat_panel_size_saved := Vector2.ZERO
@@ -23,6 +25,17 @@ func _ready() -> void:
 	
 	chat_button.pressed.connect(_open_close_chat_panel)
 	right_down_resize_control.gui_input.connect(_resize_gui_input)
+	%ChatTextEdit.gui_input.connect(_chat_text_edit_gui_input)
+	
+	%SendButton.pressed.connect(_send_chat_msg)
+
+
+func _send_chat_msg():
+	if %ChatTextEdit.text == "": return
+	
+	client_chat_send_msg.emit(%ChatTextEdit.text)
+	%ChatTextEdit.release_focus()
+	%ChatTextEdit.clear()
 
 
 func _resize_gui_input(event: InputEvent):
@@ -35,6 +48,13 @@ func _resize_gui_input(event: InputEvent):
 			Vector2.ZERO,
 			max_panel_size
 		)
+
+
+func _chat_text_edit_gui_input(_event: InputEvent):
+	if _event is InputEventKey:
+		if _event.keycode == KEY_ENTER and _event.is_pressed():
+			_send_chat_msg()
+			accept_event()
 
 
 func _open_close_chat_panel():

@@ -63,6 +63,7 @@ func _ready() -> void:
 			
 			# Enter world
 			WorldManager.ask_server_for_world_change(Worlds.TEST_WORLD)
+			%ClientMainUI.show()
 	)
 
 
