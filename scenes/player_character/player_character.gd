@@ -4,8 +4,14 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 
+const ZOOM_SCALE := 0.2
+const ZOOM_MAX := 3.0
+const ZOOM_MIN := 0.5
+
 var my_username: String
 var this_peer_id: int
+
+@onready var main_camera: Camera2D = %MainCamera
 
 
 func _ready() -> void:
@@ -19,6 +25,17 @@ func _ready() -> void:
 	
 	global_position = global_position
 	reset_physics_interpolation()
+
+
+func _input(event: InputEvent) -> void:
+	if this_peer_id !=  multiplayer.get_unique_id(): return
+	
+	# Camera zoom in/out:
+	if Input.is_action_just_pressed("zoom_out"):
+		main_camera.zoom += main_camera.zoom * ZOOM_SCALE
+	elif Input.is_action_just_pressed("zoom_in"):
+		main_camera.zoom -= main_camera.zoom * ZOOM_SCALE
+	main_camera.zoom = main_camera.zoom.clampf(ZOOM_MIN, ZOOM_MAX)
 
 
 func _physics_process(_delta: float) -> void:
