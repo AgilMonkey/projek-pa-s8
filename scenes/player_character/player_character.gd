@@ -8,6 +8,8 @@ const ZOOM_SCALE := 0.2
 const ZOOM_MAX := 3.0
 const ZOOM_MIN := 0.5
 
+@export var enable_movement := true
+
 var my_username: String
 var this_peer_id: int
 
@@ -25,6 +27,10 @@ func _ready() -> void:
 	
 	global_position = global_position
 	reset_physics_interpolation()
+	
+	ChatManager.client_is_chatting.connect(
+		func(_is_chatting): enable_movement = not _is_chatting
+	)
 
 
 func _input(event: InputEvent) -> void:
@@ -41,6 +47,8 @@ func _input(event: InputEvent) -> void:
 func _physics_process(_delta: float) -> void:
 	if this_peer_id != multiplayer.get_unique_id():
 		return
+	
+	if not enable_movement: return
 	
 	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	if direction:

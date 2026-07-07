@@ -12,7 +12,14 @@ func _ready() -> void:
 			ChatManager.send_msg_to_server.rpc_id(1, username, msg)
 	)
 	
+	client_chat_ui.client_is_chatting.connect(
+		func (_is_chatting):
+			ChatManager.client_is_chatting.emit(_is_chatting)
+	)
+	
 	ChatManager.on_new_msg.connect(
 		func():
 			client_chat_ui.set_chat_bot_text(ChatManager.all_chat_logs)
 	)
+	
+	ChatManager.refresh_this_peer_chat_logs.rpc_id(1)

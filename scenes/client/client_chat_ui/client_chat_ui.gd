@@ -32,6 +32,9 @@ func _ready() -> void:
 	%ChatTextEdit.gui_input.connect(_chat_text_edit_gui_input)
 	
 	%SendButton.pressed.connect(_send_chat_msg)
+	
+	%ChatTextEdit.focus_entered.connect(func(): client_is_chatting.emit(true))
+	%ChatTextEdit.focus_exited.connect(func(): client_is_chatting.emit(false))
 
 
 ## Get whole messages array. Erases the text box and set it to this new one
