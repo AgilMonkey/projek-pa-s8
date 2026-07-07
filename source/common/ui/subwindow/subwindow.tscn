@@ -1,33 +1,26 @@
 [gd_scene format=3 uid="uid://drc4t0hrrtk75"]
 
 [ext_resource type="Script" uid="uid://bkqwodevh2pxs" path="res://source/common/ui/subwindow/subwindow_component.gd" id="1_ptj0n"]
+[ext_resource type="Texture2D" uid="uid://catvfyshhceop" path="res://source/common/ui/subwindow/assets/cross_normal.png" id="2_64p1o"]
+[ext_resource type="Texture2D" uid="uid://ck1fvpiq37v82" path="res://source/common/ui/subwindow/assets/cross_hover.png" id="3_64p1o"]
+[ext_resource type="Texture2D" uid="uid://cf6lyygyi6d7n" path="res://source/common/ui/subwindow/assets/cross_pressed.png" id="4_64p1o"]
 
 [node name="SubwindowComponent" type="PanelContainer" unique_id=285145439]
 custom_minimum_size = Vector2(150, 150)
-offset_right = 100.0
-offset_bottom = 100.0
+offset_right = 150.0
+offset_bottom = 150.0
 script = ExtResource("1_ptj0n")
+max_window_size = null
 
 [node name="MainContent" type="VBoxContainer" parent="." unique_id=1069252783]
 layout_mode = 2
 
 [node name="TitleArea" type="Control" parent="MainContent" unique_id=451424592]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 40)
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_default_cursor_shape = 6
-
-[node name="UpRightControl" type="Control" parent="MainContent/TitleArea" unique_id=180579056]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -10.0
-offset_bottom = 10.0
-grow_horizontal = 0
-mouse_default_cursor_shape = 11
 
 [node name="MarginContainer" type="MarginContainer" parent="MainContent/TitleArea" unique_id=960857095]
 layout_mode = 1
@@ -36,7 +29,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 10
+theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 0
@@ -45,18 +38,38 @@ theme_override_constants/margin_bottom = 0
 layout_mode = 2
 alignment = 2
 
-[node name="Title" type="Label" parent="MainContent/TitleArea/MarginContainer/HBoxContainer" unique_id=599914814]
+[node name="WindowTitle" type="Label" parent="MainContent/TitleArea/MarginContainer/HBoxContainer" unique_id=599914814]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 0
 text = "Title"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CloseButton" type="Button" parent="MainContent/TitleArea/MarginContainer/HBoxContainer" unique_id=720669781]
+[node name="CloseButton" type="TextureButton" parent="MainContent/TitleArea/MarginContainer/HBoxContainer" unique_id=2144109200]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
-size_flags_horizontal = 8
-text = "X"
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture_normal = ExtResource("2_64p1o")
+texture_pressed = ExtResource("4_64p1o")
+texture_hover = ExtResource("3_64p1o")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="UpRightControl" type="Control" parent="MainContent/TitleArea" unique_id=180579056]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -10.0
+offset_bottom = 10.0
+grow_horizontal = 0
+mouse_default_cursor_shape = 11
 
 [node name="MainContent" type="Control" parent="MainContent" unique_id=1592795239]
 unique_name_in_owner = true
@@ -80,6 +93,7 @@ layout_mode = 2
 mouse_filter = 2
 
 [node name="UpLeftControl" type="Control" parent="ResizeControl" unique_id=574107698]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(20, 20)
 anchors_preset = 0
 offset_right = 20.0
@@ -87,6 +101,7 @@ offset_bottom = 20.0
 mouse_default_cursor_shape = 12
 
 [node name="DownLeftControl" type="Control" parent="ResizeControl" unique_id=271479251]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 1
 anchors_preset = 2
@@ -98,6 +113,7 @@ grow_vertical = 0
 mouse_default_cursor_shape = 11
 
 [node name="DownRightControl" type="Control" parent="ResizeControl" unique_id=1206715144]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 1
 anchors_preset = 3

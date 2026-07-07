@@ -1,16 +1,35 @@
+@tool
+@icon("res://addons/at-icons/control/window.svg")
 class_name SubwindowComponent
 extends PanelContainer
 
 
-@onready var close_button: Button = %CloseButton
-@onready var title_area: Control = %TitleArea
+signal on_closed
+
+@export var title_text := "Title": 
+	set(value):
+		title_text = value
+		%WindowTitle.text = title_text
+
+@export var max_window_size := Vector2(1000.0, 1000.0)
+
+var is_being_resized := false
+var old_window_pos: Vector2
+var old_window_size: Vector2
 
 var drag_offset := Vector2.ZERO
 var is_dragging := false
 
+@onready var title_area: Control = %TitleArea
+@onready var close_button: TextureButton = %CloseButton
+
 
 func _ready() -> void:
-	close_button.pressed.connect( func(): queue_free() )
+	close_button.pressed.connect(
+		func():
+			on_closed.emit()
+			queue_free()
+	)
 	
 	title_area.gui_input.connect(
 		func(event: InputEvent):
@@ -25,6 +44,99 @@ func _ready() -> void:
 			if event is InputEventMouseMotion and is_dragging:
 				global_position = get_global_mouse_position() + drag_offset
 	)
+	
+	#region  These are for resizing
+	
+	%DownRightControl.gui_input.connect(
+		func(event):
+			if event is InputEventMouseButton:
+				is_being_resized = event.pressed
+	
+			if event is InputEventMouseMotion and is_being_resized:
+				size = get_global_mouse_position() - global_position
+				size = size.clamp(
+					Vector2.ZERO,
+					max_window_size
+				)
+	)
+	
+	%UpRightControl.gui_input.connect(
+		func(event):
+			if event is InputEventMouseButton:
+				old_window_pos = global_position
+				old_window_size = size
+				is_being_resized = event.pressed
+	
+			if event is InputEventMouseMotion and is_being_resized:
+				var g_mouse_pos := get_global_mouse_position()
+				global_position.y = g_mouse_pos.y
+				var max_y := (old_window_pos.y + old_window_size.y) - custom_minimum_size.y
+				global_position.y = min(max_y, global_position.y)
+				
+				var new_size = Vector2(
+					g_mouse_pos.x - old_window_pos.x,
+					(old_window_pos.y + old_window_size.y) - g_mouse_pos.y
+				)
+				size = new_size
+				size = size.clamp(
+					Vector2.ZERO,
+					max_window_size
+				)
+	)
+	
+	%DownLeftControl.gui_input.connect(
+		func(event):
+			if event is InputEventMouseButton:
+				old_window_pos = global_position
+				old_window_size = size
+				is_being_resized = event.pressed
+	
+			if event is InputEventMouseMotion and is_being_resized:
+				var g_mouse_pos := get_global_mouse_position()
+				global_position.x = g_mouse_pos.x
+				var max_x := (old_window_pos.x + old_window_size.x) - custom_minimum_size.x
+				global_position.x = min(max_x, global_position.x)
+				
+				var new_size = Vector2(
+					(old_window_pos.x + old_window_size.x) - g_mouse_pos.x,
+					g_mouse_pos.y - old_window_pos.y
+				)
+				size = new_size
+				size = size.clamp(
+					Vector2.ZERO,
+					max_window_size
+				)
+	)
+	
+	%UpLeftControl.gui_input.connect(
+		func(event):
+			if event is InputEventMouseButton:
+				old_window_pos = global_position
+				old_window_size = size
+				is_being_resized = event.pressed
+	
+			if event is InputEventMouseMotion and is_being_resized:
+				var g_mouse_pos := get_global_mouse_position()
+				global_position = g_mouse_pos
+				var max_win_pos := Vector2(
+					(old_window_pos.x + old_window_size.x) - custom_minimum_size.x,
+					(old_window_pos.y + old_window_size.y) - custom_minimum_size.y
+				)
+				global_position = global_position.min(max_win_pos)
+				
+				var new_size = Vector2(
+					(old_window_pos.x + old_window_size.x) - g_mouse_pos.x,
+					(old_window_pos.y + old_window_size.y) - g_mouse_pos.y
+				)
+				size = new_size
+				size = size.clamp(
+					Vector2.ZERO,
+					max_window_size
+				)
+	)
+	
+	#endregion
+	
 
 
 func _reorder_node_to_be_first_in_child():
