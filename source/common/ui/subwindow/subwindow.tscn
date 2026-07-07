@@ -15,20 +15,14 @@ max_window_size = null
 [node name="MainContent" type="VBoxContainer" parent="." unique_id=1069252783]
 layout_mode = 2
 
-[node name="TitleArea" type="Control" parent="MainContent" unique_id=451424592]
+[node name="TitleArea" type="MarginContainer" parent="MainContent" unique_id=176367384]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_default_cursor_shape = 6
 
 [node name="MarginContainer" type="MarginContainer" parent="MainContent/TitleArea" unique_id=960857095]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
@@ -59,18 +53,6 @@ texture_hover = ExtResource("3_64p1o")
 ignore_texture_size = true
 stretch_mode = 4
 
-[node name="UpRightControl" type="Control" parent="MainContent/TitleArea" unique_id=180579056]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(10, 10)
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -10.0
-offset_bottom = 10.0
-grow_horizontal = 0
-mouse_default_cursor_shape = 11
-
 [node name="MainContent" type="Control" parent="MainContent" unique_id=1592795239]
 unique_name_in_owner = true
 layout_mode = 2
@@ -88,9 +70,24 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
+[node name="MainContent" type="Control" parent="MainContent/MainContent/MarginContainer" unique_id=811802859]
+layout_mode = 2
+
 [node name="ResizeControl" type="Control" parent="." unique_id=823310411]
 layout_mode = 2
 mouse_filter = 2
+
+[node name="UpRightControl" type="Control" parent="ResizeControl" unique_id=180579056]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -10.0
+offset_bottom = 10.0
+grow_horizontal = 0
+mouse_default_cursor_shape = 11
 
 [node name="UpLeftControl" type="Control" parent="ResizeControl" unique_id=574107698]
 unique_name_in_owner = true
