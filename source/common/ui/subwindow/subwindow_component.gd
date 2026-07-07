@@ -145,12 +145,12 @@ func _notification(what: int) -> void:
 	if what == NOTIFICATION_SORT_CHILDREN:
 		for child: Control in get_children():
 			if child.owner != self:
-				#print(%MainContentContainer.get_rect())
-				#var c_rect := Rect2(
-					#%MainContentContainer.global_position,
-					#%MainContentContainer.size
-				#)
-				#fit_child_in_rect(child, c_rect)
+				child.global_position =  %MainContentContainer.global_position
+				child.size = %MainContentContainer.size
+	
+	if what == NOTIFICATION_PROCESS:
+		for child: Control in get_children():
+			if child.owner != self:
 				child.global_position =  %MainContentContainer.global_position
 				child.size = %MainContentContainer.size
 
