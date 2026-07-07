@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://dwjohbmryhomy"]
+
+[ext_resource type="PackedScene" uid="uid://drc4t0hrrtk75" path="res://source/common/ui/subwindow/subwindow.tscn" id="1_d0opt"]
+
+[node name="TestWindow" type="Control" unique_id=998495006]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubwindowComponent" parent="." unique_id=285145439 instance=ExtResource("1_d0opt")]
+layout_mode = 0
+offset_left = 495.0
+offset_top = 189.0
+offset_right = 818.0
+offset_bottom = 405.0
+max_window_size = Vector2(1000, 1000)
+
+[node name="IWantToOnlyGetThisNode" type="Control" parent="SubwindowComponent" unique_id=1865426771]
+layout_mode = 2
+
+[node name="Label" type="RichTextLabel" parent="SubwindowComponent/IWantToOnlyGetThisNode" unique_id=1874634427]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Hi Mom"
+horizontal_alignment = 1
+vertical_alignment = 1

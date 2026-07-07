@@ -25,6 +25,8 @@ var is_dragging := false
 
 
 func _ready() -> void:
+	if Engine.is_editor_hint(): return
+	
 	close_button.pressed.connect(
 		func():
 			on_closed.emit()
@@ -137,6 +139,20 @@ func _ready() -> void:
 	
 	#endregion
 	
+
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_SORT_CHILDREN:
+		for child: Control in get_children():
+			if child.owner != self:
+				#print(%MainContentContainer.get_rect())
+				#var c_rect := Rect2(
+					#%MainContentContainer.global_position,
+					#%MainContentContainer.size
+				#)
+				#fit_child_in_rect(child, c_rect)
+				child.global_position =  %MainContentContainer.global_position
+				child.size = %MainContentContainer.size
 
 
 func _reorder_node_to_be_first_in_child():

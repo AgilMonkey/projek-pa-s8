@@ -70,7 +70,8 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="MainContent" type="Control" parent="MainContent/MainContent/MarginContainer" unique_id=811802859]
+[node name="MainContentContainer" type="Control" parent="MainContent/MainContent/MarginContainer" unique_id=811802859]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="ResizeControl" type="Control" parent="." unique_id=823310411]
