@@ -40,7 +40,7 @@ func put_player_in_world(peer_id: int, world_name: String, pos: Vector2):
 	WorldManager.sync_this_world_data_across_client.rpc(data)
 
 
-@rpc("any_peer")
+@rpc("any_peer", "call_remote", "unreliable")
 func update_this_peer_player(world_name: String, peer_id:int, data: Dictionary):
 	worlds_entities_data[world_name][peer_id] = data
 	

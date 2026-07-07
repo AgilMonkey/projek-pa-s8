@@ -45,28 +45,11 @@ size_flags_vertical = 3
 [node name="ChatBoxText" type="RichTextLabel" parent="MainPanelContainer/MarginContainer/VBoxContainer/TextChatContainerPanel" unique_id=2125876053]
 unique_name_in_owner = true
 layout_mode = 2
-focus_mode = 0
+focus_mode = 2
 focus_behavior_recursive = 1
 theme_override_styles/normal = SubResource("StyleBoxEmpty_w55p3")
 bbcode_enabled = true
-text = "AAA
-AAAAAAaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaas
-AAAAAA
-AAAAAA
-AAAAAA
-AAAAAA
-AAAAAA
-AAAAAA
-AAAAAA
-AAAAAA
-AAAAAA
-AAAAAA
-AAAAAA
-AAAAAA
-AAAAAA
-AAAAAA
-AAAAAA
-AAA"
+autowrap_mode = 1
 selection_enabled = true
 
 [node name="ChatButtonsContainer" type="HBoxContainer" parent="MainPanelContainer/MarginContainer/VBoxContainer" unique_id=1541845145]

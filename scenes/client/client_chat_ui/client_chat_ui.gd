@@ -4,6 +4,8 @@ extends Control
 
 ## Use this for like server stuff. Have chat manager maybe
 signal client_chat_send_msg(msg: String)
+
+## Use this so I can stop player when chatting later
 signal client_is_chatting(is_chatting: bool)
 
 var max_panel_size := Vector2(800.0, 750.0)
@@ -30,6 +32,23 @@ func _ready() -> void:
 	%ChatTextEdit.gui_input.connect(_chat_text_edit_gui_input)
 	
 	%SendButton.pressed.connect(_send_chat_msg)
+
+
+## Get whole messages array. Erases the text box and set it to this new one
+func set_chat_bot_text(messages: Array[Dictionary]):
+	var new_chat_box_text_messages = ""
+	
+	for msg_dict in messages:
+		var username: String = msg_dict["username"]
+		var msg: String = msg_dict["msg"]
+		var new_msg_string := "%s: %s\n" % [username, msg]
+		new_chat_box_text_messages += _safe_chat_text(new_msg_string)
+	
+	%ChatBoxText.text = new_chat_box_text_messages
+
+
+func _safe_chat_text(msg: String) -> String:
+	return msg.replace("[", "[lb]")
 
 
 func _send_chat_msg():

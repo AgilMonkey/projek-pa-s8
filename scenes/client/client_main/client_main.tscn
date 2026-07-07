@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b2drpmji4eop" path="res://scenes/client/start_ui/login_ui.tscn" id="2_evv05"]
 [ext_resource type="PackedScene" uid="uid://dxhc8vpixn80b" path="res://scenes/client/start_ui/register_ui.tscn" id="3_2g1po"]
 [ext_resource type="PackedScene" uid="uid://b3yc5dkhrnxas" path="res://scenes/client/client_chat_ui/client_chat_ui.tscn" id="4_clynu"]
+[ext_resource type="Script" uid="uid://b7caej820irag" path="res://scenes/client/client_main/main_game_ui_controller.gd" id="5_u5oqm"]
 
 [node name="ClientMain" type="Node" unique_id=481541541]
 script = ExtResource("1_cadt6")
@@ -77,3 +78,6 @@ focus_mode = 2
 
 [node name="ClientChatUi" parent="ClientMainUI/MainGameUI" unique_id=504970275 instance=ExtResource("4_clynu")]
 layout_mode = 0
+
+[node name="MainGameUIController" type="Node" parent="ClientMainUI/MainGameUI" unique_id=1546533748]
+script = ExtResource("5_u5oqm")
