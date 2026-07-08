@@ -3,6 +3,7 @@ extends Node
 
 
 @onready var client_chat_ui: ClientChatUI = $"../ClientChatUi"
+@onready var main_game_window_spawner: KeepInMarginControl = $"../MainGameWindowSpawner"
 
 
 func _ready() -> void:
@@ -23,3 +24,6 @@ func _ready() -> void:
 	)
 	
 	ChatManager.refresh_this_peer_chat_logs.rpc_id(1)
+	
+	
+	MainGameWindowManager.set_main_game_window_spawner(main_game_window_spawner)

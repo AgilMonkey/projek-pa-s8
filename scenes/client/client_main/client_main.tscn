@@ -80,7 +80,7 @@ grow_vertical = 2
 focus_mode = 2
 metadata/_edit_lock_ = true
 
-[node name="KeepInMarginControl" type="Control" parent="ClientMainUI/MainGameUI" unique_id=24927441]
+[node name="MainGameWindowSpawner" type="Control" parent="ClientMainUI/MainGameUI" unique_id=24927441]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://bgr108nc2ql5u"]
 
+[ext_resource type="Script" uid="uid://dexkwc2rb51cu" path="res://scenes/course/course_menu.gd" id="1_0ptpt"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nrpgy"]
 bg_color = Color(0.1, 0.1, 0.1, 0.6)
 border_width_top = 5
@@ -10,6 +12,7 @@ border_color = Color(0.101960786, 0.101960786, 0.101960786, 0.7647059)
 offset_right = 296.0
 offset_bottom = 152.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_nrpgy")
+script = ExtResource("1_0ptpt")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1369051312]
 layout_mode = 2
@@ -21,7 +24,8 @@ theme_override_constants/margin_bottom = 5
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=946367016]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=2130721318]
+[node name="MainText" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=2130721318]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(280, 0)
 layout_mode = 2
 bbcode_enabled = true
@@ -34,6 +38,7 @@ custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer" unique_id=504239898]
+[node name="StartButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=504239898]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Start Course"
