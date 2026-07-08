@@ -4,6 +4,7 @@ class_name SubwindowComponent
 extends PanelContainer
 
 
+signal on_resized
 signal on_closed
 
 @export var title_text := "Title": 
@@ -60,6 +61,7 @@ func _ready() -> void:
 					Vector2.ZERO,
 					max_window_size
 				)
+				on_resized.emit()
 	)
 	
 	%UpRightControl.gui_input.connect(
@@ -84,6 +86,7 @@ func _ready() -> void:
 					Vector2.ZERO,
 					max_window_size
 				)
+				on_resized.emit()
 	)
 	
 	%DownLeftControl.gui_input.connect(
@@ -108,6 +111,7 @@ func _ready() -> void:
 					Vector2.ZERO,
 					max_window_size
 				)
+				on_resized.emit()
 	)
 	
 	%UpLeftControl.gui_input.connect(
@@ -135,22 +139,61 @@ func _ready() -> void:
 					Vector2.ZERO,
 					max_window_size
 				)
+				on_resized.emit()
 	)
 	
 	#endregion
 	
+	on_resized.connect(
+		func():
+			for child: Control in get_children():
+				%MainContentContainer.custom_minimum_size = Vector2.ZERO
+				
+				if child.owner != self:
+					
+					child.global_position =  %MainContentContainer.global_position
+					child.size = %MainContentContainer.size
+					
+					if (
+						child.custom_minimum_size.length_squared() >
+						%MainContentContainer.custom_minimum_size.length_squared()
+					):
+						%MainContentContainer.custom_minimum_size = child.custom_minimum_size
+					if child is Container:
+						%MainContentContainer.custom_minimum_size = child.get_combined_minimum_size()
+			)
 
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_SORT_CHILDREN:
 		for child: Control in get_children():
+			%MainContentContainer.custom_minimum_size = Vector2.ZERO
+			
 			if child.owner != self:
+				
 				child.global_position =  %MainContentContainer.global_position
 				child.size = %MainContentContainer.size
-	
-	if what == NOTIFICATION_PROCESS:
+				
+				if (
+					child.custom_minimum_size.length_squared() >
+					%MainContentContainer.custom_minimum_size.length_squared()
+				):
+					%MainContentContainer.custom_minimum_size = child.custom_minimum_size
+				if child is Container:
+					%MainContentContainer.custom_minimum_size = child.get_combined_minimum_size()
+	elif what == NOTIFICATION_PROCESS:
 		for child: Control in get_children():
+			%MainContentContainer.custom_minimum_size = Vector2.ZERO
 			if child.owner != self:
+				if (
+					child.custom_minimum_size.length_squared() >
+					%MainContentContainer.custom_minimum_size.length_squared()
+				):
+					%MainContentContainer.custom_minimum_size = child.custom_minimum_size
+				
+				if child is Container:
+					%MainContentContainer.custom_minimum_size = child.get_combined_minimum_size()
+				
 				child.global_position =  %MainContentContainer.global_position
 				child.size = %MainContentContainer.size
 

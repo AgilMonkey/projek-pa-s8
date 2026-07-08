@@ -14,6 +14,7 @@ script = ExtResource("1_cadt6")
 unique_name_in_owner = true
 
 [node name="LoginUi" parent="LoginRegisterUi" unique_id=787659980 instance=ExtResource("2_evv05")]
+metadata/_edit_lock_ = true
 
 [node name="RegisterUi" parent="LoginRegisterUi" unique_id=1415386876 instance=ExtResource("3_2g1po")]
 visible = false
@@ -67,6 +68,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_lock_ = true
 
 [node name="DummyControl" type="Control" parent="ClientMainUI/MainGameUI" unique_id=308078834]
 layout_mode = 1
@@ -76,6 +78,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 2
+metadata/_edit_lock_ = true
 
 [node name="KeepInMarginControl" type="Control" parent="ClientMainUI/MainGameUI" unique_id=24927441]
 layout_mode = 1
@@ -91,6 +94,7 @@ margin_right = -20
 margin_up = -20
 margin_down = -20
 metadata/_custom_type_script = "uid://btw24x13756kt"
+metadata/_edit_lock_ = true
 
 [node name="ClientChatUi" parent="ClientMainUI/MainGameUI" unique_id=504970275 instance=ExtResource("4_clynu")]
 layout_mode = 0

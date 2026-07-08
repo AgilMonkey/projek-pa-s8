@@ -31,13 +31,13 @@ offset_right = 40.0
 offset_bottom = -121.0
 text = "TEST WORLD 1"
 
-[node name="ClassDoorTest" type="Node2D" parent="." unique_id=734907840]
+[node name="CourseDoorTest" type="Node2D" parent="." unique_id=734907840]
 position = Vector2(424, -240)
 
-[node name="Sprite2D" type="Sprite2D" parent="ClassDoorTest" unique_id=626420076]
+[node name="Sprite2D" type="Sprite2D" parent="CourseDoorTest" unique_id=626420076]
 texture_filter = 1
 position = Vector2(0, -80)
 scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_wdhyl")
 
-[node name="Area2D" type="Area2D" parent="ClassDoorTest" unique_id=16938766]
+[node name="Area2D" type="Area2D" parent="CourseDoorTest" unique_id=16938766]
