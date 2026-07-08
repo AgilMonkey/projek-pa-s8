@@ -1,7 +1,12 @@
 [gd_scene format=4 uid="uid://pib3xwojg88o"]
 
 [ext_resource type="TileSet" uid="uid://7yfbldw34sxx" path="res://resources/tileset/test_tileset.tres" id="1_wdhyl"]
+[ext_resource type="Texture2D" uid="uid://bgsafb2ggvtiw" path="res://assets/Modern tiles_Free/Interiors_free/48x48/Interiors_free_48x48.png" id="3_havs6"]
 [ext_resource type="Script" uid="uid://d02x282ski4xy" path="res://source/client/entity_spawner.gd" id="3_nvj10"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wdhyl"]
+atlas = ExtResource("3_havs6")
+region = Rect2(578, 1161, 46, 84)
 
 [node name="TestWorld" type="Node2D" unique_id=45087715]
 y_sort_enabled = true
@@ -25,3 +30,14 @@ offset_top = -144.0
 offset_right = 40.0
 offset_bottom = -121.0
 text = "TEST WORLD 1"
+
+[node name="ClassDoorTest" type="Node2D" parent="." unique_id=734907840]
+position = Vector2(424, -240)
+
+[node name="Sprite2D" type="Sprite2D" parent="ClassDoorTest" unique_id=626420076]
+texture_filter = 1
+position = Vector2(0, -80)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_wdhyl")
+
+[node name="Area2D" type="Area2D" parent="ClassDoorTest" unique_id=16938766]
