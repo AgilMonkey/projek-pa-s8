@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b3yc5dkhrnxas" path="res://scenes/client/client_chat_ui/client_chat_ui.tscn" id="4_clynu"]
 [ext_resource type="Script" uid="uid://b7caej820irag" path="res://scenes/client/client_main/main_game_ui_controller.gd" id="5_u5oqm"]
 [ext_resource type="Script" uid="uid://btw24x13756kt" path="res://source/common/ui/keep_in_margin_control/keep_in_margin_control.gd" id="6_fgdwa"]
+[ext_resource type="PackedScene" uid="uid://36pigpyi86rk" path="res://scenes/client/client_main/client_course_ui.tscn" id="7_0hncb"]
 
 [node name="ClientMain" type="Node" unique_id=481541541]
 script = ExtResource("1_cadt6")
@@ -101,3 +102,6 @@ layout_mode = 0
 
 [node name="MainGameUIController" type="Node" parent="ClientMainUI/MainGameUI" unique_id=1546533748]
 script = ExtResource("5_u5oqm")
+
+[node name="ClientCourseUI" parent="ClientMainUI" unique_id=2076881983 instance=ExtResource("7_0hncb")]
+visible = false

@@ -10,7 +10,7 @@ atlas = ExtResource("3_havs6")
 region = Rect2(578, 1161, 46, 84)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nvj10"]
-size = Vector2(128, 186)
+size = Vector2(128, 208)
 
 [node name="TestWorld" type="Node2D" unique_id=45087715]
 y_sort_enabled = true
@@ -50,5 +50,5 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CourseDoorTest/BeginCourseArea" unique_id=1522538631]
-position = Vector2(0, -83)
+position = Vector2(0, -72)
 shape = SubResource("RectangleShape2D_nvj10")
