@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://36pigpyi86rk"]
 
+[ext_resource type="Script" uid="uid://b2ugaeu3ns154" path="res://scenes/client/client_main/client_course_ui.gd" id="1_g8hm4"]
+
 [node name="ClientCourseUI" type="Control" unique_id=2076881983]
 layout_mode = 3
 anchors_preset = 15
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_g8hm4")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1364871379]
 layout_mode = 1
@@ -33,7 +36,7 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 32
 text = "This is Course: ajdasas"
 
-[node name="Button" type="Button" parent="." unique_id=476212234]
+[node name="ReturnButton" type="Button" parent="." unique_id=476212234]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

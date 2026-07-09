@@ -11,7 +11,7 @@ var _cur_win: SubwindowComponent
 
 func _ready() -> void:
 	begin_course_area.body_entered.connect(
-		func(body):
+		func(_body):
 			if _cur_win != null: return
 			_course_win = COURSE_MENU.instantiate()
 			_cur_win = MainGameWindowManager.create_subwindow_with_control(_course_win)
@@ -21,7 +21,7 @@ func _ready() -> void:
 			_course_win.start_button.pressed.connect(
 				func():
 					_cur_win.queue_free()
-					CourseManager.client_enter_course_test()
+					CourseManager.client_enter_course_test(global_position)
 					)
 			
 	)
