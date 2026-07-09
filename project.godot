@@ -32,6 +32,7 @@ WorldManager="*uid://cuxluf5ncy7g8"
 Worlds="*uid://cba667wd5ps3q"
 ChatManager="*uid://cyqq22p450ov8"
 MainGameWindowManager="*uid://cxmnjkjlb1ego"
+CourseManager="*uid://camv8hc0853so"
 
 [display]
 

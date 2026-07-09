@@ -1,0 +1,174 @@
+[gd_scene format=3 uid="uid://bm30aesth5ax3"]
+
+[ext_resource type="Script" uid="uid://b37x6l461nmce" path="res://testing/test_course/test_course.gd" id="1_xyk3s"]
+[ext_resource type="PackedScene" uid="uid://o7fa6d8i170k" path="res://source/common/ui/custom_text_progress_bar/custom_text_progress_bar.tscn" id="2_25ekx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c2lbq"]
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_25ekx"]
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+
+[node name="TestCourse" type="Control" unique_id=190718340]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xyk3s")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=941690810]
+propagate_maximum_size = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_c2lbq")
+
+[node name="CenterControl" type="Control" parent="PanelContainer" unique_id=1831755569]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/CenterControl" unique_id=1632855273]
+custom_maximum_size = Vector2(2200, -1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 0
+
+[node name="MenjawabPertanyaanUI" type="VBoxContainer" parent="PanelContainer/CenterControl/MarginContainer" unique_id=608243159]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI" unique_id=374375743]
+layout_mode = 2
+
+[node name="ProgressPertanyaan" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI/HBoxContainer" unique_id=526766630 instance=ExtResource("2_25ekx")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ExitButton" type="Button" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI/HBoxContainer" unique_id=1713854862]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 32
+text = "Keluar"
+
+[node name="QuestionNumberLabel" type="RichTextLabel" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI" unique_id=1696076485]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 64
+text = "Nomor Pertanyaan"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuestionText" type="RichTextLabel" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI" unique_id=1734071499]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 32
+text = "Pertanyaan Here"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI" unique_id=1017583032]
+layout_mode = 2
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 150
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI/MarginContainer" unique_id=423872744]
+layout_mode = 2
+
+[node name="JawabanLineEdit" type="LineEdit" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI/MarginContainer/VBoxContainer" unique_id=1998065261]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+placeholder_text = "Tulis jawaban..."
+alignment = 1
+
+[node name="JawabButton" type="Button" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI/MarginContainer/VBoxContainer" unique_id=1508485708]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 32
+text = "Jawab"
+
+[node name="SelesaiMenjawabUI" type="VBoxContainer" parent="PanelContainer/CenterControl/MarginContainer" unique_id=1771370289]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="HasilSelesaiMenjawabLabel" type="RichTextLabel" parent="PanelContainer/CenterControl/MarginContainer/SelesaiMenjawabUI" unique_id=1678570003]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+text = "Berhasil menjawab 0/2 Pertanyaan
+Good Boy"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SelesaiMenjawabKeluarButton" type="Button" parent="PanelContainer/CenterControl/MarginContainer/SelesaiMenjawabUI" unique_id=1725123781]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 32
+text = "What the fuck?"
+
+[node name="HasilPertanyaan" type="PanelContainer" parent="PanelContainer/CenterControl" unique_id=1647727000]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_25ekx")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/CenterControl/HasilPertanyaan" unique_id=432381634]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/CenterControl/HasilPertanyaan/MarginContainer" unique_id=83691481]
+layout_mode = 2
+
+[node name="LabelHasilPertanyaan" type="RichTextLabel" parent="PanelContainer/CenterControl/HasilPertanyaan/MarginContainer/HBoxContainer" unique_id=1022112935]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[color=green]Jawaban benar[/color]"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonPertanyaanSelanjutnya" type="Button" parent="PanelContainer/CenterControl/HasilPertanyaan/MarginContainer/HBoxContainer" unique_id=278335281]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 32
+text = "Pertanyaan
+Selanjutnya"
