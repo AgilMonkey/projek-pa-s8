@@ -6,6 +6,8 @@ extends Node
 func client_enter_course_test():
 	var old_world_name := WorldManager.client_cur_world_name
 	WorldManager.client_unspawn_old_world()
+	ClientManager.set_main_game_ui_visibility(false)
+	
 	server_move_peer_to_course_test.rpc_id(1, old_world_name)
 
 

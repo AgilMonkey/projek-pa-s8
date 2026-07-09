@@ -21,6 +21,8 @@ func _input(event: InputEvent) -> void:
 
 
 func _ready() -> void:
+	ClientManager.client_main_ui = %ClientMainUI
+	
 	login_ui.on_login_button_pressed.connect(
 		func(data):
 			_client_login(
