@@ -20,7 +20,8 @@ func _ready() -> void:
 			_course_win.main_text.text = """[center][font_size=32][b]Course Test[/b][/font_size]\nSome kinda test. Have some example questions[/center]"""
 			_course_win.start_button.pressed.connect(
 				func():
-					print("pressed")
+					_cur_win.queue_free()
+					CourseManager.client_enter_course_test()
 					)
 			
 	)

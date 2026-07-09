@@ -11,10 +11,7 @@ func _ready() -> void:
 
 
 func put_player_in_world(peer_id: int, world_name: String, pos: Vector2):
-	for world in worlds_entities_data:
-		if worlds_entities_data.has(world):
-			if worlds_entities_data[world].has(peer_id):
-				worlds_entities_data[world].erase(peer_id)
+	remove_peer_from_world_entities_data(peer_id)
 	
 	var p_data := {
 		world_name: {
@@ -38,6 +35,13 @@ func put_player_in_world(peer_id: int, world_name: String, pos: Vector2):
 	)
 	
 	WorldManager.sync_this_world_data_across_client.rpc(data)
+
+
+func remove_peer_from_world_entities_data(peer_id: int):
+	for world in worlds_entities_data:
+		if worlds_entities_data.has(world):
+			if worlds_entities_data[world].has(peer_id):
+				worlds_entities_data[world].erase(peer_id)
 
 
 @rpc("any_peer", "call_remote", "unreliable")
