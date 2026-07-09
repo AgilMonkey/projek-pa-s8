@@ -14,10 +14,26 @@ func to_dict() -> Dictionary:
 
 static func from_dict(data: Dictionary) -> ServerCourseSessionsData:
 	var obj = ServerCourseSessionsData.new()
-	obj.server_courses = []
+	obj.server_courses = [] as Array[ServerCourse]
 	for course_dict in data.get("server_courses", []):
 		obj.server_courses.append(ServerCourse.from_dict(course_dict))
 	return obj
+
+
+func find_course(_course_name: String) -> ServerCourse:
+	for c in server_courses:
+		if c.course_name == _course_name:
+			return c
+	return null
+
+
+func find_course_session(_course_name: String, _course_id: int) -> CourseSession:
+	for c in server_courses:
+		if c.course_name == _course_name:
+			for s in c.course_sessions:
+				if s.session_id == _course_id:
+					return s
+	return null
 
 
 class ServerCourse:
@@ -42,7 +58,7 @@ class ServerCourse:
 		var path = data.get("course_resource_path", "")
 		if path != "":
 			obj.course_resource = load(path)
-		obj.course_sessions = []
+		obj.course_sessions = [] as Array[CourseSession]
 		for session_dict in data.get("course_sessions", []):
 			obj.course_sessions.append(CourseSession.from_dict(session_dict))
 		return obj
@@ -61,10 +77,24 @@ class CourseSession:
 			"course_data": data_arr,
 		}
 	
+	
+	func find_course_session_data(_peer_id: int) -> CourseSessionData:
+		for d in course_data:
+			if d.peer_id == _peer_id:
+				return d
+		return null
+	
+	
+	func remove_course_session_data(_peer_id: int):
+		for idx in len(course_data):
+			if course_data[idx].peer_id == _peer_id:
+				course_data.remove_at(idx)
+	
+	
 	static func from_dict(data: Dictionary) -> CourseSession:
 		var obj = CourseSession.new()
 		obj.session_id = data.get("session_id", 0)
-		obj.course_data = []
+		obj.course_data = [] as Array[CourseSessionData]
 		for d_dict in data.get("course_data", []):
 			obj.course_data.append(CourseSessionData.from_dict(d_dict))
 		return obj
