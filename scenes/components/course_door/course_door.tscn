@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cmc7j8rc7b5qu"]
 
-[ext_resource type="Script" uid="uid://dqubjhii83xo8" path="res://scenes/course_door/course_door.gd" id="1_ph77w"]
+[ext_resource type="Script" uid="uid://dqubjhii83xo8" path="res://scenes/components/course_door/course_door.gd" id="1_ph77w"]
 [ext_resource type="Texture2D" uid="uid://bgsafb2ggvtiw" path="res://assets/Modern tiles_Free/Interiors_free/48x48/Interiors_free_48x48.png" id="2_wdkhs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wdhyl"]

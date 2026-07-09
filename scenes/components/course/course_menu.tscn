@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bgr108nc2ql5u"]
 
-[ext_resource type="Script" uid="uid://dexkwc2rb51cu" path="res://scenes/course/course_menu.gd" id="1_0ptpt"]
+[ext_resource type="Script" uid="uid://dexkwc2rb51cu" path="res://scenes/components/course/course_menu.gd" id="1_0ptpt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nrpgy"]
 bg_color = Color(0.1, 0.1, 0.1, 0.6)

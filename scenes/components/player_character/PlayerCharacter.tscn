@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://ckvoywghnvtgb"]
 
-[ext_resource type="Script" uid="uid://djb14vxghsl4r" path="res://scenes/player_character/player_character.gd" id="1_1ef8v"]
+[ext_resource type="Script" uid="uid://djb14vxghsl4r" path="res://scenes/components/player_character/player_character.gd" id="1_1ef8v"]
 [ext_resource type="Texture2D" uid="uid://mjna7o0lauja" path="res://assets/Eris Esra's Character Template 4.1/16x16/16x16 Idle-Sheet.png" id="2_1ef8v"]
-[ext_resource type="Script" uid="uid://b2f2dwamixpkt" path="res://scenes/player_character/player_entity_syncer.gd" id="3_tmeal"]
+[ext_resource type="Script" uid="uid://b2f2dwamixpkt" path="res://scenes/components/player_character/player_entity_syncer.gd" id="3_tmeal"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tmeal"]
 height = 64.0

@@ -2,4 +2,4 @@ class_name ClientCourseUI
 extends Control
 
 
-@onready var return_button: Button = $ReturnButton
+@onready var exit_button: Button = %ExitButton

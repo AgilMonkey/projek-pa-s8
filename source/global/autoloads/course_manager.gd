@@ -33,7 +33,7 @@ func client_enter_course(_return_pos: Vector2, _course: CourseResource):
 
 func client_set_up_course_ui():
 	var client_course_ui := ClientManager.client_main_ui.client_course_ui
-	client_course_ui.return_button.pressed.connect(
+	client_course_ui.exit_button.pressed.connect(
 		_client_exit_this_course,
 		ConnectFlags.CONNECT_ONE_SHOT
 	)
