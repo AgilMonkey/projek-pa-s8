@@ -107,4 +107,5 @@ layout_mode = 0
 script = ExtResource("5_u5oqm")
 
 [node name="ClientCourseUI" parent="ClientMainUI" unique_id=2076881983 instance=ExtResource("7_0hncb")]
+unique_name_in_owner = true
 visible = false
