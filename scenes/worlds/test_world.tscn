@@ -68,5 +68,6 @@ texture = SubResource("AtlasTexture_wk3yy")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Radio" unique_id=263948930]
 stream = ExtResource("5_wk3yy")
+volume_db = -12.0
 autoplay = true
-max_distance = 800.0
+max_distance = 500.0
