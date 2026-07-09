@@ -46,6 +46,7 @@ func remove_peer_from_world_entities_data(peer_id: int):
 
 @rpc("any_peer", "call_remote", "unreliable")
 func update_this_peer_player(world_name: String, peer_id:int, data: Dictionary):
+	if !worlds_entities_data[world_name].has(peer_id): return
 	worlds_entities_data[world_name][peer_id] = data
 	
 	var new_data = { world_name: worlds_entities_data[world_name]}

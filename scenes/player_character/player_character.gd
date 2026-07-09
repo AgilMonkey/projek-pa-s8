@@ -37,7 +37,7 @@ func _ready() -> void:
 		$CollisionShape2D.disabled = true
 
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if this_peer_id !=  multiplayer.get_unique_id(): return
 	
 	# Camera zoom in/out:

@@ -65,7 +65,7 @@ func _server_move_peer_to_course_test(old_world_name: String):
 	var player_peer_id := multiplayer.get_remote_sender_id()
 	EntityManager.remove_peer_from_world_entities_data(player_peer_id)
 	var new_data := { old_world_name: EntityManager.worlds_entities_data[old_world_name]}
-	WorldManager.sync_this_world_data_across_client(new_data)
+	WorldManager.sync_this_world_data_across_client.rpc(new_data)
 	
 	_server_create_course("course_test", player_peer_id)
 
