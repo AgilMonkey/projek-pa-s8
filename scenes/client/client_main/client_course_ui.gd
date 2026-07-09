@@ -2,6 +2,7 @@ class_name ClientCourseUI
 extends Control
 
 
+@onready var menjawab_pertanyaan_ui: VBoxContainer = %MenjawabPertanyaanUI
 @onready var exit_button: Button = %ExitButton
 @onready var question_number_label: RichTextLabel = %QuestionNumberLabel
 @onready var question_text: RichTextLabel = %QuestionText
@@ -10,17 +11,22 @@ extends Control
 @onready var jawaban_line_edit: LineEdit = %JawabanLineEdit
 @onready var jawab_button: Button = %JawabButton
 
+@onready var selesai_menjawab_ui: VBoxContainer = %SelesaiMenjawabUI
+@onready var hasil_selesai_menjawab_label: RichTextLabel = %HasilSelesaiMenjawabLabel
+@onready var selesai_menjawab_keluar_button: Button = %SelesaiMenjawabKeluarButton
+
+
 @onready var hasil_pertanyaan: PanelContainer = %HasilPertanyaan
 @onready var label_hasil_pertanyaan: RichTextLabel = %LabelHasilPertanyaan
 @onready var button_pertanyaan_selanjutnya: Button = %ButtonPertanyaanSelanjutnya
 
-@onready var selesai_menjawab_keluar_button: Button = %SelesaiMenjawabKeluarButton
 
 
 func _ready() -> void:
 	jawab_button.pressed.connect(_cek_jawaban)
 	CourseManager.course_data_updated.connect(
 		func():
+			menjawab_pertanyaan_ui.mouse_filter = MouseFilter.MOUSE_FILTER_PASS
 			update_ui_pertanyaan_baru(
 				CourseManager.client_cur_question_count,
 				CourseManager.client_total_question,
@@ -43,23 +49,40 @@ func tunjukan_hasil_pertanyaan(sukses: bool):
 	hasil_pertanyaan.show()
 	label_hasil_pertanyaan.text = "[color=green]Jawaban benar!" if sukses else "[color=red]Jawaban salah!"
 	button_pertanyaan_selanjutnya.pressed.connect(
-		func():
-			CourseManager._ask_server_for_next_question.rpc_id(
-				1,
-				CourseManager.client_course_name,
-				CourseManager.client_course_id
-			)
+		_pertanyaan_selanjutnya,
+		ConnectFlags.CONNECT_ONE_SHOT
+	)
+
+
+func _pertanyaan_selanjutnya():
+	if CourseManager.is_pertanyaan_habis:
+		hasil_pertanyaan.hide()
+		menjawab_pertanyaan_ui.hide()
+		selesai_menjawab_ui.show()
+		
+		hasil_selesai_menjawab_label.text = "Berhasil menjawab %d/%d" %[CourseManager.client_jawaban_benar.size(), CourseManager.client_total_question]
+		selesai_menjawab_keluar_button.pressed.connect(
+			CourseManager._client_exit_this_course
 			, ConnectFlags.CONNECT_ONE_SHOT
+		)
+		return
+	
+	CourseManager._ask_server_for_next_question.rpc_id(
+		1,
+		CourseManager.client_course_name,
+		CourseManager.client_course_id
 	)
 
 
 func _cek_jawaban():
-	var text_jawaban = jawaban_line_edit.text.to_lower().strip_edges()
+	menjawab_pertanyaan_ui.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	
+	var _text_jawaban = jawaban_line_edit.text.to_lower().strip_edges()
 	var regex = RegEx.new()
 	regex.compile(" +")  # Remove extra space in middle of text
-	var clean_text_jawaban := regex.sub(text_jawaban, " ", true)
+	var _clean_text_jawaban := regex.sub(_text_jawaban, " ", true)
 	
-	if clean_text_jawaban == CourseManager.client_cur_answer.to_lower():
+	if CourseManager.client_cek_jawaban(_clean_text_jawaban):
 		tunjukan_hasil_pertanyaan(true)
 	else:
 		tunjukan_hasil_pertanyaan(false)

@@ -21,8 +21,19 @@ var client_cur_answer := ""
 var client_return_world_name := ""
 var client_return_world_pos := Vector2()
 
+var is_pertanyaan_habis: bool :
+	get:
+		return (client_total_question - client_cur_question_count) - 1 == 0
+
 
 func client_enter_course(_return_pos: Vector2, _course: CourseResource):
+	client_jawaban_benar = []
+	client_jawaban_salah = []
+	client_total_question = -1
+	client_cur_question_count = -1
+	client_cur_question = ""
+	client_cur_answer = ""
+	
 	client_return_world_name = WorldManager.client_cur_world_name
 	client_return_world_pos = _return_pos
 	
@@ -34,7 +45,6 @@ func client_enter_course(_return_pos: Vector2, _course: CourseResource):
 	await course_data_ready
 	
 	ClientManager.set_client_course_ui_visibility(true)
-	#_ask_server_for_next_question.rpc_id(1, client_course_name, client_course_id)
 	client_set_up_course_ui()
 
 
@@ -51,6 +61,14 @@ func client_set_up_course_ui():
 		client_total_question,
 		client_cur_question
 	)
+
+
+func client_cek_jawaban(_jawaban: String) -> bool:
+	if _jawaban == client_cur_answer.to_lower():
+		client_jawaban_benar.append(client_cur_question_count)
+		return true
+	client_jawaban_salah.append(client_cur_question_count)
+	return false
 
 
 func _client_exit_this_course():

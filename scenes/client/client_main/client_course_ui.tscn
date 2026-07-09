@@ -127,7 +127,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 32
-text = "What the fuck?"
+text = "Kembali"
 
 [node name="HasilPertanyaan" type="PanelContainer" parent="PanelContainer/CenterControl" unique_id=1162197037]
 unique_name_in_owner = true
