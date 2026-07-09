@@ -53,3 +53,6 @@ position_smoothing_speed = 10.0
 [node name="PlayerEntitySyncer" type="Node" parent="." unique_id=200203596]
 unique_name_in_owner = true
 script = ExtResource("3_tmeal")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=1274042015]
+unique_name_in_owner = true

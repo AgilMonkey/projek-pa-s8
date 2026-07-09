@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bgsafb2ggvtiw" path="res://assets/Modern tiles_Free/Interiors_free/48x48/Interiors_free_48x48.png" id="3_havs6"]
 [ext_resource type="Script" uid="uid://d02x282ski4xy" path="res://source/client/entity_spawner.gd" id="3_nvj10"]
 [ext_resource type="Script" uid="uid://dqubjhii83xo8" path="res://scenes/course/course_door_test.gd" id="3_wk3yy"]
+[ext_resource type="AudioStream" uid="uid://urf6ci4yjksc" path="res://assets/sounds/brainrot.mp3" id="5_wk3yy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wdhyl"]
 atlas = ExtResource("3_havs6")
@@ -11,6 +12,10 @@ region = Rect2(578, 1161, 46, 84)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nvj10"]
 size = Vector2(128, 208)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wk3yy"]
+atlas = ExtResource("3_havs6")
+region = Rect2(720, 2752, 48, 80)
 
 [node name="TestWorld" type="Node2D" unique_id=45087715]
 y_sort_enabled = true
@@ -52,3 +57,16 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CourseDoorTest/BeginCourseArea" unique_id=1522538631]
 position = Vector2(0, -72)
 shape = SubResource("RectangleShape2D_nvj10")
+
+[node name="Radio" type="Node2D" parent="." unique_id=1465222224]
+position = Vector2(-424, -592)
+
+[node name="Sprite2D" type="Sprite2D" parent="Radio" unique_id=434610091]
+texture_filter = 1
+position = Vector2(0, -24)
+texture = SubResource("AtlasTexture_wk3yy")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Radio" unique_id=263948930]
+stream = ExtResource("5_wk3yy")
+autoplay = true
+max_distance = 800.0

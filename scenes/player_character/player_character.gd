@@ -17,7 +17,6 @@ var this_peer_id: int
 
 
 func _ready() -> void:
-	
 	my_username = SessionManager.server_sessions[this_peer_id]["username"]
 	set_username(my_username)
 	
@@ -36,6 +35,8 @@ func _ready() -> void:
 	
 	if !is_multiplayer_authority():
 		$CollisionShape2D.disabled = true
+	else:
+		%AudioListener2D.make_current()
 
 
 func _input(_event: InputEvent) -> void:
