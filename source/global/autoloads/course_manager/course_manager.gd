@@ -3,14 +3,28 @@ extends Node
 
 signal course_data_ready
 
-## Here what I think the data structure will be:
-## CoursesName -> SessionsId -> AllThePeersInsideIt
+## Data structure: server_courses_sessions :{
+##		course_name: {
+##			course_resource: CourseResource
+##			sessions: {
+##				0: {
+##					course_data: dict that haves all the data to send back
+##					all_peer_id: [int]
+##				}
+##			}
+##		}
+## }
 var server_courses_sessions := {}
 
 ## Data for client curent course session
 var client_course_name := ""
 var client_course_id := -1
 var client_course_all_peers := []
+
+var client_total_question := -1
+var client_cur_question_count := -1
+var client_cur_question := ""
+var client_cur_answer := ""
 
 var client_return_world_name := ""
 var client_return_world_pos := Vector2()
@@ -40,6 +54,11 @@ func client_set_up_course_ui():
 
 
 func _client_exit_this_course():
+	client_total_question = -1
+	client_cur_question_count = -1
+	client_cur_question = ""
+	client_cur_answer = ""
+	
 	_server_remove_peer_from_this_session.rpc_id(
 		1,
 		client_course_name,
@@ -90,7 +109,7 @@ func _server_create_course(_course_file_path: String, _peer_id_that_created_it: 
 			"all_peer_id": [_peer_id_that_created_it]
 		}
 	
-	_set_client_course_data.rpc_id(
+	_set_client_course_main_data.rpc_id(
 		_peer_id_that_created_it,
 		_course_name,
 		_course_id,
@@ -101,7 +120,7 @@ func _server_create_course(_course_file_path: String, _peer_id_that_created_it: 
 
 
 @rpc
-func _set_client_course_data(course_name: String, course_id: int, all_peers: Array):
+func _set_client_course_main_data(course_name: String, course_id: int, all_peers: Array):
 	client_course_name = course_name
 	client_course_id = course_id
 	client_course_all_peers = all_peers
@@ -122,6 +141,11 @@ func _server_remove_peer_from_this_session(_course_name: String, _course_id: int
 	# Erase the course itself
 	if server_courses_sessions[_course_name]["sessions"].is_empty():
 		server_courses_sessions.erase(_course_name)
+
+
+func _server_update_course_data_for_peer(_course_name: String, _course_id: int, _peer_id: int):
+	var _data: Dictionary = server_courses_sessions[_course_name]["sessions"][_course_id]["course_data"]
+	var _course_resource: CourseResource = server_courses_sessions[_course_name]["course_resource"]
 
 
 @rpc
