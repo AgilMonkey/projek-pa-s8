@@ -24,6 +24,7 @@ func _ready() -> void:
 		%MainCamera.enabled = false
 	
 	%PlayerEntitySyncer.this_peer_id = this_peer_id
+	set_multiplayer_authority(this_peer_id)
 	
 	global_position = global_position
 	reset_physics_interpolation()
@@ -31,6 +32,9 @@ func _ready() -> void:
 	ChatManager.client_is_chatting.connect(
 		func(_is_chatting): enable_movement = not _is_chatting
 	)
+	
+	if !is_multiplayer_authority():
+		$CollisionShape2D.disabled = true
 
 
 func _input(event: InputEvent) -> void:
