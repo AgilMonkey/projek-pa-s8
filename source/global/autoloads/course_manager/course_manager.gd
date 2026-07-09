@@ -1,6 +1,7 @@
 extends Node
 
 
+signal course_data_updated
 signal course_data_ready
 
 @onready var server_courses_sessions := ServerCourseSessionsData.new()
@@ -31,14 +32,22 @@ func client_enter_course(_return_pos: Vector2, _course: CourseResource):
 	await course_data_ready
 	
 	ClientManager.set_client_course_ui_visibility(true)
+	#_ask_server_for_next_question.rpc_id(1, client_course_name, client_course_id)
 	client_set_up_course_ui()
 
 
 func client_set_up_course_ui():
+	await course_data_updated
 	var client_course_ui := ClientManager.client_main_ui.client_course_ui
 	client_course_ui.exit_button.pressed.connect(
 		_client_exit_this_course,
 		ConnectFlags.CONNECT_ONE_SHOT
+	)
+	
+	client_course_ui._update_ui_pertanyaan_baru(
+		client_cur_question_count,
+		client_total_question,
+		client_cur_question
 	)
 
 
@@ -92,6 +101,18 @@ func _server_create_course(_course_file_path: String, _peer_id_that_created_it: 
 		
 		var _new_course_session_data := ServerCourseSessionsData.CourseSessionData.new()
 		_new_course_session_data.peer_id = _peer_id_that_created_it
+		_new_course_session_data.course_cur_question_count = 0
+		_new_course_session_data.course_total_question = _course_resource.questions_list.size()
+		_new_course_session_data.course_question = (
+			_course_resource
+			.questions_list[_new_course_session_data.course_cur_question_count]
+			.question
+		)
+		_new_course_session_data.course_answer = (
+			_course_resource
+			.questions_list[_new_course_session_data.course_cur_question_count]
+			.answer
+		)
 		
 		_new_course_session.course_data.append(_new_course_session_data)
 		_find_course.course_sessions.append(_new_course_session)
@@ -105,6 +126,18 @@ func _server_create_course(_course_file_path: String, _peer_id_that_created_it: 
 		
 		var _new_course_session_data := ServerCourseSessionsData.CourseSessionData.new()
 		_new_course_session_data.peer_id = _peer_id_that_created_it
+		_new_course_session_data.course_cur_question_count = 0
+		_new_course_session_data.course_total_question = _course_resource.questions_list.size()
+		_new_course_session_data.course_question = (
+			_course_resource
+			.questions_list[_new_course_session_data.course_cur_question_count]
+			.question
+		)
+		_new_course_session_data.course_answer = (
+			_course_resource
+			.questions_list[_new_course_session_data.course_cur_question_count]
+			.answer
+		)
 		
 		_new_course_session.course_data.append(_new_course_session_data)
 		_new_course.course_sessions.append(_new_course_session)
@@ -118,6 +151,14 @@ func _server_create_course(_course_file_path: String, _peer_id_that_created_it: 
 	)
 	
 	_call_client_course_data_ready_signal.rpc_id(_peer_id_that_created_it)
+	
+	var _peer_data := (
+		server_courses_sessions.find_course_session(_course_name, _course_id)
+		.find_course_session_data(
+			_peer_id_that_created_it
+			)
+	)
+	_client_update_course_data.rpc_id(_peer_id_that_created_it, _peer_data.to_dict())
 
 
 @rpc
@@ -151,11 +192,38 @@ func _server_remove_peer_from_this_session(_course_name: String, _course_id: int
 		server_courses_sessions.server_courses.erase(_find_server_course)
 
 
-func _server_update_course_data_for_peer(_course_name: String, _course_id: int, _peer_id: int):
-	var _data: Dictionary = server_courses_sessions[_course_name]["sessions"][_course_id]["course_data"]
-	var _course_resource: CourseResource = server_courses_sessions[_course_name]["course_resource"]
+@rpc("any_peer")
+func _ask_server_for_next_question(_course_name: String, _course_id: int):
+	if !multiplayer.is_server(): return
+	
+	var _peer_id := multiplayer.get_remote_sender_id()
+	var _cur_resource := server_courses_sessions.find_course(_course_name).course_resource
+	var _peer_data := (
+		server_courses_sessions.find_course_session(_course_name, _course_id)
+		.find_course_session_data(
+			_peer_id
+			)
+	)
+	
+	_peer_data.course_total_question = _cur_resource.questions_list.size()
+	_peer_data.course_cur_question_count += 1
+	_peer_data.course_question = _cur_resource.questions_list[_peer_data.course_cur_question_count].question
+	_peer_data.course_answer = _cur_resource.questions_list[_peer_data.course_cur_question_count].answer
+	
+	_client_update_course_data.rpc_id(_peer_id, _peer_data.to_dict())
 
 
 @rpc
 func _call_client_course_data_ready_signal():
 	course_data_ready.emit()
+
+
+@rpc
+func _client_update_course_data(_data: Dictionary):
+	var _peer_data := ServerCourseSessionsData.CourseSessionData.from_dict(_data)
+	client_total_question = _peer_data.course_total_question
+	client_cur_question_count = _peer_data.course_cur_question_count
+	client_cur_question = _peer_data.course_question
+	client_cur_answer = _peer_data.course_answer
+	
+	course_data_updated.emit()
