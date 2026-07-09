@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://d02x282ski4xy" path="res://source/client/entity_spawner.gd" id="3_nvj10"]
 [ext_resource type="PackedScene" uid="uid://cmc7j8rc7b5qu" path="res://scenes/components/course_door/course_door.tscn" id="3_wk3yy"]
 [ext_resource type="Resource" uid="uid://bftacsjn6ivgg" path="res://resources/courses/course_0_1.tres" id="4_56p6u"]
+[ext_resource type="Resource" uid="uid://bumocx4pxhvfg" path="res://resources/courses/course_0_2.tres" id="5_4205s"]
 [ext_resource type="AudioStream" uid="uid://urf6ci4yjksc" path="res://assets/sounds/brainrot.mp3" id="5_wk3yy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wk3yy"]
@@ -35,8 +36,12 @@ offset_bottom = -121.0
 text = "TEST WORLD 1"
 
 [node name="CourseDoorTest01" parent="." unique_id=1140214170 instance=ExtResource("3_wk3yy")]
-position = Vector2(424, -240)
+position = Vector2(392, -416)
 course_resource = ExtResource("4_56p6u")
+
+[node name="CourseDoorTest02" parent="." unique_id=305861692 instance=ExtResource("3_wk3yy")]
+position = Vector2(552, -416)
+course_resource = ExtResource("5_4205s")
 
 [node name="Radio" type="Node2D" parent="." unique_id=1465222224]
 position = Vector2(-424, -592)

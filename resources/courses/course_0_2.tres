@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="CourseResource" format=3 uid="uid://bumocx4pxhvfg"]
+
+[ext_resource type="Script" uid="uid://cabjhkguq5afv" path="res://source/resource/question_data.gd" id="1_negha"]
+[ext_resource type="Script" uid="uid://cg5qq68d43nn1" path="res://source/resource/course_resource.gd" id="2_m7lf6"]
+
+[sub_resource type="Resource" id="Resource_wk3yy"]
+script = ExtResource("1_negha")
+question = "You are bored"
+answer = "anda bosan"
+metadata/_custom_type_script = "uid://cabjhkguq5afv"
+
+[sub_resource type="Resource" id="Resource_n36ax"]
+script = ExtResource("1_negha")
+question = "You are honest"
+answer = "Anda jujur"
+metadata/_custom_type_script = "uid://cabjhkguq5afv"
+
+[sub_resource type="Resource" id="Resource_28qxe"]
+script = ExtResource("1_negha")
+question = "You are polite"
+answer = "Anda sopan"
+metadata/_custom_type_script = "uid://cabjhkguq5afv"
+
+[sub_resource type="Resource" id="Resource_negha"]
+script = ExtResource("1_negha")
+question = "You are greedy"
+answer = "anda rakus"
+metadata/_custom_type_script = "uid://cabjhkguq5afv"
+
+[sub_resource type="Resource" id="Resource_m7lf6"]
+script = ExtResource("1_negha")
+question = "You are cruel"
+answer = "Anda kejam"
+metadata/_custom_type_script = "uid://cabjhkguq5afv"
+
+[resource]
+script = ExtResource("2_m7lf6")
+questions_list = Array[ExtResource("1_negha")]([SubResource("Resource_wk3yy"), SubResource("Resource_n36ax"), SubResource("Resource_28qxe"), SubResource("Resource_negha"), SubResource("Resource_m7lf6")])
+metadata/_custom_type_script = "uid://cg5qq68d43nn1"
