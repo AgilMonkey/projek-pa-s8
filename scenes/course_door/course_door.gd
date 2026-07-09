@@ -5,6 +5,8 @@ extends Node2D
 
 const COURSE_MENU = preload("uid://bgr108nc2ql5u")
 
+@export var course_resource: CourseResource
+
 var _course_win: CourseMenu
 var _cur_win: SubwindowComponent
 
@@ -23,7 +25,7 @@ func _ready() -> void:
 			_course_win.start_button.pressed.connect(
 				func():
 					_cur_win.queue_free()
-					CourseManager.client_enter_course_test(global_position)
+					CourseManager.client_enter_course(_body.global_position, course_resource)
 					)
 			
 	)

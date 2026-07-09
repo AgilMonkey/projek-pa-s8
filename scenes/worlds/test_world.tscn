@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bgsafb2ggvtiw" path="res://assets/Modern tiles_Free/Interiors_free/48x48/Interiors_free_48x48.png" id="3_havs6"]
 [ext_resource type="Script" uid="uid://d02x282ski4xy" path="res://source/client/entity_spawner.gd" id="3_nvj10"]
 [ext_resource type="PackedScene" uid="uid://cmc7j8rc7b5qu" path="res://scenes/course_door/course_door.tscn" id="3_wk3yy"]
+[ext_resource type="Resource" uid="uid://bftacsjn6ivgg" path="res://resources/courses/course_0_1.tres" id="4_56p6u"]
 [ext_resource type="AudioStream" uid="uid://urf6ci4yjksc" path="res://assets/sounds/brainrot.mp3" id="5_wk3yy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wk3yy"]
@@ -33,8 +34,9 @@ offset_right = 40.0
 offset_bottom = -121.0
 text = "TEST WORLD 1"
 
-[node name="CourseDoorTest" parent="." unique_id=1140214170 instance=ExtResource("3_wk3yy")]
+[node name="CourseDoorTest01" parent="." unique_id=1140214170 instance=ExtResource("3_wk3yy")]
 position = Vector2(424, -240)
+course_resource = ExtResource("4_56p6u")
 
 [node name="Radio" type="Node2D" parent="." unique_id=1465222224]
 position = Vector2(-424, -592)
