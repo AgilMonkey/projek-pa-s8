@@ -7,6 +7,10 @@ var entity_data := {
 	"position": Vector2.ZERO
 }
 
+func _ready() -> void:
+	entity_data["position"] = get_parent().global_position
+
+
 func _physics_process(_delta: float) -> void:
 	if this_peer_id != multiplayer.get_unique_id():
 		_get_this_entity_data()

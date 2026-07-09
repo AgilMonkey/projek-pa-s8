@@ -17,6 +17,7 @@ var this_peer_id: int
 
 
 func _ready() -> void:
+	
 	my_username = SessionManager.server_sessions[this_peer_id]["username"]
 	set_username(my_username)
 	
