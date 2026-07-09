@@ -1,3 +1,5 @@
+@icon("res://addons/at-icons/node2d/gate.svg")
+class_name CourseDoor
 extends Node2D
 
 

@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cmc7j8rc7b5qu"]
+
+[ext_resource type="Script" uid="uid://dqubjhii83xo8" path="res://scenes/course_door/course_door.gd" id="1_ph77w"]
+[ext_resource type="Texture2D" uid="uid://bgsafb2ggvtiw" path="res://assets/Modern tiles_Free/Interiors_free/48x48/Interiors_free_48x48.png" id="2_wdkhs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wdhyl"]
+atlas = ExtResource("2_wdkhs")
+region = Rect2(578, 1161, 46, 84)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nvj10"]
+size = Vector2(128, 208)
+
+[node name="CourseDoor" type="Node2D" unique_id=1140214170]
+script = ExtResource("1_ph77w")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1664152471]
+texture_filter = 1
+position = Vector2(0, -80)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_wdhyl")
+
+[node name="BeginCourseArea" type="Area2D" parent="." unique_id=220254511]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BeginCourseArea" unique_id=1313901292]
+position = Vector2(0, -72)
+shape = SubResource("RectangleShape2D_nvj10")
