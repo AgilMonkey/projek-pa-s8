@@ -14,6 +14,8 @@ signal on_closed
 		%WindowTitle.text = title_text
 
 @export var max_window_size := Vector2(1000.0, 1000.0)
+## WIP: Should be used to make sure a window sticks to a margin but w/e for now
+@export var margin_size := Rect2(-10000, -10000, 10000, 10000)
 
 var is_being_resized := false
 var old_window_pos: Vector2
