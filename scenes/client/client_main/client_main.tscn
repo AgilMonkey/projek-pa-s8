@@ -93,10 +93,10 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("6_fgdwa")
-margin_left = -10
-margin_right = -20
-margin_up = -10
-margin_down = -20
+margin_left = 10
+margin_right = 10
+margin_up = 10
+margin_down = 10
 metadata/_custom_type_script = "uid://btw24x13756kt"
 metadata/_edit_lock_ = true
 
