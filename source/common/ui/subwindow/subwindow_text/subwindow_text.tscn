@@ -1,0 +1,132 @@
+[gd_scene format=3 uid="uid://bcqxa5hqmpes3"]
+
+[ext_resource type="Script" uid="uid://crgjlt3f3npwd" path="res://source/common/ui/subwindow/subwindow_text/subwindow_text.gd" id="1_2055c"]
+[ext_resource type="Texture2D" uid="uid://catvfyshhceop" path="res://source/common/ui/subwindow/assets/cross_normal.png" id="2_tij0l"]
+[ext_resource type="Texture2D" uid="uid://cf6lyygyi6d7n" path="res://source/common/ui/subwindow/assets/cross_pressed.png" id="3_y6cru"]
+[ext_resource type="Texture2D" uid="uid://ck1fvpiq37v82" path="res://source/common/ui/subwindow/assets/cross_hover.png" id="4_elvj2"]
+
+[node name="SubwindowTextComponent" type="PanelContainer" unique_id=285145439]
+custom_minimum_size = Vector2(150, 150)
+offset_right = 150.0
+offset_bottom = 150.0
+script = ExtResource("1_2055c")
+
+[node name="MainContent" type="VBoxContainer" parent="." unique_id=1069252783]
+layout_mode = 2
+
+[node name="TitleArea" type="MarginContainer" parent="MainContent" unique_id=176367384]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TitleGrabableArea" type="Control" parent="MainContent/TitleArea" unique_id=1745970784]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+mouse_default_cursor_shape = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="MainContent/TitleArea" unique_id=960857095]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainContent/TitleArea/MarginContainer" unique_id=1559392282]
+layout_mode = 2
+mouse_filter = 2
+alignment = 2
+
+[node name="WindowTitle" type="Label" parent="MainContent/TitleArea/MarginContainer/HBoxContainer" unique_id=599914814]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "Title"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CloseButton" type="TextureButton" parent="MainContent/TitleArea/MarginContainer/HBoxContainer" unique_id=2144109200]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture_normal = ExtResource("2_tij0l")
+texture_pressed = ExtResource("3_y6cru")
+texture_hover = ExtResource("4_elvj2")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="MainContent" type="MarginContainer" parent="MainContent" unique_id=2000728038]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="MainContentContainer" type="Control" parent="MainContent/MainContent" unique_id=515939584]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ContentTextLabel" type="RichTextLabel" parent="MainContent/MainContent" unique_id=955797941]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ResizeControl" type="Control" parent="." unique_id=823310411]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="UpRightControl" type="Control" parent="ResizeControl" unique_id=180579056]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -10.0
+offset_bottom = 10.0
+grow_horizontal = 0
+mouse_default_cursor_shape = 11
+
+[node name="UpLeftControl" type="Control" parent="ResizeControl" unique_id=574107698]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(20, 20)
+anchors_preset = 0
+offset_right = 20.0
+offset_bottom = 20.0
+mouse_default_cursor_shape = 12
+
+[node name="DownLeftControl" type="Control" parent="ResizeControl" unique_id=271479251]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -10.0
+offset_right = 10.0
+grow_vertical = 0
+mouse_default_cursor_shape = 11
+
+[node name="DownRightControl" type="Control" parent="ResizeControl" unique_id=1206715144]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = -10.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_default_cursor_shape = 12

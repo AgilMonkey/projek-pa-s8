@@ -27,8 +27,6 @@ var old_window_size: Vector2
 var drag_offset := Vector2.ZERO
 var is_dragging := false
 
-#@onready var close_button: TextureButton = %CloseButton
-
 
 func _ready() -> void:
 	if Engine.is_editor_hint(): return

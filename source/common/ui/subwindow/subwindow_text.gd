@@ -1,4 +1,4 @@
-class_name SubwindowText
+class_name SubwindowTextTestTest
 extends PanelContainer
 
 

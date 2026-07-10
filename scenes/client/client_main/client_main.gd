@@ -1,7 +1,7 @@
 class_name ClientMain
 extends Node
 
-const SUBWINDOW_TEXT = preload("uid://0awrc1elwyes")
+const SUBWINDOW_TEXT = preload("uid://bcqxa5hqmpes3")
 
 @onready var login_ui: LoginUi = $LoginRegisterUi/LoginUi
 @onready var register_ui: RegisterUI = $LoginRegisterUi/RegisterUi
@@ -48,8 +48,8 @@ func _ready() -> void:
 			UserManager.register_user.rpc_id(1, _data["username"], _data["password"])
 			var win: SubwindowText = SUBWINDOW_TEXT.instantiate()
 			subwindows_container.add_child(win)
-			win.window_title.text = "Register Success"
-			win.main_text.text = "Register Successful!\nPlease Login."
+			win.title_text = "Register Success"
+			win.window_text = "Register Successful!\nPlease Login."
 			win.set_anchors_and_offsets_preset(Control.PRESET_CENTER)
 			
 			register_ui.hide()
