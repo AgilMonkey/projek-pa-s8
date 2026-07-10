@@ -6,7 +6,7 @@ var window_window: PackedScene
 
 func _ready() -> void:
 	window_window = PackedScene.new()
-	window_window.pack($SubwindowComponent)
+	window_window.pack($KeepInMarginControl/SubwindowComponent)
 
 
 func _input(event: InputEvent) -> void:
@@ -16,4 +16,4 @@ func _input(event: InputEvent) -> void:
 			randf_range(0, 1200),
 			randf_range(0, 720)
 		)
-		add_child(new_w)
+		$KeepInMarginControl.add_child(new_w)

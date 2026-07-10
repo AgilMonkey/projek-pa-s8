@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://drc4t0hrrtk75" path="res://source/common/ui/subwindow/subwindow.tscn" id="1_d0opt"]
 [ext_resource type="Script" uid="uid://blk1octbl2nr5" path="res://testing/test_window.gd" id="1_j53gw"]
+[ext_resource type="Script" uid="uid://btw24x13756kt" path="res://source/common/ui/keep_in_margin_control/keep_in_margin_control.gd" id="3_dfnkn"]
 
 [node name="TestWindow" type="Control" unique_id=998495006]
 layout_mode = 3
@@ -12,22 +13,39 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_j53gw")
 
-[node name="SubwindowComponent" parent="." unique_id=285145439 instance=ExtResource("1_d0opt")]
-layout_mode = 0
-offset_left = 495.0
-offset_top = 189.0
-offset_right = 976.0
-offset_bottom = 537.0
-max_window_size = Vector2(1000, 1000)
+[node name="KeepInMarginControl" type="Control" parent="." unique_id=2140134522]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_dfnkn")
+margin_left = 20
+margin_right = 20
+margin_up = 20
+margin_down = 20
+metadata/_custom_type_script = "uid://btw24x13756kt"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="SubwindowComponent" unique_id=1303636157]
+[node name="SubwindowComponent" parent="KeepInMarginControl" unique_id=285145439 instance=ExtResource("1_d0opt")]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 62.0
+offset_right = 541.0
+offset_bottom = 494.0
+metadata/_edit_group_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="KeepInMarginControl/SubwindowComponent" unique_id=1303636157]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="SubwindowComponent/VBoxContainer" unique_id=1548201432]
+[node name="RichTextLabel" type="RichTextLabel" parent="KeepInMarginControl/SubwindowComponent/VBoxContainer" unique_id=1548201432]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 1
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
 
-[node name="Button" type="Button" parent="SubwindowComponent/VBoxContainer" unique_id=1890969239]
+[node name="Button" type="Button" parent="KeepInMarginControl/SubwindowComponent/VBoxContainer" unique_id=1890969239]
 layout_mode = 2
+mouse_filter = 1
 text = "Yes Sir"

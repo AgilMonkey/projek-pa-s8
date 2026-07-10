@@ -4,6 +4,7 @@ class_name SubwindowComponent
 extends PanelContainer
 
 
+signal on_dragged
 signal on_resized
 signal on_closed
 
@@ -46,6 +47,7 @@ func _ready() -> void:
 			
 			if event is InputEventMouseMotion and is_dragging:
 				global_position = get_global_mouse_position() + drag_offset
+				on_dragged.emit()
 	)
 	
 	#region  These are for resizing
@@ -74,7 +76,7 @@ func _ready() -> void:
 			if event is InputEventMouseMotion and is_being_resized:
 				var g_mouse_pos := get_global_mouse_position()
 				global_position.y = g_mouse_pos.y
-				var max_y := (old_window_pos.y + old_window_size.y) - custom_minimum_size.y
+				var max_y := (old_window_pos.y + old_window_size.y) - get_combined_minimum_size().y
 				global_position.y = min(max_y, global_position.y)
 				
 				var new_size = Vector2(
@@ -99,7 +101,7 @@ func _ready() -> void:
 			if event is InputEventMouseMotion and is_being_resized:
 				var g_mouse_pos := get_global_mouse_position()
 				global_position.x = g_mouse_pos.x
-				var max_x := (old_window_pos.x + old_window_size.x) - custom_minimum_size.x
+				var max_x := (old_window_pos.x + old_window_size.x) - get_combined_minimum_size().x
 				global_position.x = min(max_x, global_position.x)
 				
 				var new_size = Vector2(
@@ -125,8 +127,8 @@ func _ready() -> void:
 				var g_mouse_pos := get_global_mouse_position()
 				global_position = g_mouse_pos
 				var max_win_pos := Vector2(
-					(old_window_pos.x + old_window_size.x) - custom_minimum_size.x,
-					(old_window_pos.y + old_window_size.y) - custom_minimum_size.y
+					(old_window_pos.x + old_window_size.x) - get_combined_minimum_size().x,
+					(old_window_pos.y + old_window_size.y) - get_combined_minimum_size().y
 				)
 				global_position = global_position.min(max_win_pos)
 				
@@ -164,38 +166,30 @@ func _ready() -> void:
 			)
 
 
+func _process(_delta: float) -> void:
+	_set_the_child_main_content_rect()
+
+
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_SORT_CHILDREN:
-		for child: Control in get_children():
-			%MainContentContainer.custom_minimum_size = Vector2.ZERO
+		_set_the_child_main_content_rect()
+
+
+func _set_the_child_main_content_rect():
+	for child: Control in get_children():
+		%MainContentContainer.custom_minimum_size = Vector2.ZERO
+		if child.owner != self:
+			child.global_position =  %MainContentContainer.global_position
+			child.size = %MainContentContainer.size
 			
-			if child.owner != self:
-				
-				child.global_position =  %MainContentContainer.global_position
-				child.size = %MainContentContainer.size
-				
-				if (
-					child.custom_minimum_size.length_squared() >
-					%MainContentContainer.custom_minimum_size.length_squared()
-				):
-					%MainContentContainer.custom_minimum_size = child.custom_minimum_size
-				if child is Container:
-					%MainContentContainer.custom_minimum_size = child.get_combined_minimum_size()
-	elif what == NOTIFICATION_PROCESS:
-		for child: Control in get_children():
-			%MainContentContainer.custom_minimum_size = Vector2.ZERO
-			if child.owner != self:
-				if (
-					child.custom_minimum_size.length_squared() >
-					%MainContentContainer.custom_minimum_size.length_squared()
-				):
-					%MainContentContainer.custom_minimum_size = child.custom_minimum_size
-				
-				if child is Container:
-					%MainContentContainer.custom_minimum_size = child.get_combined_minimum_size()
-				
-				child.global_position =  %MainContentContainer.global_position
-				child.size = %MainContentContainer.size
+			if (
+				child.custom_minimum_size.length_squared() >
+				%MainContentContainer.custom_minimum_size.length_squared()
+			):
+				%MainContentContainer.custom_minimum_size = child.custom_minimum_size
+			if child is Container:
+				%MainContentContainer.custom_minimum_size = child.get_combined_minimum_size()
+				child.queue_sort()
 
 
 func _reorder_node_to_be_first_in_child():
