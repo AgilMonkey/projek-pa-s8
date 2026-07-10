@@ -17,6 +17,9 @@ signal on_closed
 ## WIP: Should be used to make sure a window sticks to a margin but w/e for now
 @export var margin_size := Rect2(-10000, -10000, 10000, 10000)
 
+@export var is_grabable: = true
+@export var is_resizeable: = true
+
 var is_being_resized := false
 var old_window_pos: Vector2
 var old_window_size: Vector2
@@ -24,20 +27,19 @@ var old_window_size: Vector2
 var drag_offset := Vector2.ZERO
 var is_dragging := false
 
-@onready var title_area: Control = %TitleArea
-@onready var close_button: TextureButton = %CloseButton
+#@onready var close_button: TextureButton = %CloseButton
 
 
 func _ready() -> void:
 	if Engine.is_editor_hint(): return
 	
-	close_button.pressed.connect(
+	%CloseButton.pressed.connect(
 		func():
 			on_closed.emit()
 			queue_free()
 	)
 	
-	title_area.gui_input.connect(
+	%TitleGrabableArea.gui_input.connect(
 		func(event: InputEvent):
 			if event is InputEventMouseButton:
 				if event.button_index == 1 and event.pressed:
@@ -169,6 +171,13 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
+	%TitleGrabableArea.visible = is_grabable
+	
+	%UpLeftControl.visible = is_resizeable
+	%UpRightControl.visible = is_resizeable
+	%DownLeftControl.visible = is_resizeable
+	%DownRightControl.visible = is_resizeable
+	
 	_set_the_child_main_content_rect()
 
 
