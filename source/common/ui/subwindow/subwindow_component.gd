@@ -74,6 +74,7 @@ func _ready() -> void:
 				var g_mouse_pos := get_global_mouse_position()
 				global_position.y = g_mouse_pos.y
 				var min_y := (old_window_pos.y + old_window_size.y) - get_combined_maximum_size().y
+				if get_combined_maximum_size().y < 0.0: min_y = -INF
 				var max_y := (old_window_pos.y + old_window_size.y) - get_combined_minimum_size().y
 				global_position.y = clampf(global_position.y, min_y, max_y)
 				
@@ -96,6 +97,7 @@ func _ready() -> void:
 				var g_mouse_pos := get_global_mouse_position()
 				global_position.x = g_mouse_pos.x
 				var min_x := (old_window_pos.x + old_window_size.x) - get_combined_maximum_size().x
+				if get_combined_maximum_size().x < 0.0: min_x = -INF
 				var max_x := (old_window_pos.x + old_window_size.x) - get_combined_minimum_size().x
 				global_position.x = clampf(global_position.x, min_x, max_x)
 				
@@ -121,6 +123,8 @@ func _ready() -> void:
 					(old_window_pos.x + old_window_size.x) - get_combined_maximum_size().x,
 					(old_window_pos.y + old_window_size.y) - get_combined_maximum_size().y
 				)
+				if get_combined_maximum_size().x < 0.0: min_win_pos.x = -INF
+				if get_combined_maximum_size().y < 0.0: min_win_pos.y = -INF
 				var max_win_pos := Vector2(
 					(old_window_pos.x + old_window_size.x) - get_combined_minimum_size().x,
 					(old_window_pos.y + old_window_size.y) - get_combined_minimum_size().y
