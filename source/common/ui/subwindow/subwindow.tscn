@@ -7,6 +7,8 @@
 
 [node name="SubwindowComponent" type="PanelContainer" unique_id=285145439]
 custom_minimum_size = Vector2(150, 150)
+custom_maximum_size = Vector2(500, 500)
+propagate_maximum_size = false
 offset_right = 150.0
 offset_bottom = 150.0
 script = ExtResource("1_ptj0n")

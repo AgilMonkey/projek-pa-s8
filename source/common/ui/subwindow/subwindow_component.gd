@@ -13,7 +13,6 @@ signal on_closed
 		title_text = value
 		%WindowTitle.text = title_text
 
-@export var max_window_size := Vector2(1000.0, 1000.0)
 ## WIP: Should be used to make sure a window sticks to a margin but w/e for now
 @export var margin_size := Rect2(-10000, -10000, 10000, 10000)
 
@@ -61,10 +60,6 @@ func _ready() -> void:
 	
 			if event is InputEventMouseMotion and is_being_resized:
 				size = get_global_mouse_position() - global_position
-				size = size.clamp(
-					Vector2.ZERO,
-					max_window_size
-				)
 				on_resized.emit()
 	)
 	
@@ -86,10 +81,10 @@ func _ready() -> void:
 					(old_window_pos.y + old_window_size.y) - g_mouse_pos.y
 				)
 				size = new_size
-				size = size.clamp(
-					Vector2.ZERO,
-					max_window_size
-				)
+				#size = size.clamp(
+					#Vector2.ZERO,
+					#max_window_size
+				#)
 				on_resized.emit()
 	)
 	
@@ -111,10 +106,10 @@ func _ready() -> void:
 					g_mouse_pos.y - old_window_pos.y
 				)
 				size = new_size
-				size = size.clamp(
-					Vector2.ZERO,
-					max_window_size
-				)
+				#size = size.clamp(
+					#Vector2.ZERO,
+					#max_window_size
+				#)
 				on_resized.emit()
 	)
 	
@@ -139,10 +134,10 @@ func _ready() -> void:
 					(old_window_pos.y + old_window_size.y) - g_mouse_pos.y
 				)
 				size = new_size
-				size = size.clamp(
-					Vector2.ZERO,
-					max_window_size
-				)
+				#size = size.clamp(
+					#Vector2.ZERO,
+					#max_window_size
+				#)
 				on_resized.emit()
 	)
 	
