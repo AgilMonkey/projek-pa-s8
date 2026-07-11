@@ -73,18 +73,15 @@ func _ready() -> void:
 			if event is InputEventMouseMotion and is_being_resized:
 				var g_mouse_pos := get_global_mouse_position()
 				global_position.y = g_mouse_pos.y
+				var min_y := (old_window_pos.y + old_window_size.y) - get_combined_maximum_size().y
 				var max_y := (old_window_pos.y + old_window_size.y) - get_combined_minimum_size().y
-				global_position.y = min(max_y, global_position.y)
+				global_position.y = clampf(global_position.y, min_y, max_y)
 				
 				var new_size = Vector2(
 					g_mouse_pos.x - old_window_pos.x,
 					(old_window_pos.y + old_window_size.y) - g_mouse_pos.y
 				)
 				size = new_size
-				#size = size.clamp(
-					#Vector2.ZERO,
-					#max_window_size
-				#)
 				on_resized.emit()
 	)
 	
@@ -98,18 +95,15 @@ func _ready() -> void:
 			if event is InputEventMouseMotion and is_being_resized:
 				var g_mouse_pos := get_global_mouse_position()
 				global_position.x = g_mouse_pos.x
+				var min_x := (old_window_pos.x + old_window_size.x) - get_combined_maximum_size().x
 				var max_x := (old_window_pos.x + old_window_size.x) - get_combined_minimum_size().x
-				global_position.x = min(max_x, global_position.x)
+				global_position.x = clampf(global_position.x, min_x, max_x)
 				
 				var new_size = Vector2(
 					(old_window_pos.x + old_window_size.x) - g_mouse_pos.x,
 					g_mouse_pos.y - old_window_pos.y
 				)
 				size = new_size
-				#size = size.clamp(
-					#Vector2.ZERO,
-					#max_window_size
-				#)
 				on_resized.emit()
 	)
 	
@@ -123,21 +117,21 @@ func _ready() -> void:
 			if event is InputEventMouseMotion and is_being_resized:
 				var g_mouse_pos := get_global_mouse_position()
 				global_position = g_mouse_pos
+				var min_win_pos := Vector2(
+					(old_window_pos.x + old_window_size.x) - get_combined_maximum_size().x,
+					(old_window_pos.y + old_window_size.y) - get_combined_maximum_size().y
+				)
 				var max_win_pos := Vector2(
 					(old_window_pos.x + old_window_size.x) - get_combined_minimum_size().x,
 					(old_window_pos.y + old_window_size.y) - get_combined_minimum_size().y
 				)
-				global_position = global_position.min(max_win_pos)
+				global_position = global_position.clamp(min_win_pos, max_win_pos)
 				
 				var new_size = Vector2(
 					(old_window_pos.x + old_window_size.x) - g_mouse_pos.x,
 					(old_window_pos.y + old_window_size.y) - g_mouse_pos.y
 				)
 				size = new_size
-				#size = size.clamp(
-					#Vector2.ZERO,
-					#max_window_size
-				#)
 				on_resized.emit()
 	)
 	
