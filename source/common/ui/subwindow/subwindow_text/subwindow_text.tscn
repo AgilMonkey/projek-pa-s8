@@ -10,7 +10,6 @@ custom_minimum_size = Vector2(150, 150)
 offset_right = 150.0
 offset_bottom = 150.0
 script = ExtResource("1_2055c")
-window_text = null
 
 [node name="MainContent" type="VBoxContainer" parent="." unique_id=1069252783]
 layout_mode = 2
