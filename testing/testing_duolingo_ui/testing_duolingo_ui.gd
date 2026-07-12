@@ -28,11 +28,11 @@ func _client_connect_to_server():
 	Config.server_ip, 
 	Config.server_port)
 	
-	if _err == OK:
+	if _err == Networking.ConnectError.OK:
 		_when_connected_to_server()
 	else:
 		print("Error: %d" % _err)
 
 
 func _when_connected_to_server():
-	pass
+	print("A")
