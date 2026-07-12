@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cryfnwj2cggcx"]
+
+[ext_resource type="Script" uid="uid://df6ruyevce256" path="res://testing/testing_duolingo_ui/testing_duolingo_ui.gd" id="1_e2p3m"]
+
+[node name="TestingDuolingoUi" type="Node" unique_id=9384700]
+script = ExtResource("1_e2p3m")
