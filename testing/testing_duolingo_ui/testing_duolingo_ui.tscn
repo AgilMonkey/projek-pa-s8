@@ -1,6 +1,31 @@
 [gd_scene format=3 uid="uid://cryfnwj2cggcx"]
 
 [ext_resource type="Script" uid="uid://df6ruyevce256" path="res://testing/testing_duolingo_ui/testing_duolingo_ui.gd" id="1_e2p3m"]
+[ext_resource type="PackedScene" uid="uid://36pigpyi86rk" path="res://scenes/client/client_main/client_course_ui.tscn" id="2_ha7e2"]
+[ext_resource type="Script" uid="uid://ducjhgpc0geu6" path="res://testing/testing_duolingo_ui/quick_debug_label.gd" id="2_kb4ne"]
 
 [node name="TestingDuolingoUi" type="Node" unique_id=9384700]
 script = ExtResource("1_e2p3m")
+
+[node name="MainControl" type="Control" parent="." unique_id=520012182]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="ClientCourseUI" parent="MainControl" unique_id=2076881983 instance=ExtResource("2_ha7e2")]
+layout_mode = 1
+
+[node name="QuickDebugLabel" type="RichTextLabel" parent="MainControl" unique_id=2086859428]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 320.0
+text = "dsfsfsfdsdfdsfddf"
+fit_content = true
+script = ExtResource("2_kb4ne")

@@ -50,6 +50,7 @@ func client_enter_course(_return_pos: Vector2, _course: CourseResource):
 
 func client_set_up_course_ui():
 	await course_data_updated
+	if ClientManager.client_main_ui == null: return
 	var client_course_ui := ClientManager.client_main_ui.client_course_ui
 	client_course_ui.exit_button.pressed.connect(
 		_client_exit_this_course,
@@ -101,7 +102,10 @@ func _server_move_peer_to_course(old_world_name: String, _course_file_path: Stri
 	
 	var player_peer_id := multiplayer.get_remote_sender_id()
 	EntityManager.remove_peer_from_world_entities_data(player_peer_id)
-	var new_data := { old_world_name: EntityManager.worlds_entities_data[old_world_name]}
+	var new_data: Dictionary
+	if !EntityManager.worlds_entities_data.has(old_world_name):
+		new_data = {old_world_name: {}}
+	else: new_data = {old_world_name: EntityManager.worlds_entities_data[old_world_name]}
 	WorldManager.sync_this_world_data_across_client.rpc(new_data)
 	
 	_server_create_course(_course_file_path, player_peer_id)

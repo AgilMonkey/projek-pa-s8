@@ -37,8 +37,8 @@ func login_user(_username: String, _password: String):
 	
 	var session_hash = SessionManager.server_create_session(_sender_id, _username)
 	SessionManager.set_peer_client_session_hash.rpc_id(_sender_id, session_hash)
-	call_client_logged_in.rpc_id(_sender_id, LogInResult.OK)
 	client_set_user_data.rpc_id(_sender_id, _get_data["username"])
+	call_client_logged_in.rpc_id(_sender_id, LogInResult.OK)
 
 
 func server_logout_user(_username: String):

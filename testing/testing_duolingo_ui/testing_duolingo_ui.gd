@@ -34,4 +34,11 @@ func _client_connect_to_server():
 
 
 func _when_connected_to_server():
-	print("A")
+	UserManager.login_user.rpc_id(1, "test1", "test1")
+	await UserManager.client_logged_in
+	
+	var course := preload("uid://bftacsjn6ivgg")
+	CourseManager.client_enter_course(Vector2.ZERO, course)
+	await CourseManager.course_data_ready
+	
+	%QuickDebugLabel.setup()
