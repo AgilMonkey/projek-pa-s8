@@ -19,10 +19,13 @@ enum ConnectError {
 
 var peer: WebSocketMultiplayerPeer
 var _is_connecting := false
+var _should_retry := false
+
 
 func _ready() -> void:
 	multiplayer.connected_to_server.connect(_on_connected)
 	multiplayer.connection_failed.connect(_on_failed)
+
 
 ## Create as client or server.
 ## TLS usefull for wss (WebSocket Secure) unless you have anything else taking care of it like Caddy.
@@ -34,20 +37,7 @@ func create(role: Role, address: String, port: int, tls_options: TLSOptions = nu
 	
 	match role:
 		Role.CLIENT:
-			## `address` may be either:
-			##   (a) a bare host like "127.0.0.1" — build a URL from scheme + port
-			##   (b) a full URL like "wss://ws.example.com/world/1" — use as-is
-			## (b) is what production deploys behind a reverse proxy (Caddy/nginx)
-			## send, because the path discriminates which world and the port is
-			## part of the proxy's public binding.
-			#var url: String
-			#if address.contains("://"):
-				#url = address
-			#else:
-				#var scheme: String = "ws" if tls_options == null or tls_options.is_unsafe_client() else "wss"
-				#url = "%s://%s:%d" % [scheme, address, port]
-			#error = peer.create_client(url, tls_options)
-			error = await _connect_with_timeout(address, port)
+			error = await _connect_with_retries(address, port)
 		Role.SERVER:
 			var bind_address: String = "*" if address.is_empty() else address
 			var _err = peer.create_server(port, bind_address, tls_options)
@@ -57,22 +47,40 @@ func create(role: Role, address: String, port: int, tls_options: TLSOptions = nu
 		_:
 			error = ConnectError.SETUP_FAILED
 	return error
-	#if error != OK:
-		#printerr("Error while creating peer: %s" % error_string(error))
-		#return ConnectError
-#
-	#multiplayer.multiplayer_peer = peer
-	#
-	#if role == Role.CLIENT: 
-		#var conn_success: bool = await connection_result
-		#if !conn_success:
-			#error = Error.ERR_CANT_CONNECT
-			#return error
-#
-	#return Error.OK
+
+
+func _connect_with_retries(address: String, port: int, max_attempts := 5):
+	_should_retry = true
+	var attempt := 0
+	
+	while _should_retry and (max_attempts <= 0 or attempt < max_attempts):
+		attempt += 1
+		print("Connection attempt %d..." % attempt)
+		
+		var result := await _connect_with_timeout(address, port, 5.0)
+		if result == ConnectError.OK:
+			return result
+		
+		if not _should_retry:
+			# user cancelled mid-attempt
+			return ConnectError.CANCELLED
+		
+		# exponential backoff, capped
+		var wait: float = min(1.0 * pow(2, attempt - 1), 30.0)
+		print("Retrying in %.1fs" % wait)
+		await get_tree().create_timer(wait).timeout
+	
+	return ConnectError.TIMEOUT
 
 
 func _connect_with_timeout(address: String, port: int, timeout_sec := 5.0, tls_options: TLSOptions = null) -> ConnectError:
+	## `address` may be either:
+	##   (a) a bare host like "127.0.0.1" — build a URL from scheme + port
+	##   (b) a full URL like "wss://ws.example.com/world/1" — use as-is
+	## (b) is what production deploys behind a reverse proxy (Caddy/nginx)
+	## send, because the path discriminates which world and the port is
+	## part of the proxy's public binding.
+	
 	var error: Error
 	var url: String
 	

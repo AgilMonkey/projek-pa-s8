@@ -13,7 +13,6 @@ func _start_server():
 	
 	print("Server started at port: ", Config.server_port)
 	
-	
 	print(ASCII.orin_ascii)
 	print("I love Rin Kaenbyou from Touhou <3")
 
