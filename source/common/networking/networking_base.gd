@@ -10,12 +10,19 @@ enum Role {
 }
 
 var peer: WebSocketMultiplayerPeer
+var _timeout_timer: Timer
 
 
 func _ready() -> void:
 	multiplayer.connected_to_server.connect(func(): connection_result.emit(true))
 	multiplayer.connection_failed.connect(func(): connection_result.emit(false))
-
+	
+	_timeout_timer = AgilHelper.create_timer_on_current_node(
+		self,
+		false,
+		false,
+		false
+	)
 
 ## Create as client or server.
 ## TLS usefull for wss (WebSocket Secure) unless you have anything else taking care of it like Caddy.
@@ -59,3 +66,7 @@ func create(role: Role, address: String, port: int, tls_options: TLSOptions = nu
 			return error
 
 	return Error.OK
+
+
+func _connect_with_timeout(address: String, port: int, timeout_sec := 5.0):
+	pass
