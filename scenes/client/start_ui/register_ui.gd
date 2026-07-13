@@ -49,7 +49,7 @@ func _ready() -> void:
 	)
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var register_panel_right_edge = register_panel.global_position.x + register_panel.size.x
 	error_labels.global_position.x = register_panel_right_edge
 	

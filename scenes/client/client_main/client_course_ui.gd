@@ -21,7 +21,6 @@ extends Control
 @onready var button_pertanyaan_selanjutnya: Button = %ButtonPertanyaanSelanjutnya
 
 
-
 func _ready() -> void:
 	jawab_button.pressed.connect(_cek_jawaban)
 	CourseManager.course_data_updated.connect(

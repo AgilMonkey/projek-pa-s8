@@ -56,8 +56,6 @@ func client_set_up_course_ui():
 		_client_exit_this_course,
 		ConnectFlags.CONNECT_ONE_SHOT
 	)
-	
-	client_course_ui.update_ui_pertanyaan_baru()
 
 
 ## Harusnya bisa kirim jawaban gimanapun tetap harus sama. Bakal otomatis lower dan motong

@@ -12,9 +12,9 @@ var worlds := {
 }
 
 
-func is_valid_world_name(name: String) -> bool:
-	return worlds.has(name)
+func is_valid_world_name(world_name: String) -> bool:
+	return worlds.has(world_name)
 
 
-func get_world_scene(name: String) -> PackedScene:
-	return worlds[name]
+func get_world_scene(world_name: String) -> PackedScene:
+	return worlds[world_name]

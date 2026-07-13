@@ -43,6 +43,8 @@ func cleanup():
 func _all_kosakata_ready():
 	for n in kosakata_h_flow_container.get_children():
 		if n is GrabableWord:
+			if n.grabbed.is_connected(_this_word_grabbed):
+				continue
 			n.grabbed.connect(_this_word_grabbed)
 
 
