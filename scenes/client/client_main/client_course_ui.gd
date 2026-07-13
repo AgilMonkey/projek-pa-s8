@@ -2,11 +2,11 @@ class_name ClientCourseUI
 extends Control
 
 
-@onready var menjawab_pertanyaan_ui: VBoxContainer = %MenjawabPertanyaanUI
+@onready var menjawab_pertanyaan_ui: VBoxContainer = %MenjawabPertanyaanUI2
 @onready var exit_button: Button = %ExitButton
-@onready var question_number_label: RichTextLabel = %QuestionNumberLabel
-@onready var question_text: RichTextLabel = %QuestionText
-@onready var progress_pertanyaan: CustomTextProgressBar = %ProgressPertanyaan
+@onready var question_number_label: RichTextLabel = %QuestionNumberLabel2
+@onready var question_text: RichTextLabel = %QuestionText2
+@onready var progress_pertanyaan: CustomTextProgressBar = %ProgressPertanyaan2
 
 @onready var jawaban_line_edit: LineEdit = %JawabanLineEdit
 @onready var jawab_button: Button = %JawabButton
