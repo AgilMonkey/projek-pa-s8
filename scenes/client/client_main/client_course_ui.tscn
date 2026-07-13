@@ -1,12 +1,26 @@
 [gd_scene format=3 uid="uid://36pigpyi86rk"]
 
 [ext_resource type="Script" uid="uid://b2ugaeu3ns154" path="res://scenes/client/client_main/client_course_ui.gd" id="1_g8hm4"]
+[ext_resource type="Theme" uid="uid://d3emyrayaw1ld" path="res://resources/main_theme.tres" id="1_t58gu"]
 [ext_resource type="PackedScene" uid="uid://o7fa6d8i170k" path="res://source/common/ui/custom_text_progress_bar/custom_text_progress_bar.tscn" id="2_wg530"]
 [ext_resource type="Script" uid="uid://dyorlnyvac6d3" path="res://scenes/client/client_main/panel_jawaban.gd" id="3_li688"]
 [ext_resource type="PackedScene" uid="uid://bcrdknddarcc7" path="res://scenes/client/ui/grabable_word.tscn" id="3_yoist"]
+[ext_resource type="Script" uid="uid://dtpfhahy8be0u" path="res://scenes/client/client_main/panel_kosakata.gd" id="5_nr16u"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yoist"]
 bg_color = Color(0.1, 0.1, 0.1, 0.6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t58gu"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.20486489, 0.20486492, 0.20486489, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_li688"]
 bg_color = Color(0.1, 0.1, 0.1, 0.6)
@@ -18,6 +32,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_t58gu")
 script = ExtResource("1_g8hm4")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=2034728075]
@@ -153,7 +168,7 @@ theme_override_constants/margin_bottom = 150
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI2/MarginContainer" unique_id=1429983948]
 layout_mode = 2
-theme_override_constants/separation = 50
+theme_override_constants/separation = 20
 
 [node name="PanelJawaban" type="PanelContainer" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI2/MarginContainer/VBoxContainer" unique_id=1928991295]
 unique_name_in_owner = true
@@ -169,7 +184,8 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI2/MarginContainer/VBoxContainer/PanelJawaban/MarginContainer" unique_id=1309985660]
+[node name="LabelPanelJawaban" type="RichTextLabel" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI2/MarginContainer/VBoxContainer/PanelJawaban/MarginContainer" unique_id=1309985660]
+unique_name_in_owner = true
 self_modulate = Color(0.53257114, 0.5325712, 0.5325712, 1)
 layout_mode = 2
 mouse_filter = 2
@@ -185,18 +201,36 @@ size_flags_vertical = 4
 mouse_filter = 2
 alignment = 1
 
-[node name="HFlowContainer" type="HFlowContainer" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI2/MarginContainer/VBoxContainer" unique_id=449197457]
+[node name="PanelKosakata" type="PanelContainer" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI2/MarginContainer/VBoxContainer" unique_id=1804287606]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_t58gu")
+script = ExtResource("5_nr16u")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI2/MarginContainer/VBoxContainer/PanelKosakata" unique_id=1344146770]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="KosakataHFlowContainer" type="HFlowContainer" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI2/MarginContainer/VBoxContainer/PanelKosakata/MarginContainer" unique_id=449197457]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
 alignment = 1
+last_wrap_alignment = 2
 
-[node name="GrabableWord" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI2/MarginContainer/VBoxContainer/HFlowContainer" unique_id=1422613802 instance=ExtResource("3_yoist")]
+[node name="GrabableWord" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI2/MarginContainer/VBoxContainer/PanelKosakata/MarginContainer/KosakataHFlowContainer" unique_id=1422613802 instance=ExtResource("3_yoist")]
 layout_mode = 2
+word = "Saya"
 
-[node name="GrabableWord2" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI2/MarginContainer/VBoxContainer/HFlowContainer" unique_id=63423364 instance=ExtResource("3_yoist")]
+[node name="GrabableWord2" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI2/MarginContainer/VBoxContainer/PanelKosakata/MarginContainer/KosakataHFlowContainer" unique_id=63423364 instance=ExtResource("3_yoist")]
 layout_mode = 2
+word = "Cemburu"
 
-[node name="GrabableWord3" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI2/MarginContainer/VBoxContainer/HFlowContainer" unique_id=1256802991 instance=ExtResource("3_yoist")]
+[node name="GrabableWord3" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI2/MarginContainer/VBoxContainer/PanelKosakata/MarginContainer/KosakataHFlowContainer" unique_id=1256802991 instance=ExtResource("3_yoist")]
 layout_mode = 2
+word = "Benci"
 
 [node name="Button" type="Button" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI2/MarginContainer/VBoxContainer" unique_id=486342007]
 layout_mode = 2
