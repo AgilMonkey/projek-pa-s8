@@ -2,12 +2,23 @@ class_name GrabableWord
 extends PanelContainer
 
 
+@export var word := "Testing":
+	set(val):
+		word = val
+
 @onready var panel_container: PanelContainer = $PanelContainer
+@onready var word_label: RichTextLabel = %WordLabel
 
 
 func _ready() -> void:
 	mouse_entered.connect(_mouse_entered)
 	mouse_exited.connect(_mouse_exited)
+	
+	word_label.text = word
+
+
+func _get_drag_data(at_position: Vector2) -> Variant:
+	return self
 
 
 func _mouse_entered():

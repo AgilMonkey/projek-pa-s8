@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b2ugaeu3ns154" path="res://scenes/client/client_main/client_course_ui.gd" id="1_g8hm4"]
 [ext_resource type="PackedScene" uid="uid://o7fa6d8i170k" path="res://source/common/ui/custom_text_progress_bar/custom_text_progress_bar.tscn" id="2_wg530"]
+[ext_resource type="Script" uid="uid://dyorlnyvac6d3" path="res://scenes/client/client_main/panel_jawaban.gd" id="3_li688"]
 [ext_resource type="PackedScene" uid="uid://bcrdknddarcc7" path="res://scenes/client/ui/grabable_word.tscn" id="3_yoist"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yoist"]
@@ -154,28 +155,34 @@ theme_override_constants/margin_bottom = 150
 layout_mode = 2
 theme_override_constants/separation = 50
 
-[node name="Panel" type="PanelContainer" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI2/MarginContainer/VBoxContainer" unique_id=1928991295]
+[node name="PanelJawaban" type="PanelContainer" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI2/MarginContainer/VBoxContainer" unique_id=1928991295]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
+script = ExtResource("3_li688")
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI2/MarginContainer/VBoxContainer/Panel" unique_id=383595008]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI2/MarginContainer/VBoxContainer/PanelJawaban" unique_id=383595008]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI2/MarginContainer/VBoxContainer/Panel/MarginContainer" unique_id=1309985660]
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI2/MarginContainer/VBoxContainer/PanelJawaban/MarginContainer" unique_id=1309985660]
 self_modulate = Color(0.53257114, 0.5325712, 0.5325712, 1)
 layout_mode = 2
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 24
 text = "Jawaban..."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HFlowContainer" type="HFlowContainer" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI2/MarginContainer/VBoxContainer/Panel/MarginContainer" unique_id=709330342]
+[node name="PanelJawabanHFlowContainer" type="HFlowContainer" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI2/MarginContainer/VBoxContainer/PanelJawaban/MarginContainer" unique_id=709330342]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 4
+mouse_filter = 2
 alignment = 1
 
 [node name="HFlowContainer" type="HFlowContainer" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI2/MarginContainer/VBoxContainer" unique_id=449197457]
