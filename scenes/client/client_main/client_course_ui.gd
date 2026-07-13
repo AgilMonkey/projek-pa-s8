@@ -80,6 +80,7 @@ func _pertanyaan_selanjutnya():
 func _selesai_menjawab_keluar_button_pressed():
 	CourseManager._client_exit_this_course()
 	selesai_menjawab_ui.hide()
+	menjawab_pertanyaan_ui.show()
 
 
 func _cek_jawaban():
