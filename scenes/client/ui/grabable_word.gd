@@ -3,6 +3,8 @@ class_name GrabableWord
 extends PanelContainer
 
 
+signal grabbed(_word_node: GrabableWord)
+
 const GRABABLE_WORD = preload("uid://bcrdknddarcc7")
 
 @export var word := "Testing":
@@ -29,6 +31,9 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 	new_grab_word.offset_transform_enabled = true
 	new_grab_word.offset_transform_position_ratio = Vector2(-0.5, -0.5)
 	set_drag_preview(new_grab_word)
+	
+	grabbed.emit(self)
+	
 	return self
 
 

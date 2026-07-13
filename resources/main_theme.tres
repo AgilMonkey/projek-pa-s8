@@ -3,6 +3,18 @@
 [ext_resource type="FontFile" uid="uid://bcui4qisxhh61" path="res://assets/Noto_Sans/static/NotoSans-Bold.ttf" id="1_biaja"]
 [ext_resource type="FontFile" uid="uid://dibrka2rlgi7b" path="res://assets/Noto_Sans/static/NotoSans-Regular.ttf" id="1_ols5k"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vnc4k"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ols5k"]
 content_margin_left = 10.0
 content_margin_top = 10.0
@@ -62,7 +74,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="Image" id="Image_hofdy"]
+[sub_resource type="Image" id="Image_biaja"]
 data = {
 "data": PackedByteArray(255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255),
 "format": "RGBA8",
@@ -72,7 +84,7 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_0ahyh"]
-image = SubResource("Image_hofdy")
+image = SubResource("Image_biaja")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bjb6u"]
 content_margin_left = 0.0
@@ -83,6 +95,7 @@ content_margin_bottom = 0.0
 [resource]
 Button/font_sizes/font_size = 24
 Button/fonts/font = ExtResource("1_ols5k")
+Button/styles/disabled = SubResource("StyleBoxFlat_vnc4k")
 Button/styles/normal = SubResource("StyleBoxFlat_ols5k")
 Button/styles/pressed = SubResource("StyleBoxFlat_biaja")
 Label/colors/font_color = Color(1, 1, 1, 1)

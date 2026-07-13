@@ -4,6 +4,7 @@
 [ext_resource type="Theme" uid="uid://d3emyrayaw1ld" path="res://resources/main_theme.tres" id="1_t58gu"]
 [ext_resource type="PackedScene" uid="uid://o7fa6d8i170k" path="res://source/common/ui/custom_text_progress_bar/custom_text_progress_bar.tscn" id="2_wg530"]
 [ext_resource type="Script" uid="uid://dyorlnyvac6d3" path="res://scenes/client/client_main/panel_jawaban.gd" id="3_li688"]
+[ext_resource type="Script" uid="uid://nc7mk7414jtu" path="res://scenes/client/client_main/menjawab_pertanyaan_ui.gd" id="3_sccea"]
 [ext_resource type="PackedScene" uid="uid://bcrdknddarcc7" path="res://scenes/client/ui/grabable_word.tscn" id="3_yoist"]
 [ext_resource type="Script" uid="uid://dtpfhahy8be0u" path="res://scenes/client/client_main/panel_kosakata.gd" id="5_nr16u"]
 
@@ -61,86 +62,26 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 0
 
-[node name="MenjawabPertanyaanUI" type="VBoxContainer" parent="PanelContainer/CenterControl/MarginContainer" unique_id=943835448]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-theme_override_constants/separation = 20
-
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI" unique_id=271475287]
-layout_mode = 2
-
-[node name="ProgressPertanyaan" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI/HBoxContainer" unique_id=526766630 instance=ExtResource("2_wg530")]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="ExitButton" type="Button" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI/HBoxContainer" unique_id=1806277468]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 8
-theme_override_font_sizes/font_size = 32
-text = "Keluar"
-
-[node name="QuestionNumberLabel" type="RichTextLabel" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI" unique_id=1045757686]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/normal_font_size = 64
-text = "Nomor Pertanyaan"
-fit_content = true
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="QuestionText" type="RichTextLabel" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI" unique_id=1117678627]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/normal_font_size = 32
-text = "Pertanyaan Here"
-fit_content = true
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI" unique_id=998150627]
-layout_mode = 2
-theme_override_constants/margin_left = 80
-theme_override_constants/margin_right = 80
-theme_override_constants/margin_bottom = 150
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI/MarginContainer" unique_id=1434066159]
-layout_mode = 2
-
-[node name="JawabanLineEdit" type="LineEdit" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI/MarginContainer/VBoxContainer" unique_id=728132140]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-placeholder_text = "Tulis jawaban..."
-alignment = 1
-
-[node name="JawabButton" type="Button" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI/MarginContainer/VBoxContainer" unique_id=1436038759]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 32
-text = "Jawab"
-
-[node name="MenjawabPertanyaanUI2" type="VBoxContainer" parent="PanelContainer/CenterControl/MarginContainer" unique_id=39468117]
+[node name="MenjawabPertanyaanUI" type="VBoxContainer" parent="PanelContainer/CenterControl/MarginContainer" unique_id=39468117]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 20
+script = ExtResource("3_sccea")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI2" unique_id=1635122748]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI" unique_id=1635122748]
 layout_mode = 2
 
-[node name="ProgressPertanyaan2" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI2/HBoxContainer" unique_id=1971733990 instance=ExtResource("2_wg530")]
+[node name="ProgressPertanyaan" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI/HBoxContainer" unique_id=1971733990 instance=ExtResource("2_wg530")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="ExitButton" type="Button" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI2/HBoxContainer" unique_id=1515520357]
+[node name="ExitButton" type="Button" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI/HBoxContainer" unique_id=1515520357]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
 text = "Keluar"
 
-[node name="QuestionNumberLabel2" type="RichTextLabel" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI2" unique_id=558866570]
+[node name="QuestionNumberLabel" type="RichTextLabel" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI" unique_id=558866570]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 64
@@ -150,7 +91,7 @@ fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="QuestionText2" type="RichTextLabel" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI2" unique_id=269784699]
+[node name="QuestionText" type="RichTextLabel" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI" unique_id=269784699]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
@@ -160,23 +101,23 @@ fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI2" unique_id=1849082231]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI" unique_id=1849082231]
 layout_mode = 2
 theme_override_constants/margin_left = 80
 theme_override_constants/margin_right = 80
 theme_override_constants/margin_bottom = 150
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI2/MarginContainer" unique_id=1429983948]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI/MarginContainer" unique_id=1429983948]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="PanelJawaban" type="PanelContainer" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI2/MarginContainer/VBoxContainer" unique_id=1928991295]
+[node name="PanelJawaban" type="PanelContainer" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI/MarginContainer/VBoxContainer" unique_id=1928991295]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 script = ExtResource("3_li688")
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI2/MarginContainer/VBoxContainer/PanelJawaban" unique_id=383595008]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI/MarginContainer/VBoxContainer/PanelJawaban" unique_id=383595008]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/margin_left = 10
@@ -184,7 +125,7 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="LabelPanelJawaban" type="RichTextLabel" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI2/MarginContainer/VBoxContainer/PanelJawaban/MarginContainer" unique_id=1309985660]
+[node name="LabelPanelJawaban" type="RichTextLabel" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI/MarginContainer/VBoxContainer/PanelJawaban/MarginContainer" unique_id=1309985660]
 unique_name_in_owner = true
 self_modulate = Color(0.53257114, 0.5325712, 0.5325712, 1)
 layout_mode = 2
@@ -194,47 +135,50 @@ text = "Jawaban..."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PanelJawabanHFlowContainer" type="HFlowContainer" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI2/MarginContainer/VBoxContainer/PanelJawaban/MarginContainer" unique_id=709330342]
+[node name="PanelJawabanHFlowContainer" type="HFlowContainer" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI/MarginContainer/VBoxContainer/PanelJawaban/MarginContainer" unique_id=709330342]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 4
 mouse_filter = 2
 alignment = 1
 
-[node name="PanelKosakata" type="PanelContainer" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI2/MarginContainer/VBoxContainer" unique_id=1804287606]
+[node name="PanelKosakata" type="PanelContainer" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI/MarginContainer/VBoxContainer" unique_id=1804287606]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_t58gu")
 script = ExtResource("5_nr16u")
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI2/MarginContainer/VBoxContainer/PanelKosakata" unique_id=1344146770]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI/MarginContainer/VBoxContainer/PanelKosakata" unique_id=1344146770]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="KosakataHFlowContainer" type="HFlowContainer" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI2/MarginContainer/VBoxContainer/PanelKosakata/MarginContainer" unique_id=449197457]
+[node name="KosakataHFlowContainer" type="HFlowContainer" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI/MarginContainer/VBoxContainer/PanelKosakata/MarginContainer" unique_id=449197457]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 4
 alignment = 1
 last_wrap_alignment = 2
 
-[node name="GrabableWord" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI2/MarginContainer/VBoxContainer/PanelKosakata/MarginContainer/KosakataHFlowContainer" unique_id=1422613802 instance=ExtResource("3_yoist")]
+[node name="GrabableWord" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI/MarginContainer/VBoxContainer/PanelKosakata/MarginContainer/KosakataHFlowContainer" unique_id=1422613802 instance=ExtResource("3_yoist")]
 layout_mode = 2
 word = "Saya"
 
-[node name="GrabableWord2" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI2/MarginContainer/VBoxContainer/PanelKosakata/MarginContainer/KosakataHFlowContainer" unique_id=63423364 instance=ExtResource("3_yoist")]
+[node name="GrabableWord2" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI/MarginContainer/VBoxContainer/PanelKosakata/MarginContainer/KosakataHFlowContainer" unique_id=63423364 instance=ExtResource("3_yoist")]
 layout_mode = 2
 word = "Cemburu"
 
-[node name="GrabableWord3" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI2/MarginContainer/VBoxContainer/PanelKosakata/MarginContainer/KosakataHFlowContainer" unique_id=1256802991 instance=ExtResource("3_yoist")]
+[node name="GrabableWord3" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI/MarginContainer/VBoxContainer/PanelKosakata/MarginContainer/KosakataHFlowContainer" unique_id=1256802991 instance=ExtResource("3_yoist")]
 layout_mode = 2
 word = "Benci"
 
-[node name="Button" type="Button" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI2/MarginContainer/VBoxContainer" unique_id=486342007]
+[node name="JawabButton" type="Button" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI/MarginContainer/VBoxContainer" unique_id=486342007]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
+disabled = true
 text = "Jawab"
 
 [node name="SelesaiMenjawabUI" type="VBoxContainer" parent="PanelContainer/CenterControl/MarginContainer" unique_id=2015743851]
