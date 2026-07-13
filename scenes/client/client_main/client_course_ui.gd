@@ -2,7 +2,7 @@ class_name ClientCourseUI
 extends Control
 
 
-@onready var menjawab_pertanyaan_ui: VBoxContainer = %MenjawabPertanyaanUI
+@onready var menjawab_pertanyaan_ui: MenjawabPertanyaanUI = %MenjawabPertanyaanUI
 @onready var exit_button: Button = %ExitButton
 @onready var question_number_label: RichTextLabel = %QuestionNumberLabel
 @onready var question_text: RichTextLabel = %QuestionText
@@ -27,15 +27,16 @@ func _ready() -> void:
 	CourseManager.course_data_updated.connect(
 		func():
 			menjawab_pertanyaan_ui.mouse_filter = MouseFilter.MOUSE_FILTER_PASS
-			update_ui_pertanyaan_baru(
-				CourseManager.client_cur_question_count,
-				CourseManager.client_total_question,
-				CourseManager.client_cur_question
-			)
+			update_ui_pertanyaan_baru()
 	)
 
 
-func update_ui_pertanyaan_baru(_cur_nomor_pertanyaan: int, _total_nomor_pertanyaan: int, _pertanyaan: String):
+func update_ui_pertanyaan_baru():
+	var _cur_nomor_pertanyaan := CourseManager.client_cur_question_count
+	var _total_nomor_pertanyaan := CourseManager.client_total_question
+	var _pertanyaan := CourseManager.client_cur_question
+	var _jawaban := CourseManager.client_cur_answer
+	
 	hasil_pertanyaan.hide()
 	
 	question_number_label.text = "Pertanyaan %d" % (_cur_nomor_pertanyaan + 1)
@@ -43,6 +44,8 @@ func update_ui_pertanyaan_baru(_cur_nomor_pertanyaan: int, _total_nomor_pertanya
 	progress_pertanyaan.progress_bar.value = _cur_nomor_pertanyaan
 	progress_pertanyaan.label_progress_bar.text = "%d/%d" % [_cur_nomor_pertanyaan, _total_nomor_pertanyaan]
 	question_text.text = _pertanyaan
+	
+	menjawab_pertanyaan_ui.set_up_kosakata(_jawaban.split(" "))
 
 
 func tunjukan_hasil_pertanyaan(sukses: bool):

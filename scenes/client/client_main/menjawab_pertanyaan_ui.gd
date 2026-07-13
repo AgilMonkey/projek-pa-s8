@@ -13,6 +13,10 @@ func _ready() -> void:
 	panel_jawaban.something_grabbed.connect(_something_grabbed)
 
 
+func set_up_kosakata(_all_kosakata: Array[String]):
+	panel_kosakata.set_up_kosakata(_all_kosakata)
+
+
 func _something_grabbed(_word: GrabableWord):
 	panel_jawaban.disable_mouse_for_all_grab_word()
 	panel_kosakata.disable_mouse_for_all_grab_word()

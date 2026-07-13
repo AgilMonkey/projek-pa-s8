@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://o7fa6d8i170k" path="res://source/common/ui/custom_text_progress_bar/custom_text_progress_bar.tscn" id="2_wg530"]
 [ext_resource type="Script" uid="uid://dyorlnyvac6d3" path="res://scenes/client/client_main/panel_jawaban.gd" id="3_li688"]
 [ext_resource type="Script" uid="uid://nc7mk7414jtu" path="res://scenes/client/client_main/menjawab_pertanyaan_ui.gd" id="3_sccea"]
-[ext_resource type="PackedScene" uid="uid://bcrdknddarcc7" path="res://scenes/client/ui/grabable_word.tscn" id="3_yoist"]
 [ext_resource type="Script" uid="uid://dtpfhahy8be0u" path="res://scenes/client/client_main/panel_kosakata.gd" id="5_nr16u"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yoist"]
@@ -142,11 +141,6 @@ size_flags_vertical = 4
 mouse_filter = 2
 alignment = 1
 
-[node name="GrabableWord3" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI/MarginContainer/VBoxContainer/PanelJawaban/MarginContainer/PanelJawabanHFlowContainer" unique_id=1422613802 instance=ExtResource("3_yoist")]
-layout_mode = 2
-mouse_filter = 2
-word = "Benci"
-
 [node name="PanelKosakata" type="PanelContainer" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI/MarginContainer/VBoxContainer" unique_id=1804287606]
 unique_name_in_owner = true
 layout_mode = 2
@@ -166,14 +160,6 @@ layout_mode = 2
 size_flags_vertical = 4
 alignment = 1
 last_wrap_alignment = 2
-
-[node name="GrabableWord" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI/MarginContainer/VBoxContainer/PanelKosakata/MarginContainer/KosakataHFlowContainer" unique_id=1325813223 instance=ExtResource("3_yoist")]
-layout_mode = 2
-word = "Saya"
-
-[node name="GrabableWord2" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI/MarginContainer/VBoxContainer/PanelKosakata/MarginContainer/KosakataHFlowContainer" unique_id=63423364 instance=ExtResource("3_yoist")]
-layout_mode = 2
-word = "Cemburu"
 
 [node name="JawabButton" type="Button" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI/MarginContainer/VBoxContainer" unique_id=486342007]
 unique_name_in_owner = true

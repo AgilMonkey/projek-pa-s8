@@ -4,6 +4,8 @@ extends PanelContainer
 
 signal something_grabbed(_word: GrabableWord)
 
+const GRABABLE_WORD = preload("uid://bcrdknddarcc7")
+
 @onready var kosakata_h_flow_container: HFlowContainer = %KosakataHFlowContainer
 
 
@@ -27,6 +29,13 @@ func enable_mouse_for_all_grab_word():
 	for n in kosakata_h_flow_container.get_children():
 		if n is GrabableWord:
 			n.mouse_filter = Control.MOUSE_FILTER_STOP
+
+
+func set_up_kosakata(_all_kosakata: Array[String]):
+	for k in _all_kosakata:
+		var n_word: GrabableWord = GRABABLE_WORD.instantiate()
+		n_word.word = k
+		kosakata_h_flow_container.add_child(n_word)
 
 
 func _can_drop_data(_position, _data_word):

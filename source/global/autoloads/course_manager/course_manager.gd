@@ -57,11 +57,7 @@ func client_set_up_course_ui():
 		ConnectFlags.CONNECT_ONE_SHOT
 	)
 	
-	client_course_ui.update_ui_pertanyaan_baru(
-		client_cur_question_count,
-		client_total_question,
-		client_cur_question
-	)
+	client_course_ui.update_ui_pertanyaan_baru()
 
 
 func client_cek_jawaban(_jawaban: String) -> bool:

@@ -2,6 +2,7 @@ class_name PanelJawaban
 extends PanelContainer
 
 
+signal ada_jawaban(_jawaban_full_text: String)
 signal something_grabbed(_word: GrabableWord)
 
 @onready var panel_jawaban_h_flow_container: HFlowContainer = %PanelJawabanHFlowContainer
@@ -42,6 +43,12 @@ func _can_drop_data(_position, _data_word):
 func _drop_data(_at_position: Vector2, _data_word: Variant) -> void:
 	if not _data_word is GrabableWord: return
 	_data_word.reparent(panel_jawaban_h_flow_container)
+	
+	var _full_text := ""
+	for _jwb in panel_jawaban_h_flow_container.get_children():
+		if _jwb is GrabableWord:
+			_full_text += _jwb.word + " "
+	ada_jawaban.emit(_full_text)
 
 
 func _panel_jawaban_h_flow_container_child_order_changed():
