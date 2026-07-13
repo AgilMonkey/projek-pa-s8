@@ -20,6 +20,7 @@ func _ready() -> void:
 func set_up_kosakata(_all_kosakata: Array[String]):
 	clean_up_kosakata()
 	panel_kosakata.set_up_kosakata(_all_kosakata)
+	jawab_button.disabled = true
 
 
 func clean_up_kosakata():
