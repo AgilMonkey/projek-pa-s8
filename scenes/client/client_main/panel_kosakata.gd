@@ -9,12 +9,6 @@ const GRABABLE_WORD = preload("uid://bcrdknddarcc7")
 @onready var kosakata_h_flow_container: HFlowContainer = %KosakataHFlowContainer
 
 
-func _ready() -> void:
-	for n in kosakata_h_flow_container.get_children():
-		if n is GrabableWord:
-			n.grabbed.connect(_this_word_grabbed)
-
-
 func _this_word_grabbed(_word: GrabableWord):
 	something_grabbed.emit(_word)
 
@@ -36,6 +30,14 @@ func set_up_kosakata(_all_kosakata: Array[String]):
 		var n_word: GrabableWord = GRABABLE_WORD.instantiate()
 		n_word.word = k
 		kosakata_h_flow_container.add_child(n_word)
+	
+	_all_kosakata_ready()
+
+
+func _all_kosakata_ready():
+	for n in kosakata_h_flow_container.get_children():
+		if n is GrabableWord:
+			n.grabbed.connect(_this_word_grabbed)
 
 
 func _can_drop_data(_position, _data_word):
