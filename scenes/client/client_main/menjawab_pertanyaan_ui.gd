@@ -28,4 +28,4 @@ func _something_dropped():
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == 1 and event.is_released() and _something_is_being_grabbed:
-			_something_dropped()
+			call_deferred("_something_dropped")

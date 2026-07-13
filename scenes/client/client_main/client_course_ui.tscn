@@ -142,6 +142,11 @@ size_flags_vertical = 4
 mouse_filter = 2
 alignment = 1
 
+[node name="GrabableWord3" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI/MarginContainer/VBoxContainer/PanelJawaban/MarginContainer/PanelJawabanHFlowContainer" unique_id=1422613802 instance=ExtResource("3_yoist")]
+layout_mode = 2
+mouse_filter = 2
+word = "Benci"
+
 [node name="PanelKosakata" type="PanelContainer" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI/MarginContainer/VBoxContainer" unique_id=1804287606]
 unique_name_in_owner = true
 layout_mode = 2
@@ -162,17 +167,13 @@ size_flags_vertical = 4
 alignment = 1
 last_wrap_alignment = 2
 
-[node name="GrabableWord" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI/MarginContainer/VBoxContainer/PanelKosakata/MarginContainer/KosakataHFlowContainer" unique_id=1422613802 instance=ExtResource("3_yoist")]
+[node name="GrabableWord" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI/MarginContainer/VBoxContainer/PanelKosakata/MarginContainer/KosakataHFlowContainer" unique_id=1325813223 instance=ExtResource("3_yoist")]
 layout_mode = 2
 word = "Saya"
 
 [node name="GrabableWord2" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI/MarginContainer/VBoxContainer/PanelKosakata/MarginContainer/KosakataHFlowContainer" unique_id=63423364 instance=ExtResource("3_yoist")]
 layout_mode = 2
 word = "Cemburu"
-
-[node name="GrabableWord3" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI/MarginContainer/VBoxContainer/PanelKosakata/MarginContainer/KosakataHFlowContainer" unique_id=1256802991 instance=ExtResource("3_yoist")]
-layout_mode = 2
-word = "Benci"
 
 [node name="JawabButton" type="Button" parent="PanelContainer/CenterControl/MarginContainer/MenjawabPertanyaanUI/MarginContainer/VBoxContainer" unique_id=486342007]
 unique_name_in_owner = true
