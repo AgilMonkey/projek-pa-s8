@@ -144,6 +144,7 @@ text = "Keluar"
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 64
+theme_override_font_sizes/bold_font_size = 64
 text = "Nomor Pertanyaan"
 fit_content = true
 horizontal_alignment = 1
