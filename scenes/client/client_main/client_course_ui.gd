@@ -65,7 +65,7 @@ func _pertanyaan_selanjutnya():
 		
 		hasil_selesai_menjawab_label.text = "Berhasil menjawab %d/%d" %[CourseManager.client_jawaban_benar.size(), CourseManager.client_total_question]
 		selesai_menjawab_keluar_button.pressed.connect(
-			CourseManager._client_exit_this_course
+			_selesai_menjawab_keluar_button_pressed
 			, ConnectFlags.CONNECT_ONE_SHOT
 		)
 		return
@@ -77,10 +77,15 @@ func _pertanyaan_selanjutnya():
 	)
 
 
+func _selesai_menjawab_keluar_button_pressed():
+	CourseManager._client_exit_this_course()
+	selesai_menjawab_ui.hide()
+
+
 func _cek_jawaban():
 	menjawab_pertanyaan_ui.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	
-	var _text_jawaban = jawaban_line_edit.text.to_lower().strip_edges()
+	var _text_jawaban: String = menjawab_pertanyaan_ui.full_text_jawaban
 	var regex = RegEx.new()
 	regex.compile(" +")  # Remove extra space in middle of text
 	var _clean_text_jawaban := regex.sub(_text_jawaban, " ", true)

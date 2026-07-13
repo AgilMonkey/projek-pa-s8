@@ -24,6 +24,12 @@ func set_jawaban_full_text():
 	ada_jawaban.emit(jawaban_full_text)
 
 
+func cleanup():
+	for w in panel_jawaban_h_flow_container.get_children():
+		if w is GrabableWord:
+			w.queue_free()
+
+
 func _set_up_kosakata() -> void:
 	for n in panel_jawaban_h_flow_container.get_children():
 		if n is GrabableWord:

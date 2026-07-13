@@ -60,8 +60,12 @@ func client_set_up_course_ui():
 	client_course_ui.update_ui_pertanyaan_baru()
 
 
+## Harusnya bisa kirim jawaban gimanapun tetap harus sama. Bakal otomatis lower dan motong
 func client_cek_jawaban(_jawaban: String) -> bool:
-	if _jawaban == client_cur_answer.to_lower():
+	var _clean_jawaban := _jawaban.strip_edges()
+	_clean_jawaban = _clean_jawaban.to_lower()
+	
+	if _clean_jawaban == client_cur_answer.to_lower():
 		client_jawaban_benar.append(client_cur_question_count)
 		return true
 	client_jawaban_salah.append(client_cur_question_count)

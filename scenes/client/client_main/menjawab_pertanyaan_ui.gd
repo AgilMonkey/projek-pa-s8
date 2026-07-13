@@ -2,6 +2,8 @@ class_name MenjawabPertanyaanUI
 extends VBoxContainer
 
 
+var full_text_jawaban: String
+
 var _something_is_being_grabbed := false
 
 @onready var panel_jawaban: PanelJawaban = %PanelJawaban
@@ -16,7 +18,13 @@ func _ready() -> void:
 
 
 func set_up_kosakata(_all_kosakata: Array[String]):
+	clean_up_kosakata()
 	panel_kosakata.set_up_kosakata(_all_kosakata)
+
+
+func clean_up_kosakata():
+	panel_kosakata.cleanup()
+	panel_jawaban.cleanup()
 
 
 func _something_grabbed(_word: GrabableWord):
@@ -35,7 +43,8 @@ func _something_dropped():
 
 
 func _panel_jawaban_ada_jawaban(_full_text: String):
-	jawab_button.disabled = false
+	jawab_button.disabled = _full_text.is_empty()
+	full_text_jawaban = _full_text
 
 
 func _input(event: InputEvent) -> void:

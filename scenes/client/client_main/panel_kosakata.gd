@@ -34,6 +34,12 @@ func set_up_kosakata(_all_kosakata: Array[String]):
 	_all_kosakata_ready()
 
 
+func cleanup():
+	for w in kosakata_h_flow_container.get_children():
+		if w is GrabableWord:
+			w.queue_free()
+
+
 func _all_kosakata_ready():
 	for n in kosakata_h_flow_container.get_children():
 		if n is GrabableWord:

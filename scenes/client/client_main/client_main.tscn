@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://c5s5vr6y7xot" path="res://scenes/client/client_main/client_main_ui.gd" id="4_2n5iq"]
 [ext_resource type="PackedScene" uid="uid://b3yc5dkhrnxas" path="res://scenes/client/client_chat_ui/client_chat_ui.tscn" id="4_clynu"]
 [ext_resource type="Script" uid="uid://b7caej820irag" path="res://scenes/client/client_main/main_game_ui_controller.gd" id="5_u5oqm"]
-[ext_resource type="PackedScene" uid="uid://bcqxa5hqmpes3" path="res://source/common/ui/subwindow/subwindow_text/subwindow_text.tscn" id="6_2or1h"]
 [ext_resource type="Script" uid="uid://btw24x13756kt" path="res://source/common/ui/keep_in_margin_control/keep_in_margin_control.gd" id="6_fgdwa"]
 [ext_resource type="PackedScene" uid="uid://36pigpyi86rk" path="res://scenes/client/client_main/client_course_ui.tscn" id="7_0hncb"]
 
@@ -32,14 +31,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 metadata/_edit_lock_ = true
-
-[node name="SubwindowTextComponent" parent="LoginRegisterUi/SubwindowsContainer" unique_id=285145439 instance=ExtResource("6_2or1h")]
-layout_mode = 0
-offset_left = 644.0
-offset_top = 429.0
-offset_right = 1350.0
-offset_bottom = 907.0
-window_text = "TEssst"
 
 [node name="QuickLogInCheck" type="Control" parent="." unique_id=123939016]
 editor_description = "Delete this later please"
