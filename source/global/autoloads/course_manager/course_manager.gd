@@ -52,6 +52,8 @@ func client_set_up_course_ui():
 	await course_data_updated
 	if ClientManager.client_main_ui == null: return
 	var client_course_ui := ClientManager.client_main_ui.client_course_ui
+	if client_course_ui.exit_button.pressed.is_connected(_client_exit_this_course):
+		client_course_ui.exit_button.pressed.disconnect(_client_exit_this_course)
 	client_course_ui.exit_button.pressed.connect(
 		_client_exit_this_course,
 		ConnectFlags.CONNECT_ONE_SHOT
