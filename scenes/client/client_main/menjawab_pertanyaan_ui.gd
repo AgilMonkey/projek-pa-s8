@@ -4,6 +4,7 @@ extends VBoxContainer
 
 var full_text_jawaban: String
 
+var ref_kosakata_jawaban_word_node: Dictionary[GrabableWord, GrabableWord]
 var _something_is_being_grabbed := false
 var _cur_word_grabbed: GrabableWord
 
@@ -56,14 +57,20 @@ func _panel_jawaban_ada_jawaban(_full_text: String):
 
 
 func _panel_jawaban_kata_dropped(_kata: GrabableWord):
-	panel_jawaban.spawn_kata(_kata)
+	var kosakata_kata := _kata
+	var jawaban_kata := panel_jawaban.spawn_kata(_kata)
 	panel_kosakata.dissable_kata(_kata)
+	
+	ref_kosakata_jawaban_word_node[kosakata_kata] = jawaban_kata
 
 
 func _panel_kosakata_kata_dropped(_kata: GrabableWord):
-	panel_kosakata.enable_kata_ini(_kata.word)
+	var key_kosakata: GrabableWord = ref_kosakata_jawaban_word_node.find_key(_kata)
+	if key_kosakata != null:
+		_kata.free()
+		key_kosakata.dissabled = false
+		ref_kosakata_jawaban_word_node.erase(key_kosakata)
 	
-	panel_jawaban.unspawn_kata(_kata)
 	panel_jawaban.set_jawaban_full_text()
 
 

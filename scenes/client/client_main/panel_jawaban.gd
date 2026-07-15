@@ -31,12 +31,15 @@ func cleanup():
 			w.queue_free()
 
 
-func spawn_kata(_word: GrabableWord):
+func spawn_kata(_word: GrabableWord) -> GrabableWord:
+	var w_dup := _word.duplicate()
 	panel_jawaban_h_flow_container.add_child(
-		_word.duplicate()
+		w_dup
 	)
 	_set_up_kosakata()
 	set_jawaban_full_text()
+	
+	return w_dup
 
 
 func unspawn_kata(_kata: GrabableWord):
