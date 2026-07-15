@@ -58,9 +58,9 @@ func _panel_jawaban_ada_jawaban(_full_text: String):
 	full_text_jawaban = _full_text
 
 
-func _panel_jawaban_kata_dropped(_kata: GrabableWord):
+func _panel_jawaban_kata_dropped(_kata: GrabableWord, idx_move: int):
 	var kosakata_kata := _kata
-	var jawaban_kata := panel_jawaban.spawn_kata(_kata)
+	var jawaban_kata := panel_jawaban.spawn_kata(_kata, idx_move)
 	panel_kosakata.dissable_kata(_kata)
 	
 	ref_kosakata_jawaban_word_node[kosakata_kata] = jawaban_kata
