@@ -20,10 +20,6 @@ func _ready() -> void:
 	panel_jawaban.ada_jawaban.connect(_panel_jawaban_ada_jawaban)
 
 
-#func _process(_delta: float) -> void:
-	#print(_something_is_being_grabbed)
-
-
 func set_up_kosakata(_all_kosakata: Array[String]):
 	clean_up_kosakata()
 	panel_kosakata.set_up_kosakata(_all_kosakata)

@@ -40,7 +40,7 @@ func spawn_kata(_word: GrabableWord):
 
 
 func unspawn_kata(_kata: GrabableWord):
-	_kata.queue_free()
+	_kata.free()
 
 
 func disable_mouse_for_all_grab_word():
