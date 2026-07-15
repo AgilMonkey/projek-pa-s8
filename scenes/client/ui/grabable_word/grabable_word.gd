@@ -4,6 +4,7 @@ extends PanelContainer
 
 
 signal grabbed(_word_node: GrabableWord)
+signal pressed_when_dissabled
 
 const GRABABLE_WORD = preload("uid://bcrdknddarcc7")
 
@@ -20,6 +21,8 @@ const GRABABLE_WORD = preload("uid://bcrdknddarcc7")
 		panel_container.theme_type_variation = "" if !dissabled else "DissabledPanel"
 		word_label.theme_type_variation = "" if !dissabled else "DissabledRichText"
 
+var is_mouse_entered := false
+
 @onready var panel_container: PanelContainer = $PanelContainer
 @onready var word_label: RichTextLabel = %WordLabel
 
@@ -30,6 +33,14 @@ func _ready() -> void:
 	
 	mouse_entered.connect(_mouse_entered)
 	mouse_exited.connect(_mouse_exited)
+
+
+func _input(event: InputEvent) -> void:
+	if is_mouse_entered and dissabled:
+		if event is InputEventMouseButton:
+			if event.button_index == 1 and event.pressed:
+				pressed_when_dissabled.emit()
+				_view_pressed_tween()
 
 
 func _get_drag_data(_at_position: Vector2) -> Variant:
@@ -51,6 +62,7 @@ func _mouse_entered():
 	z_index = 100
 	var _tween := create_tween()
 	_tween.tween_property(panel_container, "offset_transform_scale", Vector2(1.1, 1.1), 0.1)
+	is_mouse_entered = true
 
 
 func _mouse_exited():
@@ -58,3 +70,11 @@ func _mouse_exited():
 	z_index = 0
 	var _tween := create_tween()
 	_tween.tween_property(panel_container, "offset_transform_scale", Vector2(1.0, 1.0), 0.1)
+	is_mouse_entered = false
+
+
+func _view_pressed_tween():
+	var old_scale := panel_container.offset_transform_scale
+	var _tween := create_tween()
+	_tween.tween_property(panel_container, "offset_transform_scale", old_scale * 0.95, 0.05)
+	_tween.tween_property(panel_container, "offset_transform_scale", old_scale, 0.05)
