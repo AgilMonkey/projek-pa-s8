@@ -2,7 +2,7 @@ class_name PlayerCharacter
 extends CharacterBody2D
 
 
-const SPEED = 300.0
+const SPEED = 400.0
 
 const ZOOM_SCALE := 0.2
 const ZOOM_MAX := 3.0
