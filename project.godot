@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="Proyek Akhir S8"
-config/version="0.4"
-run/main_scene="uid://cryfnwj2cggcx"
+config/version="0.5"
+run/main_scene="uid://b4q4v6wopywa"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="agilmmo"
 config/features=PackedStringArray("4.7", "GL Compatibility")
