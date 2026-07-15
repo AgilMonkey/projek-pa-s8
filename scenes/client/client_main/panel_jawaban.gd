@@ -70,11 +70,13 @@ func _this_word_grabbed(_word: GrabableWord):
 
 
 func _can_drop_data(_position, _data_word):
+	if _data_word.get_parent() == panel_jawaban_h_flow_container: return false
 	return _data_word is GrabableWord
 
 
 func _drop_data(_at_position: Vector2, _data_word: Variant) -> void:
 	if not _data_word is GrabableWord: return
+	
 	kata_dropped.emit(_data_word)
 
 

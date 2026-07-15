@@ -16,6 +16,8 @@ var _cur_word_grabbed: GrabableWord
 func _ready() -> void:
 	panel_kosakata.something_grabbed.connect(_something_grabbed)
 	panel_kosakata.kata_dropped.connect(_panel_kosakata_kata_dropped)
+	panel_kosakata.kosakata_pressed_when_dissabled.connect(_kosakata_key_pressed)
+	
 	panel_jawaban.something_grabbed.connect(_something_grabbed)
 	panel_jawaban.kata_dropped.connect(_panel_jawaban_kata_dropped)
 	panel_jawaban.ada_jawaban.connect(_panel_jawaban_ada_jawaban)
@@ -72,6 +74,34 @@ func _panel_kosakata_kata_dropped(_kata: GrabableWord):
 		ref_kosakata_jawaban_word_node.erase(key_kosakata)
 	
 	panel_jawaban.set_jawaban_full_text()
+
+
+func _kosakata_key_pressed(_kosakata: GrabableWord):
+	if _kosakata.being_returned: return
+	
+	if ref_kosakata_jawaban_word_node.has(_kosakata):
+		var _jawaban_k := ref_kosakata_jawaban_word_node[_kosakata]
+		_kosakata.being_returned = true
+		await _animation_jawaban_ke_kosakata(_kosakata, _jawaban_k)
+		_kosakata.being_returned = false
+		_kosakata.dissabled = false
+		_jawaban_k.free()
+		ref_kosakata_jawaban_word_node.erase(_kosakata)
+	
+	panel_jawaban.set_jawaban_full_text()
+
+
+func _animation_jawaban_ke_kosakata(_kosakata: GrabableWord, _jawaban: GrabableWord):
+	var tween := create_tween()
+	_jawaban.z_index += 20
+	_jawaban.offset_transform_enabled = true
+	
+	var _to_kosakata_offset = _kosakata.global_position - _jawaban.global_position
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(_jawaban, "offset_transform_position", _to_kosakata_offset, 0.2).set_trans(Tween.TRANS_CUBIC)
+	
+	
+	await tween.finished
 
 
 func _input(event: InputEvent) -> void:

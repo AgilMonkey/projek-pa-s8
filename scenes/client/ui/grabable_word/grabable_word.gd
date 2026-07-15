@@ -22,6 +22,7 @@ const GRABABLE_WORD = preload("uid://bcrdknddarcc7")
 		word_label.theme_type_variation = "" if !dissabled else "DissabledRichText"
 
 var is_mouse_entered := false
+var being_returned := false
 
 @onready var panel_container: PanelContainer = $PanelContainer
 @onready var word_label: RichTextLabel = %WordLabel
