@@ -157,3 +157,5 @@ RichTextLabel/fonts/normal_font = ExtResource("1_ols5k")
 RichTextLabel/icons/horizontal_rule = SubResource("ImageTexture_0ahyh")
 RichTextLabel/styles/focus = SubResource("StyleBoxFlat_83bj2")
 RichTextLabel/styles/normal = SubResource("StyleBoxEmpty_bjb6u")
+TextEdit/font_sizes/font_size = 20
+TextEdit/fonts/font = ExtResource("1_ols5k")
