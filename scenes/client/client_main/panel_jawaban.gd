@@ -83,42 +83,42 @@ func _can_drop_data(_position, _data_word):
 	if _data_word.get_parent() == panel_jawaban_h_flow_container: 
 		_can_drop_data_same_word(_position, _data_word)
 		return true
+	
 	if not _data_word is GrabableWord: return false
-	if cur_dummy_k != null:
-		var _move_dum_idx := -1
-		for c: Control in panel_jawaban_h_flow_container.get_children():
-			if get_global_mouse_position().x < c.global_position.x:
-				_move_dum_idx = c.get_index()
-				break
-		panel_jawaban_h_flow_container.move_child(cur_dummy_k, _move_dum_idx)
 	
 	if _data_word is GrabableWord and cur_dummy_k == null:
 		cur_dummy_k = DUMMY_GRABABLE_WORD.instantiate()
 		cur_dummy_k.word = _data_word.word
 		panel_jawaban_h_flow_container.add_child(cur_dummy_k)
-		var _move_dum_idx := -1
-		for c: Control in panel_jawaban_h_flow_container.get_children():
-			if get_global_mouse_position().x < c.global_position.x:
-				_move_dum_idx = c.get_index()
-				break
-		panel_jawaban_h_flow_container.move_child(cur_dummy_k, _move_dum_idx)
+	
+	_move_dummy_word_according_to_mouse(_data_word)
+	
 	return true
 
 
-func _can_drop_data_same_word(_pos: Vector2, _jwb_kata: GrabableWord) -> void:
-	if cur_dummy_k == null:
-		cur_dummy_k = DUMMY_GRABABLE_WORD.instantiate()
-		cur_dummy_k.word = _jwb_kata.word
-		panel_jawaban_h_flow_container.add_child(cur_dummy_k)
-	
-	_jwb_kata.hide()
+func _move_dummy_word_according_to_mouse(_cur_word_holded: GrabableWord):
+	if cur_dummy_k == null: return
 	
 	var _move_dum_idx := -1
 	for c: Control in panel_jawaban_h_flow_container.get_children():
 		if get_global_mouse_position().x < c.global_position.x:
 			_move_dum_idx = c.get_index()
+			if c == _cur_word_holded:
+				_move_dum_idx = -1
 			break
+	
 	panel_jawaban_h_flow_container.move_child(cur_dummy_k, _move_dum_idx)
+
+
+func _can_drop_data_same_word(_pos: Vector2, _jwb_kata: GrabableWord) -> void:
+	_jwb_kata.hide()
+	
+	if cur_dummy_k == null:
+		cur_dummy_k = DUMMY_GRABABLE_WORD.instantiate()
+		cur_dummy_k.word = _jwb_kata.word
+		panel_jawaban_h_flow_container.add_child(cur_dummy_k)
+	
+	_move_dummy_word_according_to_mouse(_jwb_kata)
 
 
 func _drop_data(_at_position: Vector2, _data_word: Variant) -> void:
@@ -126,6 +126,7 @@ func _drop_data(_at_position: Vector2, _data_word: Variant) -> void:
 	
 	if cur_dummy_k != null: cur_dummy_k.free()
 	
+	# Weird fuck up dummy shit. Can't refactor it so w/e
 	if _data_word.get_parent() == panel_jawaban_h_flow_container:
 		var _same_parent_move_idx := -1
 		for c: Control in panel_jawaban_h_flow_container.get_children():

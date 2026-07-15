@@ -1,6 +1,9 @@
 extends Node
 
 
+const TEST_COURSE = preload("uid://r2vs61tfm4f4")
+
+
 func _ready() -> void:
 	if OS.has_feature("server"):
 		_start_server()
@@ -39,7 +42,7 @@ func _when_connected_to_server():
 	UserManager.login_user.rpc_id(1, "test1", "test1")
 	await UserManager.client_logged_in
 	
-	var course := preload("uid://bftacsjn6ivgg")
+	var course := TEST_COURSE
 	CourseManager.client_enter_course(Vector2.ZERO, course)
 	await CourseManager.course_data_ready
 	
