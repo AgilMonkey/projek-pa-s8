@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://cl22ov2287fb2"]
+
+[ext_resource type="Theme" uid="uid://d3emyrayaw1ld" path="res://resources/main_theme.tres" id="1_o2bei"]
+[ext_resource type="Script" uid="uid://b0hludr7fwra3" path="res://scenes/client/ui/dummy_grabable_word/dummy_grabable_word.gd" id="2_ydmnc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1d45a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ydmnc"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.19950742, 0.19950739, 0.19950739, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="DummyGrabableWord" type="PanelContainer" unique_id=1422613802]
+custom_minimum_size = Vector2(10, 10)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.5
+offset_top = -27.0
+offset_right = 50.5
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+theme = ExtResource("1_o2bei")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_1d45a")
+script = ExtResource("2_ydmnc")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=141519614]
+layout_mode = 2
+offset_transform_enabled = true
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_ydmnc")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1391307193]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="WordLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer" unique_id=595515183]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+theme_override_colors/default_color = Color(0.4209219, 0.42092186, 0.42092186, 1)
+text = "Testing"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0

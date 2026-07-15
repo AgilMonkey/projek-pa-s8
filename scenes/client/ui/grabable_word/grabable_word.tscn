@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://bcrdknddarcc7"]
 
-[ext_resource type="Theme" uid="uid://d3emyrayaw1ld" path="res://resources/main_theme.tres" id="1_s8n1u"]
-[ext_resource type="Script" uid="uid://dk3d2n5yy8vk3" path="res://scenes/client/ui/grabable_word.gd" id="2_m8ga0"]
+[ext_resource type="Theme" uid="uid://d3emyrayaw1ld" path="res://resources/main_theme.tres" id="1_hr08s"]
+[ext_resource type="Script" uid="uid://dk3d2n5yy8vk3" path="res://scenes/client/ui/grabable_word/grabable_word.gd" id="2_s01cj"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m8ga0"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hr08s"]
 
 [node name="GrabableWord" type="PanelContainer" unique_id=1422613802]
 custom_minimum_size = Vector2(10, 10)
@@ -12,16 +12,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -104.0
+offset_left = -50.5
 offset_top = -27.0
-offset_right = 104.0
+offset_right = 50.5
 offset_bottom = 27.0
 grow_horizontal = 2
 grow_vertical = 2
 offset_transform_enabled = true
-theme = ExtResource("1_s8n1u")
-theme_override_styles/panel = SubResource("StyleBoxEmpty_m8ga0")
-script = ExtResource("2_m8ga0")
+theme = ExtResource("1_hr08s")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_hr08s")
+script = ExtResource("2_s01cj")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=141519614]
 layout_mode = 2
@@ -39,7 +39,7 @@ theme_override_constants/margin_bottom = 10
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 1
-text = "WordWordWord"
+text = "Testing"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0

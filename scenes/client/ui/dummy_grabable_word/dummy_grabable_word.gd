@@ -1,0 +1,37 @@
+@tool
+class_name DummyGrabableWord
+extends PanelContainer
+
+
+const GRABABLE_WORD = preload("uid://bcrdknddarcc7")
+
+@export var word := "Testing":
+	set(val):
+		word = val
+		if word_label == null: return
+		word_label.text = word
+
+@onready var panel_container: PanelContainer = $PanelContainer
+@onready var word_label: RichTextLabel = %WordLabel
+
+
+func _ready() -> void:
+	word_label.text = word
+	if Engine.is_editor_hint(): return
+	
+	mouse_entered.connect(_mouse_entered)
+	mouse_exited.connect(_mouse_exited)
+
+
+func _mouse_entered():
+	if Engine.is_editor_hint(): return
+	z_index = 100
+	var _tween := create_tween()
+	_tween.tween_property(panel_container, "offset_transform_scale", Vector2(1.1, 1.1), 0.1)
+
+
+func _mouse_exited():
+	if Engine.is_editor_hint(): return
+	z_index = 0
+	var _tween := create_tween()
+	_tween.tween_property(panel_container, "offset_transform_scale", Vector2(1.0, 1.0), 0.1)
