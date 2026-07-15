@@ -64,7 +64,7 @@ func _ready() -> void:
 			$LoginRegisterUi.queue_free()
 			
 			# Enter world
-			WorldManager.ask_server_for_world_change(Worlds.TEST_WORLD)
+			WorldManager.ask_server_for_world_change(Worlds.OVERWORLD)
 			%ClientMainUI.show()
 	)
 
