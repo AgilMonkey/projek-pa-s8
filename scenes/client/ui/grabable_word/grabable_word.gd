@@ -13,6 +13,13 @@ const GRABABLE_WORD = preload("uid://bcrdknddarcc7")
 		if word_label == null: return
 		word_label.text = word
 
+@export var dissabled := false:
+	set(val):
+		dissabled = val
+		if panel_container == null or word_label == null: return
+		panel_container.theme_type_variation = "" if !dissabled else "DissabledPanel"
+		word_label.theme_type_variation = "" if !dissabled else "DissabledRichText"
+
 @onready var panel_container: PanelContainer = $PanelContainer
 @onready var word_label: RichTextLabel = %WordLabel
 
@@ -26,6 +33,8 @@ func _ready() -> void:
 
 
 func _get_drag_data(_at_position: Vector2) -> Variant:
+	if dissabled: return
+	
 	var new_grab_word: GrabableWord = self.duplicate()
 	new_grab_word.size = Vector2(0, 0)
 	new_grab_word.offset_transform_enabled = true

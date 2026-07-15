@@ -39,6 +39,18 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x127s"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.17, 0.17, 0.17, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_83bj2"]
 content_margin_left = 4.0
 content_margin_top = 4.0
@@ -98,6 +110,10 @@ Button/fonts/font = ExtResource("1_ols5k")
 Button/styles/disabled = SubResource("StyleBoxFlat_vnc4k")
 Button/styles/normal = SubResource("StyleBoxFlat_ols5k")
 Button/styles/pressed = SubResource("StyleBoxFlat_biaja")
+DissabledPanel/base_type = &"PanelContainer"
+DissabledPanel/styles/panel = SubResource("StyleBoxFlat_x127s")
+DissabledRichText/base_type = &"RichTextLabel"
+DissabledRichText/colors/default_color = Color(0.7, 0.7, 0.7, 1)
 Label/colors/font_color = Color(1, 1, 1, 1)
 Label/colors/font_outline_color = Color(0, 0, 0, 1)
 Label/colors/font_shadow_color = Color(0, 0, 0, 0)

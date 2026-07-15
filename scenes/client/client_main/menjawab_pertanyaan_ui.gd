@@ -14,9 +14,14 @@ var _cur_word_grabbed: GrabableWord
 
 func _ready() -> void:
 	panel_kosakata.something_grabbed.connect(_something_grabbed)
+	panel_kosakata.kata_dropped.connect(_panel_kosakata_kata_dropped)
 	panel_jawaban.something_grabbed.connect(_something_grabbed)
-	panel_jawaban.ada_jawaban.connect(_panel_jawaban_ada_jawaban)
 	panel_jawaban.kata_dropped.connect(_panel_jawaban_kata_dropped)
+	panel_jawaban.ada_jawaban.connect(_panel_jawaban_ada_jawaban)
+
+
+#func _process(_delta: float) -> void:
+	#print(_something_is_being_grabbed)
 
 
 func set_up_kosakata(_all_kosakata: Array[String]):
@@ -56,7 +61,14 @@ func _panel_jawaban_ada_jawaban(_full_text: String):
 
 func _panel_jawaban_kata_dropped(_kata: GrabableWord):
 	panel_jawaban.spawn_kata(_kata)
-	panel_kosakata.ganti_kata_jadi_dummy(_kata.get_index())
+	panel_kosakata.dissable_kata(_kata)
+
+
+func _panel_kosakata_kata_dropped(_kata: GrabableWord):
+	panel_kosakata.enable_kata_ini(_kata.word)
+	
+	panel_jawaban.unspawn_kata(_kata)
+	panel_jawaban.set_jawaban_full_text()
 
 
 func _input(event: InputEvent) -> void:

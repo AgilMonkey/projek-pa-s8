@@ -2,6 +2,7 @@ class_name PanelKosakata
 extends PanelContainer
 
 
+signal kata_dropped(_kata: GrabableWord)
 signal something_grabbed(_word: GrabableWord)
 
 const GRABABLE_WORD = preload("uid://bcrdknddarcc7")
@@ -32,13 +33,26 @@ func set_up_kosakata(_all_kosakata: Array[String]):
 	_all_kosakata_ready()
 
 
-func ganti_kata_jadi_dummy(_idx_kata: int):
-	var old_kata: GrabableWord = kosakata_h_flow_container.get_child(_idx_kata)
-	var dummy_kata: DummyGrabableWord = DUMMY_GRABABLE_WORD.instantiate()
-	dummy_kata.word = old_kata.word
-	old_kata.queue_free()
-	kosakata_h_flow_container.add_child(dummy_kata)
-	kosakata_h_flow_container.move_child(dummy_kata, _idx_kata)
+### Lol
+### @deprecated
+#func ganti_kata_jadi_dummy(_idx_kata: int):
+	#var old_kata: GrabableWord = kosakata_h_flow_container.get_child(_idx_kata)
+	#var dummy_kata: DummyGrabableWord = DUMMY_GRABABLE_WORD.instantiate()
+	#dummy_kata.word = old_kata.word
+	#old_kata.queue_free()
+	#kosakata_h_flow_container.add_child(dummy_kata)
+	#kosakata_h_flow_container.move_child(dummy_kata, _idx_kata)
+
+
+func dissable_kata(_kata: GrabableWord):
+	_kata.dissabled = true
+
+
+func enable_kata_ini(_kata: String):
+	for _w in kosakata_h_flow_container.get_children():
+		if _w is GrabableWord:
+			if _w.word == _kata:
+				_w.dissabled = false
 
 
 func _spawn_tambah_kata(_text_kata: String):
@@ -62,9 +76,9 @@ func _all_kosakata_ready():
 
 
 func _can_drop_data(_position, _data_word):
-	return _data_word is GrabableWord
+	return _data_word is GrabableWord and not (_data_word.get_parent() == kosakata_h_flow_container)
 
 
 func _drop_data(_at_position: Vector2, _data_word: Variant) -> void:
 	if not _data_word is GrabableWord: return
-	_data_word.reparent(kosakata_h_flow_container)
+	kata_dropped.emit(_data_word)

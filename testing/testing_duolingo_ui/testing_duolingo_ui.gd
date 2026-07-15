@@ -15,6 +15,8 @@ func _start_server():
 	
 	print(ASCII.orin_ascii)
 	print("I love Rin Kaenbyou from Touhou <3")
+	
+	%MainControl.queue_free()
 
 
 func _start_client():

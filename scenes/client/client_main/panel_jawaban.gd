@@ -35,7 +35,12 @@ func spawn_kata(_word: GrabableWord):
 	panel_jawaban_h_flow_container.add_child(
 		_word.duplicate()
 	)
+	_set_up_kosakata()
 	set_jawaban_full_text()
+
+
+func unspawn_kata(_kata: GrabableWord):
+	_kata.queue_free()
 
 
 func disable_mouse_for_all_grab_word():
@@ -53,7 +58,8 @@ func enable_mouse_for_all_grab_word():
 func _set_up_kosakata() -> void:
 	for n in panel_jawaban_h_flow_container.get_children():
 		if n is GrabableWord:
-			n.grabbed.connect(_this_word_grabbed)
+			if !n.grabbed.is_connected(_this_word_grabbed):
+				n.grabbed.connect(_this_word_grabbed)
 
 
 func _this_word_grabbed(_word: GrabableWord):
