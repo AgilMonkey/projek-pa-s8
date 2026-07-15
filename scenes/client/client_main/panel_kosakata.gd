@@ -5,6 +5,7 @@ extends PanelContainer
 signal something_grabbed(_word: GrabableWord)
 
 const GRABABLE_WORD = preload("uid://bcrdknddarcc7")
+const DUMMY_GRABABLE_WORD = preload("uid://cl22ov2287fb2")
 
 @onready var kosakata_h_flow_container: HFlowContainer = %KosakataHFlowContainer
 
@@ -27,11 +28,23 @@ func enable_mouse_for_all_grab_word():
 
 func set_up_kosakata(_all_kosakata: Array[String]):
 	for k in _all_kosakata:
-		var n_word: GrabableWord = GRABABLE_WORD.instantiate()
-		n_word.word = k
-		kosakata_h_flow_container.add_child(n_word)
-	
+		_spawn_tambah_kata(k)
 	_all_kosakata_ready()
+
+
+func ganti_kata_jadi_dummy(_idx_kata: int):
+	var old_kata: GrabableWord = kosakata_h_flow_container.get_child(_idx_kata)
+	var dummy_kata: DummyGrabableWord = DUMMY_GRABABLE_WORD.instantiate()
+	dummy_kata.word = old_kata.word
+	old_kata.queue_free()
+	kosakata_h_flow_container.add_child(dummy_kata)
+	kosakata_h_flow_container.move_child(dummy_kata, _idx_kata)
+
+
+func _spawn_tambah_kata(_text_kata: String):
+	var n_word: GrabableWord = GRABABLE_WORD.instantiate()
+	n_word.word = _text_kata
+	kosakata_h_flow_container.add_child(n_word)
 
 
 func cleanup():

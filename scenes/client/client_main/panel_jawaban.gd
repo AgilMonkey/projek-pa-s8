@@ -2,6 +2,7 @@ class_name PanelJawaban
 extends PanelContainer
 
 
+signal kata_dropped(_kata: GrabableWord)
 signal ada_jawaban(_jawaban_full_text: String)
 signal something_grabbed(_word: GrabableWord)
 
@@ -30,14 +31,11 @@ func cleanup():
 			w.queue_free()
 
 
-func _set_up_kosakata() -> void:
-	for n in panel_jawaban_h_flow_container.get_children():
-		if n is GrabableWord:
-			n.grabbed.connect(_this_word_grabbed)
-
-
-func _this_word_grabbed(_word: GrabableWord):
-	something_grabbed.emit(_word)
+func spawn_kata(_word: GrabableWord):
+	panel_jawaban_h_flow_container.add_child(
+		_word.duplicate()
+	)
+	set_jawaban_full_text()
 
 
 func disable_mouse_for_all_grab_word():
@@ -52,14 +50,23 @@ func enable_mouse_for_all_grab_word():
 			n.mouse_filter = Control.MOUSE_FILTER_STOP
 
 
+func _set_up_kosakata() -> void:
+	for n in panel_jawaban_h_flow_container.get_children():
+		if n is GrabableWord:
+			n.grabbed.connect(_this_word_grabbed)
+
+
+func _this_word_grabbed(_word: GrabableWord):
+	something_grabbed.emit(_word)
+
+
 func _can_drop_data(_position, _data_word):
 	return _data_word is GrabableWord
 
 
 func _drop_data(_at_position: Vector2, _data_word: Variant) -> void:
 	if not _data_word is GrabableWord: return
-	_data_word.reparent(panel_jawaban_h_flow_container)
-	set_jawaban_full_text()
+	kata_dropped.emit(_data_word)
 
 
 func _panel_jawaban_h_flow_container_child_order_changed():
