@@ -27,7 +27,17 @@ func enable_mouse_for_all_grab_word():
 func set_up_kosakata(_all_kosakata: Array[String]):
 	for k in _all_kosakata:
 		_spawn_tambah_kata(k)
+	
+	scramble_children(kosakata_h_flow_container)
+	
 	_all_kosakata_ready()
+
+
+func scramble_children(container: Node) -> void:
+	var children = container.get_children()
+	children.shuffle()                    # randomize the array
+	for i in children.size():
+		container.move_child(children[i], i)   # reorder to match
 
 
 func dissable_kata(_kata: GrabableWord):
