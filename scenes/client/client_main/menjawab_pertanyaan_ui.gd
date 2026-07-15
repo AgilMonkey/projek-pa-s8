@@ -21,6 +21,7 @@ func _ready() -> void:
 	panel_jawaban.something_grabbed.connect(_something_grabbed)
 	panel_jawaban.kata_dropped.connect(_panel_jawaban_kata_dropped)
 	panel_jawaban.ada_jawaban.connect(_panel_jawaban_ada_jawaban)
+	panel_jawaban.kata_moved.connect(_panel_jawaban_kata_moved)
 
 
 func set_up_kosakata(_all_kosakata: Array[String]):
@@ -102,6 +103,10 @@ func _animation_jawaban_ke_kosakata(_kosakata: GrabableWord, _jawaban: GrabableW
 	
 	
 	await tween.finished
+
+
+func _panel_jawaban_kata_moved():
+	panel_jawaban.set_jawaban_full_text()
 
 
 func _input(event: InputEvent) -> void:

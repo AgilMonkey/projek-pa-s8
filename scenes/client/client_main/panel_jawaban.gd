@@ -7,6 +7,7 @@ const DUMMY_GRABABLE_WORD = preload("uid://cl22ov2287fb2")
 signal kata_dropped(_kata: GrabableWord, idx: int)
 signal ada_jawaban(_jawaban_full_text: String)
 signal something_grabbed(_word: GrabableWord)
+signal kata_moved
 
 var jawaban_full_text: String
 var cur_dummy_k: DummyGrabableWord
@@ -79,13 +80,16 @@ func _this_word_grabbed(_word: GrabableWord):
 
 
 func _can_drop_data(_position, _data_word):
-	if _data_word.get_parent() == panel_jawaban_h_flow_container: return false
+	if _data_word.get_parent() == panel_jawaban_h_flow_container: 
+		_can_drop_data_same_word(_position, _data_word)
+		return true
 	if not _data_word is GrabableWord: return false
 	if cur_dummy_k != null:
 		var _move_dum_idx := -1
 		for c: Control in panel_jawaban_h_flow_container.get_children():
 			if get_global_mouse_position().x < c.global_position.x:
-				_move_dum_idx = c.get_index() - 1
+				_move_dum_idx = c.get_index()
+				break
 		panel_jawaban_h_flow_container.move_child(cur_dummy_k, _move_dum_idx)
 	
 	if _data_word is GrabableWord and cur_dummy_k == null:
@@ -95,19 +99,49 @@ func _can_drop_data(_position, _data_word):
 		var _move_dum_idx := -1
 		for c: Control in panel_jawaban_h_flow_container.get_children():
 			if get_global_mouse_position().x < c.global_position.x:
-				_move_dum_idx = c.get_index() - 1
+				_move_dum_idx = c.get_index()
+				break
 		panel_jawaban_h_flow_container.move_child(cur_dummy_k, _move_dum_idx)
 	return true
 
 
+func _can_drop_data_same_word(_pos: Vector2, _jwb_kata: GrabableWord) -> void:
+	if cur_dummy_k == null:
+		cur_dummy_k = DUMMY_GRABABLE_WORD.instantiate()
+		cur_dummy_k.word = _jwb_kata.word
+		panel_jawaban_h_flow_container.add_child(cur_dummy_k)
+	
+	_jwb_kata.hide()
+	
+	var _move_dum_idx := -1
+	for c: Control in panel_jawaban_h_flow_container.get_children():
+		if get_global_mouse_position().x < c.global_position.x:
+			_move_dum_idx = c.get_index()
+			break
+	panel_jawaban_h_flow_container.move_child(cur_dummy_k, _move_dum_idx)
+
+
 func _drop_data(_at_position: Vector2, _data_word: Variant) -> void:
 	if not _data_word is GrabableWord: return
+	
+	if cur_dummy_k != null: cur_dummy_k.free()
+	
+	if _data_word.get_parent() == panel_jawaban_h_flow_container:
+		var _same_parent_move_idx := -1
+		for c: Control in panel_jawaban_h_flow_container.get_children():
+			if get_global_mouse_position().x < c.global_position.x:
+				_same_parent_move_idx = c.get_index()
+				break
+		panel_jawaban_h_flow_container.move_child(_data_word, _same_parent_move_idx)
+		_data_word.show()
+		kata_moved.emit()
+		return
+	
 	var _move_idx := -1
 	for c: Control in panel_jawaban_h_flow_container.get_children():
 		if get_global_mouse_position().x < c.global_position.x:
-			_move_idx = c.get_index() - 1
-	
-	if cur_dummy_k != null: cur_dummy_k.free()
+			_move_idx = c.get_index()
+			break
 	
 	kata_dropped.emit(_data_word, _move_idx)
 
