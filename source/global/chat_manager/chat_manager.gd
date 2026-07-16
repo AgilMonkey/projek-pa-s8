@@ -1,6 +1,8 @@
 extends Node
 
 
+const CHAT_LOG_LIMIT := 100
+
 signal on_new_msg_by_who(peer_who: int, msg: String)
 signal on_new_msg
 signal client_is_chatting(is_chatting: bool)
@@ -15,6 +17,10 @@ func send_msg_to_server(username: String, msg: String):
 		"username": username,
 		"msg": msg
 	}
+	
+	# Check if it hit limit first. Remove last message if yes
+	if all_chat_logs.size() > CHAT_LOG_LIMIT: all_chat_logs.pop_front()
+	
 	all_chat_logs.append(new_msg)
 	
 	sync_chat_logs_to_all_client.rpc(all_chat_logs)
