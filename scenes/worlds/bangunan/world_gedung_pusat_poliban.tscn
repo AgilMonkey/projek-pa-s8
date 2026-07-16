@@ -3,11 +3,18 @@
 [ext_resource type="Script" uid="uid://d02x282ski4xy" path="res://source/client/entity_spawner.gd" id="1_717on"]
 [ext_resource type="TileSet" uid="uid://cw6avr84bxu2k" path="res://scenes/worlds/bangunan/tileset_dalam_ruangan.tres" id="1_upcti"]
 [ext_resource type="Script" uid="uid://dnkcn3q68mb8m" path="res://scenes/worlds/overworld/to_world.gd" id="3_vgkgi"]
+[ext_resource type="Texture2D" uid="uid://bgsafb2ggvtiw" path="res://assets/Modern tiles_Free/Interiors_free/48x48/Interiors_free_48x48.png" id="4_ec1k3"]
+[ext_resource type="AudioStream" uid="uid://urf6ci4yjksc" path="res://assets/sounds/brainrot.mp3" id="5_tjyog"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4bxbx"]
 radius = 80.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_lwvjh"]
+atlas = ExtResource("4_ec1k3")
+region = Rect2(720, 2752, 48, 80)
+
 [node name="WorldGedungPusatPoliban" type="Node2D" unique_id=1585138358]
+y_sort_enabled = true
 
 [node name="Background" type="TileMapLayer" parent="." unique_id=119339804]
 y_sort_enabled = true
@@ -52,3 +59,19 @@ teleport_position = Vector2(96, -540)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ToWorldGedung" unique_id=2135329010]
 shape = SubResource("CircleShape2D_4bxbx")
+
+[node name="Radio" type="Node2D" parent="." unique_id=355538942]
+position = Vector2(830, -1195)
+
+[node name="Sprite2D" type="Sprite2D" parent="Radio" unique_id=1011313085]
+texture_filter = 1
+position = Vector2(0, -44)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_lwvjh")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Radio" unique_id=1255550907]
+stream = ExtResource("5_tjyog")
+volume_db = -12.0
+autoplay = true
+max_distance = 1500.0
+attenuation = 0.5

@@ -68,6 +68,7 @@ script = ExtResource("3_tmeal")
 unique_name_in_owner = true
 
 [node name="SpeechSpawner" type="Node2D" parent="." unique_id=160158333]
+z_index = 50
 position = Vector2(-72, -104)
 script = ExtResource("5_0xf2k")
 

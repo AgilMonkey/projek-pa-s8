@@ -8,16 +8,16 @@ const SUBWINDOW_TEXT = preload("uid://bcqxa5hqmpes3")
 @onready var subwindows_container: Control = %SubwindowsContainer
 
 
-func _input(event: InputEvent) -> void:
-	if not UserManager.client_is_logged_in: return
-	
-	var rand_pos = Vector2(randf_range(-100.0, 100.0), randf_range(-100.0, 100.0))
-	if AgilHelper.key_just_pressed(event, KEY_1):
-		WorldManager.ask_server_for_world_change(Worlds.TEST_WORLD, rand_pos)
-	elif AgilHelper.key_just_pressed(event, KEY_2):
-		WorldManager.ask_server_for_world_change(Worlds.TEST_WORLD_2, rand_pos)
-	elif AgilHelper.key_just_pressed(event, KEY_3):
-		WorldManager.ask_server_for_world_change(Worlds.TEST_WORLD_3, rand_pos)
+#func _input(event: InputEvent) -> void:
+	#if not UserManager.client_is_logged_in: return
+	#
+	#var rand_pos = Vector2(randf_range(-100.0, 100.0), randf_range(-100.0, 100.0))
+	#if AgilHelper.key_just_pressed(event, KEY_1):
+		#WorldManager.ask_server_for_world_change(Worlds.TEST_WORLD, rand_pos)
+	#elif AgilHelper.key_just_pressed(event, KEY_2):
+		#WorldManager.ask_server_for_world_change(Worlds.TEST_WORLD_2, rand_pos)
+	#elif AgilHelper.key_just_pressed(event, KEY_3):
+		#WorldManager.ask_server_for_world_change(Worlds.TEST_WORLD_3, rand_pos)
 
 
 func _ready() -> void:
