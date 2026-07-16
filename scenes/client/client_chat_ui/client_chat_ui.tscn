@@ -34,8 +34,9 @@ layout_mode = 2
 [node name="ChatButton" type="Button" parent="MainPanelContainer/MarginContainer/VBoxContainer" unique_id=1536659710]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 0
 focus_mode = 0
-text = "Buka Chat"
+text = "Tutup Chat"
 
 [node name="TextChatContainerPanel" type="PanelContainer" parent="MainPanelContainer/MarginContainer/VBoxContainer" unique_id=1834232720]
 unique_name_in_owner = true

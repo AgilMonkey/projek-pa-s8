@@ -15,6 +15,18 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u427p"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.05, 0.05, 0.05, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ols5k"]
 content_margin_left = 10.0
 content_margin_top = 10.0
@@ -108,6 +120,7 @@ content_margin_bottom = 0.0
 Button/font_sizes/font_size = 24
 Button/fonts/font = ExtResource("1_ols5k")
 Button/styles/disabled = SubResource("StyleBoxFlat_vnc4k")
+Button/styles/hover = SubResource("StyleBoxFlat_u427p")
 Button/styles/normal = SubResource("StyleBoxFlat_ols5k")
 Button/styles/pressed = SubResource("StyleBoxFlat_biaja")
 DissabledPanel/base_type = &"PanelContainer"
