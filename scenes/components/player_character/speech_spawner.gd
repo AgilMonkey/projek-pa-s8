@@ -21,3 +21,8 @@ func _spawn_speech_bubble(_msg: String):
 	bubble.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
 	bubble.speech_text = _msg
 	bubble_container.add_child(bubble)
+	_bubble_anim(bubble)
+
+
+func _bubble_anim(_bubble: SpeechBubble):
+	pass

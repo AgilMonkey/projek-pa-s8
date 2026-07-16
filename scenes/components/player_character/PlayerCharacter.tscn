@@ -11,9 +11,10 @@ height = 64.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_mxtm6"]
 font = ExtResource("3_0xf2k")
-font_size = 12
-outline_size = 2
+font_size = 18
+outline_size = 8
 outline_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(10, 10)
 
 [node name="PlayerCharacter" type="CharacterBody2D" unique_id=319763581]
 physics_interpolation_mode = 1
@@ -41,10 +42,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -60.0
+offset_left = -65.5
 offset_top = -104.0
-offset_right = 60.0
-offset_bottom = -81.0
+offset_right = 65.5
+offset_bottom = -78.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Username here"
