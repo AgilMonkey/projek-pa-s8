@@ -5,7 +5,7 @@ const ZOOM_SCALE := 0.2
 const ZOOM_MAX := 3.0
 const ZOOM_MIN := 0.5
 
-@export var SPEED = 300.0
+@export var SPEED = 850.0
 
 var my_username: String
 var this_peer_id: int

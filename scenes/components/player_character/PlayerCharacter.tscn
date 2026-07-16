@@ -2,10 +2,18 @@
 
 [ext_resource type="Script" uid="uid://djb14vxghsl4r" path="res://scenes/components/player_character/player_character.gd" id="1_1ef8v"]
 [ext_resource type="Texture2D" uid="uid://mjna7o0lauja" path="res://assets/Eris Esra's Character Template 4.1/16x16/16x16 Idle-Sheet.png" id="2_1ef8v"]
+[ext_resource type="FontFile" uid="uid://dibrka2rlgi7b" path="res://assets/Noto_Sans/static/NotoSans-Regular.ttf" id="3_0xf2k"]
 [ext_resource type="Script" uid="uid://b2f2dwamixpkt" path="res://scenes/components/player_character/player_entity_syncer.gd" id="3_tmeal"]
+[ext_resource type="Script" uid="uid://cguc07s3nadpu" path="res://scenes/components/player_character/speech_spawner.gd" id="5_0xf2k"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tmeal"]
 height = 64.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_mxtm6"]
+font = ExtResource("3_0xf2k")
+font_size = 12
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
 
 [node name="PlayerCharacter" type="CharacterBody2D" unique_id=319763581]
 physics_interpolation_mode = 1
@@ -34,12 +42,13 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -60.0
-offset_top = -144.0
+offset_top = -104.0
 offset_right = 60.0
-offset_bottom = -121.0
+offset_bottom = -81.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Username here"
+label_settings = SubResource("LabelSettings_mxtm6")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -56,3 +65,17 @@ script = ExtResource("3_tmeal")
 
 [node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=1274042015]
 unique_name_in_owner = true
+
+[node name="SpeechSpawner" type="Node2D" parent="." unique_id=160158333]
+position = Vector2(-72, -104)
+script = ExtResource("5_0xf2k")
+
+[node name="BubbleContainer" type="VBoxContainer" parent="SpeechSpawner" unique_id=1948088990]
+unique_name_in_owner = true
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -384.0
+offset_right = 300.0
+grow_vertical = 0
+alignment = 2
