@@ -59,13 +59,13 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 
-[node name="ChatTextEdit" type="TextEdit" parent="MainPanelContainer/MarginContainer/VBoxContainer/ChatButtonsContainer" unique_id=1465775981]
+[node name="ChatTextEdit" type="LineEdit" parent="MainPanelContainer/MarginContainer/VBoxContainer/ChatButtonsContainer" unique_id=968620833]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 1
 placeholder_text = "Tulis Teks..."
-scroll_fit_content_height = true
+max_length = 128
 
 [node name="SendButton" type="Button" parent="MainPanelContainer/MarginContainer/VBoxContainer/ChatButtonsContainer" unique_id=532299192]
 unique_name_in_owner = true
