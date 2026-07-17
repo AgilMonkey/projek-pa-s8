@@ -84,4 +84,5 @@ stream = ExtResource("5_tjyog")
 volume_db = -12.0
 autoplay = true
 max_distance = 1500.0
-attenuation = 0.5
+attenuation = 2.0
+parameters/looping = true

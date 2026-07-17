@@ -1,10 +1,21 @@
 [gd_scene format=3 uid="uid://cvk2k0es7858p"]
 
-[ext_resource type="PackedScene" uid="uid://bew5y6nvpfvq7" path="res://scenes/components/world_interact_button/world_interact_button.tscn" id="1_bx1u8"]
-[ext_resource type="Texture2D" uid="uid://bo70f5f435k7d" path="res://scenes/components/world_interact_button/button_icons/DoorEnter.png" id="2_i4go6"]
+[ext_resource type="Script" uid="uid://bjmntno005w8p" path="res://scenes/client/client_main/dummy_control.gd" id="1_bx1u8"]
+[ext_resource type="PackedScene" uid="uid://b3yc5dkhrnxas" path="res://scenes/client/client_chat_ui/client_chat_ui.tscn" id="2_i4go6"]
 
 [node name="TestWhatever" type="Node2D" unique_id=1562538100]
 
-[node name="WorldInteractButton" parent="." unique_id=1430699556 instance=ExtResource("1_bx1u8")]
-position = Vector2(640, 312)
-button_icon = ExtResource("2_i4go6")
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1314493445]
+
+[node name="DummyControl" type="Control" parent="CanvasLayer" unique_id=2098540663]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+mouse_filter = 1
+script = ExtResource("1_bx1u8")
+
+[node name="ClientChatUi" parent="CanvasLayer" unique_id=504970275 instance=ExtResource("2_i4go6")]

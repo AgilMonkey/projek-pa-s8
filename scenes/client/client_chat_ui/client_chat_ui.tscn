@@ -12,6 +12,7 @@ content_margin_bottom = 5.0
 [node name="ClientChatUi" type="Control" unique_id=504970275]
 layout_mode = 3
 anchors_preset = 0
+mouse_filter = 1
 theme = ExtResource("1_mi76o")
 script = ExtResource("1_w55p3")
 

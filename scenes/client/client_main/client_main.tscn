@@ -8,6 +8,8 @@
 [ext_resource type="Theme" uid="uid://d3emyrayaw1ld" path="res://resources/main_theme.tres" id="5_2or1h"]
 [ext_resource type="Script" uid="uid://b7caej820irag" path="res://scenes/client/client_main/main_game_ui_controller.gd" id="5_u5oqm"]
 [ext_resource type="Script" uid="uid://btw24x13756kt" path="res://source/common/ui/keep_in_margin_control/keep_in_margin_control.gd" id="6_fgdwa"]
+[ext_resource type="Script" uid="uid://bsscg4nrx3oej" path="res://scenes/client/client_main/main_game_ui.gd" id="6_n84bf"]
+[ext_resource type="Script" uid="uid://bjmntno005w8p" path="res://scenes/client/client_main/dummy_control.gd" id="6_r6vff"]
 [ext_resource type="PackedScene" uid="uid://36pigpyi86rk" path="res://scenes/client/client_main/client_course_ui.tscn" id="7_0hncb"]
 
 [node name="ClientMain" type="Node" unique_id=481541541]
@@ -73,11 +75,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
+mouse_filter = 1
 theme = ExtResource("5_2or1h")
+script = ExtResource("6_n84bf")
 metadata/_edit_lock_ = true
 
 [node name="DummyControl" type="Control" parent="ClientMainUI/MainGameUI" unique_id=308078834]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -86,6 +90,7 @@ grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 2
 mouse_filter = 2
+script = ExtResource("6_r6vff")
 metadata/_edit_lock_ = true
 
 [node name="MainGameWindowSpawner" type="Control" parent="ClientMainUI/MainGameUI" unique_id=24927441]
@@ -106,7 +111,6 @@ metadata/_edit_lock_ = true
 
 [node name="ClientChatUi" parent="ClientMainUI/MainGameUI" unique_id=504970275 instance=ExtResource("4_clynu")]
 layout_mode = 0
-mouse_filter = 2
 
 [node name="MainGameUIController" type="Node" parent="ClientMainUI/MainGameUI" unique_id=1546533748]
 script = ExtResource("5_u5oqm")
