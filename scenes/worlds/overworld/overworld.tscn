@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://bygadpndjkkiw" path="res://assets/Pixel Art Top Down - Basic v1.2.3/Texture/TX Tileset Wall_with_top.png" id="6_nkjkt"]
 [ext_resource type="Script" uid="uid://bppfyxbfqh5pl" path="res://scenes/worlds/overworld/quick_label_namer.gd" id="7_w5sf5"]
 [ext_resource type="Script" uid="uid://dnkcn3q68mb8m" path="res://scenes/worlds/overworld/to_world.gd" id="12_nkjkt"]
+[ext_resource type="PackedScene" uid="uid://bew5y6nvpfvq7" path="res://scenes/components/world_interact_button/world_interact_button.tscn" id="13_lacnt"]
+[ext_resource type="Texture2D" uid="uid://bo70f5f435k7d" path="res://scenes/components/world_interact_button/button_icons/DoorEnter.png" id="14_aeuvn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w5sf5"]
 resource_name = "BGNoCol"
@@ -1688,8 +1690,8 @@ font_size = 64
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_c2lbq"]
-radius = 80.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_lacnt"]
+radius = 64.49806
 
 [node name="Overworld" type="Node2D" unique_id=53678527]
 y_sort_enabled = true
@@ -1875,14 +1877,19 @@ position = Vector2(864, 1920)
 scale = Vector2(12.312312, 12.312313)
 texture = ExtResource("1_dyrh6")
 
-[node name="ToWorldGedung" type="Area2D" parent="." unique_id=331435347]
+[node name="ToWorldGedung" type="Node2D" parent="." unique_id=1709688342 node_paths=PackedStringArray("test", "world_button")]
 z_index = 100
 position = Vector2(96, -592)
-collision_layer = 3
-collision_mask = 3
 script = ExtResource("12_nkjkt")
+test = NodePath("..")
+world_button = NodePath("WorldInteractButton")
 to_world = "world_gedung_pusat_poliban"
 teleport_position = Vector2(-48, 242)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ToWorldGedung" unique_id=520507559]
-shape = SubResource("CircleShape2D_c2lbq")
+[node name="WorldInteractButton" parent="ToWorldGedung" unique_id=1750346753 instance=ExtResource("13_lacnt")]
+position = Vector2(0, -136)
+button_icon = ExtResource("14_aeuvn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ToWorldGedung/WorldInteractButton" unique_id=341450101]
+position = Vector2(0, 152)
+shape = SubResource("CircleShape2D_lacnt")

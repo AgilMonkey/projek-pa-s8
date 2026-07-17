@@ -73,6 +73,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme = ExtResource("5_2or1h")
 metadata/_edit_lock_ = true
 
@@ -84,6 +85,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 2
+mouse_filter = 2
 metadata/_edit_lock_ = true
 
 [node name="MainGameWindowSpawner" type="Control" parent="ClientMainUI/MainGameUI" unique_id=24927441]
@@ -104,6 +106,7 @@ metadata/_edit_lock_ = true
 
 [node name="ClientChatUi" parent="ClientMainUI/MainGameUI" unique_id=504970275 instance=ExtResource("4_clynu")]
 layout_mode = 0
+mouse_filter = 2
 
 [node name="MainGameUIController" type="Node" parent="ClientMainUI/MainGameUI" unique_id=1546533748]
 script = ExtResource("5_u5oqm")

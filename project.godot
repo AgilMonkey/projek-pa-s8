@@ -50,6 +50,10 @@ window/stretch/aspect="expand"
 
 enabled=PackedStringArray("res://addons/at-icons/plugin.cfg", "res://addons/godot-sqlite/plugin.cfg")
 
+[global_group]
+
+player="player client group"
+
 [input]
 
 move_left={
@@ -96,6 +100,7 @@ interact={
 
 2d_physics/layer_1="default"
 2d_physics/layer_2="player"
+2d_physics/layer_16="mouse"
 
 [physics]
 

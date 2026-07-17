@@ -16,7 +16,7 @@ outline_size = 8
 outline_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(10, 10)
 
-[node name="PlayerCharacter" type="CharacterBody2D" unique_id=319763581]
+[node name="PlayerCharacter" type="CharacterBody2D" unique_id=319763581 groups=["player"]]
 physics_interpolation_mode = 1
 collision_layer = 2
 motion_mode = 1

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cvk2k0es7858p"]
+
+[ext_resource type="PackedScene" uid="uid://bew5y6nvpfvq7" path="res://scenes/components/world_interact_button/world_interact_button.tscn" id="1_bx1u8"]
+[ext_resource type="Texture2D" uid="uid://bo70f5f435k7d" path="res://scenes/components/world_interact_button/button_icons/DoorEnter.png" id="2_i4go6"]
+
+[node name="TestWhatever" type="Node2D" unique_id=1562538100]
+
+[node name="WorldInteractButton" parent="." unique_id=1430699556 instance=ExtResource("1_bx1u8")]
+position = Vector2(640, 312)
+button_icon = ExtResource("2_i4go6")

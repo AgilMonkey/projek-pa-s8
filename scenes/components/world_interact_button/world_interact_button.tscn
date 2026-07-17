@@ -1,3 +1,45 @@
 [gd_scene format=3 uid="uid://bew5y6nvpfvq7"]
 
-[node name="WorldInteractButton" type="Node2D" unique_id=1527021489]
+[ext_resource type="Script" uid="uid://uis4h6m4nkvy" path="res://scenes/components/world_interact_button/world_interact_button.gd" id="1_5sxf6"]
+[ext_resource type="Script" uid="uid://bt7awgclreh2w" path="res://scenes/components/world_interact_button/world_button.gd" id="2_160xa"]
+[ext_resource type="Texture2D" uid="uid://8a7hssdunxhq" path="res://assets/1-bit_Pixel_Icons/Sprites/Map_Markers_Doorway_Enterance_Exit_Door.png" id="2_g2qjd"]
+[ext_resource type="Texture2D" uid="uid://qqnc338lxx8b" path="res://assets/Lucid V1.2/PNG/Flat/64/CD.png" id="3_160xa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qircb"]
+size = Vector2(64, 64)
+
+[node name="WorldInteractButton" type="Area2D" unique_id=1750346753]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_5sxf6")
+button_icon = ExtResource("2_g2qjd")
+
+[node name="WorldButton" type="Area2D" parent="." unique_id=995614061]
+visible = false
+z_index = 150
+collision_layer = 32768
+collision_mask = 32768
+script = ExtResource("2_160xa")
+
+[node name="ButtonBorder" type="Panel" parent="WorldButton" unique_id=1380180794]
+offset_left = -48.0
+offset_top = -48.0
+offset_right = 48.0
+offset_bottom = 48.0
+mouse_filter = 2
+
+[node name="Button" type="Panel" parent="WorldButton" unique_id=565496921]
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+mouse_filter = 2
+
+[node name="ButtonSprite" type="Sprite2D" parent="WorldButton" unique_id=1148993950]
+unique_name_in_owner = true
+texture_filter = 1
+texture = ExtResource("3_160xa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldButton" unique_id=1745554232]
+visible = false
+shape = SubResource("RectangleShape2D_qircb")
