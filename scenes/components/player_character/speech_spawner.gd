@@ -32,7 +32,10 @@ func _bubble_anim(_bubble: SpeechBubble):
 	var tween := create_tween()
 	_bubble.offset_transform_enabled = true
 	_bubble.modulate.a = 0.0
+	_bubble.offset_transform_pivot_ratio.y = 1.0
+	_bubble.offset_transform_scale.y = 0.0
 	tween.tween_property(_bubble, "modulate:a", 1.0, 0.2)
+	tween.parallel().tween_property(_bubble, "offset_transform_scale:y", 1.0, 0.2)
 	tween.tween_interval(5.0)
 	tween.tween_property(_bubble, "modulate:a", 0.0, 0.2)
 	tween.tween_callback(_bubble.call_deferred.bind("queue_free"))
