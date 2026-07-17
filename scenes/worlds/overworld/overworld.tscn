@@ -1877,11 +1877,10 @@ position = Vector2(864, 1920)
 scale = Vector2(12.312312, 12.312313)
 texture = ExtResource("1_dyrh6")
 
-[node name="ToWorldGedung" type="Node2D" parent="." unique_id=1709688342 node_paths=PackedStringArray("test", "world_button")]
+[node name="ToWorldGedung" type="Node2D" parent="." unique_id=1709688342 node_paths=PackedStringArray("world_button")]
 z_index = 100
 position = Vector2(96, -592)
 script = ExtResource("12_nkjkt")
-test = NodePath("..")
 world_button = NodePath("WorldInteractButton")
 to_world = "world_gedung_pusat_poliban"
 teleport_position = Vector2(-48, 242)
