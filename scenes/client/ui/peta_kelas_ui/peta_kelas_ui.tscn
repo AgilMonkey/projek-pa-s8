@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://j1slj3iq8386"]
+
+[ext_resource type="Theme" uid="uid://d3emyrayaw1ld" path="res://resources/main_theme.tres" id="1_mikj1"]
+[ext_resource type="Script" uid="uid://bud3yt13jot5v" path="res://scenes/client/ui/peta_kelas_ui/main_content_container.gd" id="2_l8jrd"]
+[ext_resource type="Texture2D" uid="uid://catvfyshhceop" path="res://source/common/ui/subwindow/assets/cross_normal.png" id="2_u0cgh"]
+[ext_resource type="PackedScene" uid="uid://blwhl1gsts3jq" path="res://scenes/client/ui/peta_kelas_ui/content_peta_kelas/content_peta_kelas_ui.tscn" id="3_hukls"]
+[ext_resource type="Texture2D" uid="uid://cf6lyygyi6d7n" path="res://source/common/ui/subwindow/assets/cross_pressed.png" id="3_l8jrd"]
+[ext_resource type="Texture2D" uid="uid://ck1fvpiq37v82" path="res://source/common/ui/subwindow/assets/cross_hover.png" id="4_hukls"]
+
+[node name="PetaKelasUi" type="Control" unique_id=1614734289]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_mikj1")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=394368927]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer" unique_id=936752888]
+layout_mode = 2
+
+[node name="MainContentContainer" type="ScrollContainer" parent="MarginContainer/PanelContainer" unique_id=1756226228]
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+script = ExtResource("2_l8jrd")
+
+[node name="ContentPetaKelasUi" parent="MarginContainer/PanelContainer/MainContentContainer" unique_id=1911434112 instance=ExtResource("3_hukls")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer" unique_id=634945593]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="MainContentControllerContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer" unique_id=170792721]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/MainContentControllerContainer" unique_id=2007221111]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/MainContentControllerContainer/PanelContainer" unique_id=377451785]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/MainContentControllerContainer/PanelContainer/MarginContainer" unique_id=218708300]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/PanelContainer/MarginContainer/MainContentControllerContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=1498860644]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/bold_font_size = 32
+bbcode_enabled = true
+text = "[b]Peta Kelas"
+fit_content = true
+vertical_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="MarginContainer/PanelContainer/MarginContainer/MainContentControllerContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=212155590]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture_normal = ExtResource("2_u0cgh")
+texture_pressed = ExtResource("3_l8jrd")
+texture_hover = ExtResource("4_hukls")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="ScrollContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/MainContentControllerContainer" unique_id=430555694]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_constants/margin_top = 50
+
+[node name="ContentScroller" type="VScrollBar" parent="MarginContainer/PanelContainer/MarginContainer/MainContentControllerContainer/ScrollContainer" unique_id=1987969284]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 3
+max_value = 20.0
+page = 1.0
