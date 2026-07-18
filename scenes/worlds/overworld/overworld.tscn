@@ -1883,7 +1883,7 @@ position = Vector2(96, -592)
 script = ExtResource("12_nkjkt")
 world_button = NodePath("WorldInteractButton")
 to_world = "world_gedung_pusat_poliban"
-teleport_position = Vector2(-48, 242)
+teleport_position = Vector2(-48, 624)
 
 [node name="WorldInteractButton" parent="ToWorldGedung" unique_id=1750346753 instance=ExtResource("13_lacnt")]
 position = Vector2(0, -136)

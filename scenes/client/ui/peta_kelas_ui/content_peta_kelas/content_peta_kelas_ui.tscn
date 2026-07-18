@@ -3,6 +3,8 @@
 [ext_resource type="Theme" uid="uid://d3emyrayaw1ld" path="res://resources/main_theme.tres" id="1_xbear"]
 [ext_resource type="PackedScene" uid="uid://c32aj0so6rmg3" path="res://scenes/client/ui/peta_kelas_ui/content_peta_kelas/line_control/line_control.tscn" id="2_0s67f"]
 [ext_resource type="Script" uid="uid://offv0lh6gvns" path="res://scenes/client/ui/peta_kelas_ui/content_peta_kelas/content_peta_kelas_ui.gd" id="2_tx5u4"]
+[ext_resource type="Script" uid="uid://c56qwepkjre8q" path="res://scenes/client/ui/peta_kelas_ui/content_peta_kelas/button_kelas.gd" id="3_0s67f"]
+[ext_resource type="PackedScene" uid="uid://c4hdtfg5ye5rt" path="res://scenes/client/ui/konsep_kelas_ui/konsep_kelas_01/konsep_kelas_01.tscn" id="4_b8q0q"]
 
 [node name="ContentPetaKelasUi" type="MarginContainer" unique_id=1911434112]
 anchors_preset = 15
@@ -28,6 +30,8 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Kelas 1"
+script = ExtResource("3_0s67f")
+konsep_kelas = ExtResource("4_b8q0q")
 
 [node name="LineControl" parent="VBoxContainer" unique_id=263172517 instance=ExtResource("2_0s67f")]
 layout_mode = 2

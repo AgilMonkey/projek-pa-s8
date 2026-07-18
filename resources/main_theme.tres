@@ -2,6 +2,8 @@
 
 [ext_resource type="FontFile" uid="uid://bcui4qisxhh61" path="res://assets/Noto_Sans/static/NotoSans-Bold.ttf" id="1_biaja"]
 [ext_resource type="FontFile" uid="uid://dibrka2rlgi7b" path="res://assets/Noto_Sans/static/NotoSans-Regular.ttf" id="1_ols5k"]
+[ext_resource type="FontFile" uid="uid://dy2eixnrbmaie" path="res://assets/Noto_Sans/static/NotoSans-BoldItalic.ttf" id="3_x127s"]
+[ext_resource type="FontFile" uid="uid://c0l2prxx5pmiy" path="res://assets/Noto_Sans/static/NotoSans-Italic.ttf" id="4_qjhx0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vnc4k"]
 content_margin_left = 10.0
@@ -53,7 +55,7 @@ content_margin_left = 10.0
 content_margin_top = 10.0
 content_margin_right = 10.0
 content_margin_bottom = 10.0
-bg_color = Color(0.1, 0.1, 0.1, 0.5882353)
+bg_color = Color(0, 0, 0, 0.39215687)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
@@ -65,7 +67,7 @@ content_margin_left = 10.0
 content_margin_top = 10.0
 content_margin_right = 10.0
 content_margin_bottom = 10.0
-bg_color = Color(0, 0, 0, 0.78431374)
+bg_color = Color(0, 0, 0, 0.98039216)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
@@ -112,7 +114,7 @@ content_margin_left = 0.0
 content_margin_top = 0.0
 content_margin_right = 0.0
 content_margin_bottom = 0.0
-bg_color = Color(0.1, 0.1, 0.1, 0.6)
+bg_color = Color(0.1, 0.1, 0.1, 0.78431374)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
@@ -161,15 +163,16 @@ Label/font_sizes/font_size = 24
 Label/fonts/font = ExtResource("1_ols5k")
 Label/styles/focus = SubResource("StyleBoxFlat_83bj2")
 Label/styles/normal = SubResource("StyleBoxEmpty_2nojw")
+Panel/styles/panel = SubResource("StyleBoxFlat_2nojw")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_2nojw")
 RichTextLabel/colors/default_color = Color(1, 1, 1, 1)
 RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
 RichTextLabel/colors/font_selected_color = Color(0, 0, 0, 0)
 RichTextLabel/colors/font_shadow_color = Color(0, 0, 0, 0)
 RichTextLabel/colors/selection_color = Color(0.1, 0.1, 1, 0.8)
-RichTextLabel/colors/table_border = Color(0, 0, 0, 0)
-RichTextLabel/colors/table_even_row_bg = Color(0, 0, 0, 0)
-RichTextLabel/colors/table_odd_row_bg = Color(0, 0, 0, 0)
+RichTextLabel/colors/table_border = Color(0, 0, 0, 1)
+RichTextLabel/colors/table_even_row_bg = Color(0, 0, 0, 0.23529412)
+RichTextLabel/colors/table_odd_row_bg = Color(0, 0, 0, 0.39215687)
 RichTextLabel/constants/line_separation = 0
 RichTextLabel/constants/outline_size = 0
 RichTextLabel/constants/paragraph_separation = 0
@@ -177,8 +180,8 @@ RichTextLabel/constants/shadow_offset_x = 1
 RichTextLabel/constants/shadow_offset_y = 1
 RichTextLabel/constants/shadow_outline_size = 1
 RichTextLabel/constants/strikethrough_alpha = 50
-RichTextLabel/constants/table_h_separation = 3
-RichTextLabel/constants/table_v_separation = 3
+RichTextLabel/constants/table_h_separation = 25
+RichTextLabel/constants/table_v_separation = 25
 RichTextLabel/constants/text_highlight_h_padding = 3
 RichTextLabel/constants/text_highlight_v_padding = 3
 RichTextLabel/constants/underline_alpha = 50
@@ -188,6 +191,9 @@ RichTextLabel/font_sizes/italics_font_size = 24
 RichTextLabel/font_sizes/mono_font_size = 24
 RichTextLabel/font_sizes/normal_font_size = 24
 RichTextLabel/fonts/bold_font = ExtResource("1_biaja")
+RichTextLabel/fonts/bold_italics_font = ExtResource("3_x127s")
+RichTextLabel/fonts/italics_font = ExtResource("4_qjhx0")
+RichTextLabel/fonts/mono_font = null
 RichTextLabel/fonts/normal_font = ExtResource("1_ols5k")
 RichTextLabel/icons/horizontal_rule = SubResource("ImageTexture_0ahyh")
 RichTextLabel/styles/focus = SubResource("StyleBoxFlat_83bj2")

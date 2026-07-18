@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://c4hdtfg5ye5rt"]
+
+[node name="KonsepKelas01" type="RichTextLabel" unique_id=1192198203]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 64
+bbcode_enabled = true
+text = "[center][b]To Be (am, is, are)[/b][/center]
+[p align=f]Kata-kata to be (am, is, are) dibaca [color=aqua][tu: bi: (em, iz, a:)][/color] disebut kata kerja bantu dan sudah mempunyai pasangan-pasangan dengan pokok kalimat: I, you, he, she, it, we, they. [/p]
+
+[p align=l]Perhatikan pasangan kata kerja bantu dengan pokok kalimat. I am [color=aqua][aiyem][/color] atau disingkat I’m [color=aqua][aim][/color] berikut:[/p]
+
+[center][table=2]
+[cell]I am jealous[/cell] [cell]Saya cemburu[/cell]
+[cell]I am sad[/cell] [cell]Saya sedih[/cell]
+[cell]I am tired[/cell] [cell]Saya lelah[/cell]
+[cell]I am busy[/cell] [cell]Saya sibuk[/cell]
+[cell]I am sleepy[/cell] [cell]Saya mengantuk[/cell]
+[/table]
+"
+fit_content = true

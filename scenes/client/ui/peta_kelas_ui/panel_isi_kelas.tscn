@@ -61,12 +61,14 @@ layout_mode = 2
 size_flags_vertical = 8
 alignment = 1
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=776261108]
+[node name="LihatKonsepButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=776261108]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Liat Konsep"
 
-[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1334180998]
+[node name="LokasiKelasButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1334180998]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Lokasi Kelas"
