@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bb37857xhpvwh"]
+
+[ext_resource type="Script" uid="uid://bybhuhutdftu5" path="res://source/common/ui/texture_button_w_panel/texture_button_with_panel.gd" id="1_jatdt"]
+
+[sub_resource type="Theme" id="Theme_1laxi"]
+
+[node name="TextureButtonWithPanel" type="PanelContainer" unique_id=238431726]
+offset_right = 128.0
+offset_bottom = 128.0
+theme = SubResource("Theme_1laxi")
+script = ExtResource("1_jatdt")

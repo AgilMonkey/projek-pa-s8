@@ -54,6 +54,10 @@ enabled=PackedStringArray("res://addons/at-icons/plugin.cfg", "res://addons/godo
 
 player="player client group"
 
+[gui]
+
+theme/custom="uid://d3emyrayaw1ld"
+
 [input]
 
 move_left={

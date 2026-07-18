@@ -5,7 +5,9 @@
 [ext_resource type="Script" uid="uid://bjmntno005w8p" path="res://scenes/client/client_main/dummy_control.gd" id="3_f5i8d"]
 [ext_resource type="Script" uid="uid://btw24x13756kt" path="res://source/common/ui/keep_in_margin_control/keep_in_margin_control.gd" id="4_nn2ny"]
 [ext_resource type="PackedScene" uid="uid://b3yc5dkhrnxas" path="res://scenes/client/client_chat_ui/client_chat_ui.tscn" id="5_dostg"]
+[ext_resource type="Texture2D" uid="uid://rthnlv4u0prr" path="res://assets/1-bit_Pixel_Icons/agil_edited/pile_of_books_64.png" id="6_f5i8d"]
 [ext_resource type="Script" uid="uid://b7caej820irag" path="res://scenes/client/client_main/main_game_ui_controller.gd" id="6_mswwr"]
+[ext_resource type="Script" uid="uid://dlus0hxumnmon" path="res://scenes/client/client_main/main_button.gd" id="6_nn2ny"]
 [ext_resource type="PackedScene" uid="uid://j1slj3iq8386" path="res://scenes/client/ui/peta_kelas_ui/peta_kelas_ui.tscn" id="7_g075w"]
 
 [node name="MainGameUI" type="Control" unique_id=985594625]
@@ -60,20 +62,40 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+script = ExtResource("6_nn2ny")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MainButton" unique_id=39049091]
-custom_minimum_size = Vector2(100, 0)
+[node name="MarginContainer" type="MarginContainer" parent="MainButton" unique_id=2072987955]
 layout_mode = 1
-anchors_preset = 11
-anchor_left = 1.0
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 0
+grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainButton/MarginContainer" unique_id=39049091]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/separation = 20
+
+[node name="PetaKelasButton" type="Button" parent="MainButton/MarginContainer/VBoxContainer" unique_id=1500444282]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+icon = ExtResource("6_f5i8d")
+icon_alignment = 1
+expand_icon = true
 
 [node name="PetaKelasUi" parent="." unique_id=1614734289 instance=ExtResource("7_g075w")]
+unique_name_in_owner = true
 visible = false
 layout_mode = 1
+tooltip_text = "Peta Kelas"
 
 [node name="MainGameUIController" type="Node" parent="." unique_id=109182868]
 script = ExtResource("6_mswwr")
