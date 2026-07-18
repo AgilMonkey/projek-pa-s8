@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://c32aj0so6rmg3"]
+
+[ext_resource type="Script" uid="uid://c0qxwhhmc4dv8" path="res://scenes/client/ui/peta_kelas_ui/content_peta_kelas/line_control/line_control.gd" id="1_00jbe"]
+[ext_resource type="Texture2D" uid="uid://cb80bbnxhtyfg" path="res://assets/line_dot_pixel_128.png" id="2_2ii4w"]
+
+[node name="LineControl" type="Control" unique_id=263172517]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 3
+anchors_preset = 0
+size_flags_vertical = 3
+script = ExtResource("1_00jbe")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=311939871]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(860, 0)
+points = PackedVector2Array(0, 0, 0, 300)
+width = 50.0
+texture = ExtResource("2_2ii4w")
+texture_mode = 1
