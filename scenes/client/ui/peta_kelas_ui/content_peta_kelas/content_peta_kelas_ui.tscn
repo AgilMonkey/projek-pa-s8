@@ -2,6 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://d3emyrayaw1ld" path="res://resources/main_theme.tres" id="1_xbear"]
 [ext_resource type="PackedScene" uid="uid://c32aj0so6rmg3" path="res://scenes/client/ui/peta_kelas_ui/content_peta_kelas/line_control/line_control.tscn" id="2_0s67f"]
+[ext_resource type="Script" uid="uid://offv0lh6gvns" path="res://scenes/client/ui/peta_kelas_ui/content_peta_kelas/content_peta_kelas_ui.gd" id="2_tx5u4"]
 
 [node name="ContentPetaKelasUi" type="MarginContainer" unique_id=1911434112]
 anchors_preset = 15
@@ -14,12 +15,14 @@ theme_override_constants/margin_left = 100
 theme_override_constants/margin_top = 300
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 300
+script = ExtResource("2_tx5u4")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1029482528]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Button" type="Button" parent="VBoxContainer" unique_id=776356594]
+[node name="ButtonKelas1" type="Button" parent="VBoxContainer" unique_id=776356594]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -29,7 +32,7 @@ text = "Kelas 1"
 [node name="LineControl" parent="VBoxContainer" unique_id=263172517 instance=ExtResource("2_0s67f")]
 layout_mode = 2
 
-[node name="Button2" type="Button" parent="VBoxContainer" unique_id=1409033737]
+[node name="ButtonKelas2" type="Button" parent="VBoxContainer" unique_id=1409033737]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -37,9 +40,10 @@ size_flags_vertical = 4
 text = "Kelas 2"
 
 [node name="LineControl2" parent="VBoxContainer" unique_id=264743792 instance=ExtResource("2_0s67f")]
+modulate = Color(1, 1, 1, 0.39215687)
 layout_mode = 2
 
-[node name="Button3" type="Button" parent="VBoxContainer" unique_id=1200956484]
+[node name="ButtonKelas3" type="Button" parent="VBoxContainer" unique_id=1200956484]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -68,3 +72,8 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 disabled = true
 text = "Kelas 3"
+
+[node name="PanelKelasContainer" type="Control" parent="." unique_id=2122863350]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2

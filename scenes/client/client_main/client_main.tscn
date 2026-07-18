@@ -4,12 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b2drpmji4eop" path="res://scenes/client/start_ui/login_ui.tscn" id="2_evv05"]
 [ext_resource type="PackedScene" uid="uid://dxhc8vpixn80b" path="res://scenes/client/start_ui/register_ui.tscn" id="3_2g1po"]
 [ext_resource type="Script" uid="uid://c5s5vr6y7xot" path="res://scenes/client/client_main/client_main_ui.gd" id="4_2n5iq"]
-[ext_resource type="PackedScene" uid="uid://b3yc5dkhrnxas" path="res://scenes/client/client_chat_ui/client_chat_ui.tscn" id="4_clynu"]
-[ext_resource type="Theme" uid="uid://d3emyrayaw1ld" path="res://resources/main_theme.tres" id="5_2or1h"]
-[ext_resource type="Script" uid="uid://b7caej820irag" path="res://scenes/client/client_main/main_game_ui_controller.gd" id="5_u5oqm"]
-[ext_resource type="Script" uid="uid://btw24x13756kt" path="res://source/common/ui/keep_in_margin_control/keep_in_margin_control.gd" id="6_fgdwa"]
-[ext_resource type="Script" uid="uid://bsscg4nrx3oej" path="res://scenes/client/client_main/main_game_ui.gd" id="6_n84bf"]
-[ext_resource type="Script" uid="uid://bjmntno005w8p" path="res://scenes/client/client_main/dummy_control.gd" id="6_r6vff"]
+[ext_resource type="PackedScene" uid="uid://b3th36dvsjr7m" path="res://scenes/client/client_main/main_game_ui.tscn" id="5_fgdwa"]
 [ext_resource type="PackedScene" uid="uid://36pigpyi86rk" path="res://scenes/client/client_main/client_course_ui.tscn" id="7_0hncb"]
 
 [node name="ClientMain" type="Node" unique_id=481541541]
@@ -67,53 +62,8 @@ unique_name_in_owner = true
 visible = false
 script = ExtResource("4_2n5iq")
 
-[node name="MainGameUI" type="Control" parent="ClientMainUI" unique_id=306301389]
+[node name="MainGameUI" parent="ClientMainUI" unique_id=985594625 instance=ExtResource("5_fgdwa")]
 unique_name_in_owner = true
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-theme = ExtResource("5_2or1h")
-script = ExtResource("6_n84bf")
-metadata/_edit_lock_ = true
-
-[node name="DummyControl" type="Control" parent="ClientMainUI/MainGameUI" unique_id=308078834]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-focus_mode = 2
-mouse_filter = 2
-script = ExtResource("6_r6vff")
-metadata/_edit_lock_ = true
-
-[node name="MainGameWindowSpawner" type="Control" parent="ClientMainUI/MainGameUI" unique_id=24927441]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-script = ExtResource("6_fgdwa")
-margin_left = 10
-margin_right = 10
-margin_up = 10
-margin_down = 10
-metadata/_custom_type_script = "uid://btw24x13756kt"
-metadata/_edit_lock_ = true
-
-[node name="ClientChatUi" parent="ClientMainUI/MainGameUI" unique_id=504970275 instance=ExtResource("4_clynu")]
-layout_mode = 0
-
-[node name="MainGameUIController" type="Node" parent="ClientMainUI/MainGameUI" unique_id=1546533748]
-script = ExtResource("5_u5oqm")
 
 [node name="ClientCourseUI" parent="ClientMainUI" unique_id=2076881983 instance=ExtResource("7_0hncb")]
 unique_name_in_owner = true

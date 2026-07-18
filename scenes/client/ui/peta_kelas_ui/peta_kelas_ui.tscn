@@ -76,7 +76,7 @@ text = "[b]Peta Kelas"
 fit_content = true
 vertical_alignment = 1
 
-[node name="TextureButton" type="TextureButton" parent="MarginContainer/PanelContainer/MarginContainer/MainContentControllerContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=212155590]
+[node name="ExitButton" type="TextureButton" parent="MarginContainer/PanelContainer/MarginContainer/MainContentControllerContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=212155590]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 8
