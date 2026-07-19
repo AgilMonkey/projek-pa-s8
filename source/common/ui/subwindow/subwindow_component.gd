@@ -11,7 +11,7 @@ signal on_closed
 @export var title_text := "Title": 
 	set(value):
 		title_text = value
-		%WindowTitle.text = title_text
+		if window_title != null: window_title.text = title_text
 
 ## WIP: Should be used to make sure a window sticks to a margin but w/e for now
 @export var margin_size := Rect2(-10000, -10000, 10000, 10000)
@@ -27,8 +27,13 @@ var drag_offset := Vector2.ZERO
 var is_dragging := false
 
 
+@onready var window_title := %WindowTitle
+
+
 func _ready() -> void:
 	if Engine.is_editor_hint(): return
+	
+	window_title.text = title_text
 	
 	%CloseButton.pressed.connect(
 		func():
@@ -175,6 +180,9 @@ func _process(_delta: float) -> void:
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_SORT_CHILDREN:
 		_set_the_child_main_content_rect()
+
+
+func _exit_tree() -> void: on_closed.emit()
 
 
 func _set_the_child_main_content_rect():

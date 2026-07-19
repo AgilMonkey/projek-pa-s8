@@ -2,8 +2,10 @@ extends Node
 
 
 signal client_logged_in(result: LogInResult, other_data: Dictionary)
+signal on_registering(resutl: RegisterResult)
 
 enum LogInResult {OK, FAILED_NO_USER_FOUND, FAILED_WRONG_PASSWORD, FAILED_ALREADY_LOGGED_IN,FAILED_UNDEFINED}
+enum RegisterResult {OK, FAILED_USER_ALREADY_EXIST}
 
 var client_cur_username := ""
 var client_is_logged_in := false
@@ -18,7 +20,13 @@ func register_user(username: String, password: String):
 		"password" : password.sha256_text(),
 	}
 	
+	var peer_caller_id = multiplayer.get_remote_sender_id()
+	if !_get_data_from_username(username).is_empty():
+		_call_client_registering.rpc_id(peer_caller_id, RegisterResult.FAILED_USER_ALREADY_EXIST)
+		return
+	
 	DatabaseManager.database.insert_row("users", insert_user_data)
+	_call_client_registering.rpc_id(peer_caller_id, RegisterResult.OK)
 
 
 @rpc("any_peer")
@@ -34,6 +42,10 @@ func login_user(_username: String, _password: String):
 	if _get_data["password"] != _password.sha256_text():
 		call_client_logged_in.rpc_id(_sender_id, LogInResult.FAILED_WRONG_PASSWORD)
 		return
+	
+	if _check_if_there_is_a_session_with_username(_username):
+		var peer_id_to_dc: int = SessionManager.get_session_info_of_username(_username)["peer_id"]
+		_server_a_client_already_logged_in(peer_id_to_dc)
 	
 	var session_hash = SessionManager.server_create_session(_sender_id, _username)
 	SessionManager.set_peer_client_session_hash.rpc_id(_sender_id, session_hash)
@@ -58,6 +70,11 @@ func call_client_logged_in(result: LogInResult, other_data: Dictionary = {}):
 
 
 @rpc
+func _call_client_registering(result):
+	on_registering.emit(result)
+
+
+@rpc
 func client_set_user_data(username):
 	client_cur_username = username
 
@@ -69,3 +86,20 @@ func _get_data_from_username(_username: String) -> Dictionary:
 	if len(user_with_name) == 0: return {}
 	
 	return user_with_name[0]
+
+
+func _check_if_there_is_a_session_with_username(_username: String) -> bool:
+	for key in SessionManager.server_sessions:
+		if SessionManager.server_sessions[key]["username"] == _username: return true
+	return false
+
+
+func _server_a_client_already_logged_in(_peer_id_old: int):
+	_log_off_and_disconnect_this_client.rpc_id(_peer_id_old)
+
+
+@rpc
+func _log_off_and_disconnect_this_client():
+	multiplayer.multiplayer_peer.close()
+	WorldManager.client_clear_and_remove_all_world_stuff()
+	SystemSubwindow.spawn_subwindow_notice("Disconnected. Ada klien lain yang login")

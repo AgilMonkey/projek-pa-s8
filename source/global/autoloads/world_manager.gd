@@ -89,4 +89,8 @@ func client_unspawn_old_world():
 	client_cur_world_node = null
 	
 	return
-	
+
+
+## Used for like when dc'ed
+func client_clear_and_remove_all_world_stuff():
+	client_unspawn_old_world()

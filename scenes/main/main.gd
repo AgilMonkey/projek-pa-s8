@@ -130,3 +130,12 @@ func _start_client():
 func _client_connected_to_server():
 	client_main = CLIENT_MAIN.instantiate()
 	add_child(client_main)
+	
+	multiplayer.server_disconnected.connect(_server_disconnected, ConnectFlags.CONNECT_ONE_SHOT)
+
+
+func _server_disconnected():
+	for c in get_children():
+		c.queue_free()
+	
+	_ready()

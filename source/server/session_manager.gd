@@ -49,3 +49,16 @@ func update_all_client_sessions_data(_new_sessions_data):
 	if multiplayer.is_server(): return
 	
 	server_sessions = _new_sessions_data
+
+
+## { peer_id, username, hash_id }
+func get_session_info_of_username(_username) -> Dictionary:
+	var info := {}
+	for key in SessionManager.server_sessions:
+		if SessionManager.server_sessions[key]["username"] == _username:
+			info = {
+				"peer_id": key,
+				"username": _username,
+				"hash_id": SessionManager.server_sessions[key]["hash"]
+			}
+	return info

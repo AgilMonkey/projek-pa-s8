@@ -35,6 +35,7 @@ MainGameWindowManager="*uid://cxmnjkjlb1ego"
 CourseManager="*uid://camv8hc0853so"
 ClientManager="*uid://b6jl3mdmyf7mq"
 TargetingManager="*uid://c6unknhujg6k"
+SystemSubwindow="*uid://dxjdxvaqd4sfd"
 
 [debug]
 
