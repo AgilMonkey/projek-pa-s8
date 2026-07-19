@@ -24,3 +24,7 @@ func dissable_targetting():
 func emit_kata_penyetop_target(_kata_penyetop: String):
 	if _kata_penyetop == cur_kata_penyetop_target:
 		dissable_targetting()
+
+
+func force_stop_targetting():
+	dissable_targetting()
