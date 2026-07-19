@@ -1,0 +1,2 @@
+class_name NodeTargetDunia
+extends Node2D

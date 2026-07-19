@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://qpaek0e46qb8"]
+
+[node name="KonselKelasYouFuckUp" type="RichTextLabel" unique_id=1917750577]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Kalau kau lihat ini. Ada sesuatu yang salah"
+horizontal_alignment = 1
+vertical_alignment = 1
