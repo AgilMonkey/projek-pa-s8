@@ -58,15 +58,7 @@ func tunjukan_hasil_pertanyaan(sukses: bool):
 
 func _pertanyaan_selanjutnya():
 	if CourseManager.is_pertanyaan_habis:
-		hasil_pertanyaan.hide()
-		menjawab_pertanyaan_ui.hide()
-		selesai_menjawab_ui.show()
-		
-		hasil_selesai_menjawab_label.text = "Berhasil menjawab %d/%d" %[CourseManager.client_jawaban_benar.size(), CourseManager.client_total_question]
-		selesai_menjawab_keluar_button.pressed.connect(
-			_selesai_menjawab_keluar_button_pressed
-			, ConnectFlags.CONNECT_ONE_SHOT
-		)
+		_pertanyaan_habis()
 		return
 	
 	CourseManager._ask_server_for_next_question.rpc_id(
@@ -74,6 +66,20 @@ func _pertanyaan_selanjutnya():
 		CourseManager.client_course_name,
 		CourseManager.client_course_id
 	)
+
+
+func _pertanyaan_habis():
+	hasil_pertanyaan.hide()
+	menjawab_pertanyaan_ui.hide()
+	selesai_menjawab_ui.show()
+	
+	hasil_selesai_menjawab_label.text = "Berhasil menjawab %d/%d" %[CourseManager.client_jawaban_benar.size(), CourseManager.client_total_question]
+	selesai_menjawab_keluar_button.pressed.connect(
+		_selesai_menjawab_keluar_button_pressed
+		, ConnectFlags.CONNECT_ONE_SHOT
+	)
+	
+	CourseManager.emit_kelas_selesai()
 
 
 func _selesai_menjawab_keluar_button_pressed():

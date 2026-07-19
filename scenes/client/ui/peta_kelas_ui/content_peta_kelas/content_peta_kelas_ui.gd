@@ -23,6 +23,8 @@ func _ready() -> void:
 			control.pressed.connect(
 				_spawn_new_panel_isi_kelas.bind(control)
 			)
+	
+	visibility_changed.connect(_on_visibility_changed)
 
 
 func _spawn_new_panel_isi_kelas(_button: ButtonKelas):
@@ -54,3 +56,15 @@ func _panel_isi_kelas_lihat_konsep_pressed(_button: ButtonKelas):
 
 func _panel_isi_kelas_lokasi_kelas_button_pressed(_button: ButtonKelas):
 	locate_lokasi_kelas.emit(_button)
+
+
+
+func _on_visibility_changed() -> void:
+	if is_visible_in_tree():
+		_set_up_buttons()
+
+
+func _set_up_buttons():
+	for n in kelas_container.get_children():
+		if n is ButtonKelas:
+			n.set_up()

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cfgnol3w7gyq8"]
+
+[ext_resource type="Texture2D" uid="uid://caefe1alas846" path="res://assets/1-bit_Pixel_Icons/Sprites/Tools_Crafting_Padlock_Locked.png" id="1_gvww3"]
+
+[node name="LockTexture" type="TextureRect" unique_id=1668001642]
+texture_filter = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -52.0
+offset_top = -94.0
+offset_right = 76.0
+offset_bottom = 34.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 0
+texture = ExtResource("1_gvww3")

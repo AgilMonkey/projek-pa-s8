@@ -12,6 +12,7 @@ func _ready() -> void:
 	cancel_target_lokasi_button.pressed.connect(_cancel_target_lokasi_button_pressed)
 	
 	TargetingManager.start_targetting.connect(cancel_target_lokasi_button.show)
+	TargetingManager.stop_targetting.connect(cancel_target_lokasi_button.hide)
 
 
 func _peta_kelas_button_pressed():

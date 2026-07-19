@@ -3,28 +3,22 @@
 [ext_resource type="Script" uid="uid://cabjhkguq5afv" path="res://source/resource/question_data.gd" id="1_negha"]
 [ext_resource type="Script" uid="uid://cg5qq68d43nn1" path="res://source/resource/course_resource.gd" id="2_m7lf6"]
 
-[sub_resource type="Resource" id="Resource_wk3yy"]
+[sub_resource type="Resource" id="Resource_hyk8p"]
 script = ExtResource("1_negha")
 question = "You are bored"
-answer = "anda bosan"
+answer = "Anda bosan"
 metadata/_custom_type_script = "uid://cabjhkguq5afv"
 
-[sub_resource type="Resource" id="Resource_n36ax"]
+[sub_resource type="Resource" id="Resource_iuonh"]
 script = ExtResource("1_negha")
 question = "You are honest"
 answer = "Anda jujur"
 metadata/_custom_type_script = "uid://cabjhkguq5afv"
 
-[sub_resource type="Resource" id="Resource_28qxe"]
-script = ExtResource("1_negha")
-question = "You are polite"
-answer = "Anda sopan"
-metadata/_custom_type_script = "uid://cabjhkguq5afv"
-
 [sub_resource type="Resource" id="Resource_negha"]
 script = ExtResource("1_negha")
 question = "You are greedy"
-answer = "anda rakus"
+answer = "Anda serakah"
 metadata/_custom_type_script = "uid://cabjhkguq5afv"
 
 [sub_resource type="Resource" id="Resource_m7lf6"]
@@ -33,7 +27,55 @@ question = "You are cruel"
 answer = "Anda kejam"
 metadata/_custom_type_script = "uid://cabjhkguq5afv"
 
+[sub_resource type="Resource" id="Resource_g5tx8"]
+script = ExtResource("1_negha")
+question = "He is diligent"
+answer = "Ia(laki-laki) rajin"
+metadata/_custom_type_script = "uid://cabjhkguq5afv"
+
+[sub_resource type="Resource" id="Resource_e2c24"]
+script = ExtResource("1_negha")
+question = "He is lazy"
+answer = "Ia(laki-laki) malas"
+metadata/_custom_type_script = "uid://cabjhkguq5afv"
+
+[sub_resource type="Resource" id="Resource_25btc"]
+script = ExtResource("1_negha")
+question = "He is naughty"
+answer = "Ia(laki-laki) nakal"
+metadata/_custom_type_script = "uid://cabjhkguq5afv"
+
+[sub_resource type="Resource" id="Resource_5vjrk"]
+script = ExtResource("1_negha")
+question = "He is afraid"
+answer = "Ia(laki-laki) takut"
+metadata/_custom_type_script = "uid://cabjhkguq5afv"
+
+[sub_resource type="Resource" id="Resource_bxeym"]
+script = ExtResource("1_negha")
+question = "She is pretty"
+answer = "Ia(perempuan) cantik"
+metadata/_custom_type_script = "uid://cabjhkguq5afv"
+
+[sub_resource type="Resource" id="Resource_4ndrm"]
+script = ExtResource("1_negha")
+question = "She is ugly"
+answer = "Ia(perempuan) jelek"
+metadata/_custom_type_script = "uid://cabjhkguq5afv"
+
+[sub_resource type="Resource" id="Resource_3lqco"]
+script = ExtResource("1_negha")
+question = "She is sure"
+answer = "Ia(perempuan) yakin"
+metadata/_custom_type_script = "uid://cabjhkguq5afv"
+
+[sub_resource type="Resource" id="Resource_oe1sr"]
+script = ExtResource("1_negha")
+question = "She is calm"
+answer = "Ia(perempuan) tenang"
+metadata/_custom_type_script = "uid://cabjhkguq5afv"
+
 [resource]
 script = ExtResource("2_m7lf6")
-questions_list = Array[ExtResource("1_negha")]([SubResource("Resource_wk3yy"), SubResource("Resource_n36ax"), SubResource("Resource_28qxe"), SubResource("Resource_negha"), SubResource("Resource_m7lf6")])
+questions_list = Array[ExtResource("1_negha")]([SubResource("Resource_hyk8p"), SubResource("Resource_iuonh"), SubResource("Resource_negha"), SubResource("Resource_m7lf6"), SubResource("Resource_g5tx8"), SubResource("Resource_e2c24"), SubResource("Resource_25btc"), SubResource("Resource_5vjrk"), SubResource("Resource_bxeym"), SubResource("Resource_4ndrm"), SubResource("Resource_3lqco"), SubResource("Resource_oe1sr")])
 metadata/_custom_type_script = "uid://cg5qq68d43nn1"

@@ -1,12 +1,25 @@
 [gd_scene format=3 uid="uid://bgr108nc2ql5u"]
 
 [ext_resource type="Script" uid="uid://dexkwc2rb51cu" path="res://scenes/components/course/course_menu.gd" id="1_0ptpt"]
+[ext_resource type="Texture2D" uid="uid://caefe1alas846" path="res://assets/1-bit_Pixel_Icons/Sprites/Tools_Crafting_Padlock_Locked.png" id="2_ayrof"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nrpgy"]
 bg_color = Color(0.1, 0.1, 0.1, 0.6)
 border_width_top = 5
 border_width_right = 5
 border_color = Color(0.101960786, 0.101960786, 0.101960786, 0.7647059)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mddx"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.8980392)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
 
 [node name="CourseMenu" type="PanelContainer" unique_id=772585464]
 offset_right = 296.0
@@ -52,3 +65,18 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Mulai Pelajaran"
+
+[node name="LockPanel" type="PanelContainer" parent="." unique_id=1938017300]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7mddx")
+
+[node name="CenterContainer" type="CenterContainer" parent="LockPanel" unique_id=1034412039]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="LockPanel/CenterContainer" unique_id=2138901915]
+texture_filter = 1
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("2_ayrof")

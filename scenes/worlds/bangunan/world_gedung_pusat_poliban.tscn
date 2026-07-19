@@ -9,6 +9,7 @@
 [ext_resource type="Resource" uid="uid://bftacsjn6ivgg" path="res://resources/courses/course_0_1.tres" id="7_vckb5"]
 [ext_resource type="PackedScene" uid="uid://c4hdtfg5ye5rt" path="res://scenes/client/ui/konsep_kelas_ui/konsep_kelas_01/konsep_kelas_01.tscn" id="8_ar7sm"]
 [ext_resource type="Texture2D" uid="uid://djpgrovmbftra" path="res://assets/1-bit_Pixel_Icons/agil_edited/course_32.png" id="8_vckb5"]
+[ext_resource type="Resource" uid="uid://bumocx4pxhvfg" path="res://resources/courses/course_0_2.tres" id="10_tyefe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lwvjh"]
 size = Vector2(96, 98)
@@ -49,7 +50,7 @@ tile_set = ExtResource("1_ec1k3")
 [node name="Furniture" type="TileMapLayer" parent="." unique_id=362023126]
 texture_filter = 1
 scale = Vector2(3, 3)
-tile_map_data = PackedByteArray("AAD9/wEABQAAACoAAAA=")
+tile_map_data = PackedByteArray("AAD9/wEABQAAACoAAAD//wEABQAAACoAAAA=")
 tile_set = ExtResource("1_ec1k3")
 
 [node name="EntitySpawner" type="Node2D" parent="." unique_id=16996995]
@@ -75,12 +76,14 @@ shape = SubResource("RectangleShape2D_lwvjh")
 [node name="CourseDoorTest01" type="Node2D" parent="." unique_id=1140214170 node_paths=PackedStringArray("world_button")]
 position = Vector2(-240, 232)
 script = ExtResource("7_ar7sm")
+nama_course = "course_0_1"
 world_button = NodePath("WorldInteractButton")
 text_pelajaran = "[center][font_size=32][b]To Be 1[/b][/font_size]
 Pelajaran kelas To Be 1[/center]"
 course_resource = ExtResource("7_vckb5")
 scene_konsepnya = ExtResource("8_ar7sm")
 kata_stop_targetting = "stop_targetting_kelas_1"
+nama_course_selanjutnya = "course_0_2"
 
 [node name="WorldInteractButton" parent="CourseDoorTest01" unique_id=743670573 instance=ExtResource("4_tjyog")]
 position = Vector2(0, -200)
@@ -89,3 +92,26 @@ button_icon = ExtResource("8_vckb5")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CourseDoorTest01/WorldInteractButton" unique_id=934664914]
 position = Vector2(0, 200)
 shape = SubResource("CircleShape2D_vckb5")
+
+[node name="CourseDoorTest02" type="Node2D" parent="." unique_id=655344264 node_paths=PackedStringArray("world_button")]
+position = Vector2(-48, 232)
+script = ExtResource("7_ar7sm")
+nama_course = "course_0_2"
+world_button = NodePath("WorldInteractButton")
+text_pelajaran = "[center][font_size=32][b]To Be 2[/b][/font_size]
+Pelajaran kelas To Be 2[/center]"
+course_resource = ExtResource("10_tyefe")
+kata_stop_targetting = "stop_targetting_kelas_2"
+nama_course_selanjutnya = "course_0_3"
+
+[node name="WorldInteractButton" parent="CourseDoorTest02" unique_id=1950632218 instance=ExtResource("4_tjyog")]
+position = Vector2(0, -200)
+button_icon = ExtResource("8_vckb5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CourseDoorTest02/WorldInteractButton" unique_id=1363346974]
+position = Vector2(0, 200)
+shape = SubResource("CircleShape2D_vckb5")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=981940820]
+position = Vector2(-48, 144)
+gizmo_extents = 84.3

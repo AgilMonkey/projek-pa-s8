@@ -1,6 +1,8 @@
 extends Node
 
 
+signal kelas_selesai(nama_kelas: String, nama_kelas_unlock: String)
+
 signal course_data_updated
 signal course_data_ready
 
@@ -20,6 +22,8 @@ var client_cur_answer := ""
 
 var client_return_world_name := ""
 var client_return_world_pos := Vector2()
+
+var client_next_kelas_unlock_name := ""
 
 var is_pertanyaan_habis: bool :
 	get:
@@ -70,6 +74,13 @@ func client_cek_jawaban(_jawaban: String) -> bool:
 		return true
 	client_jawaban_salah.append(client_cur_question_count)
 	return false
+
+
+func emit_kelas_selesai():
+	kelas_selesai.emit(
+		client_course_name,
+		client_next_kelas_unlock_name
+	)
 
 
 func _client_exit_this_course():

@@ -19,6 +19,12 @@ nama_dunia = "world_gedung_pusat_poliban"
 lokasi_target = Vector2(-240, 184)
 metadata/_custom_type_script = "uid://yemykgblevvs"
 
+[sub_resource type="Resource" id="Resource_tyefe"]
+script = ExtResource("5_6iooc")
+nama_dunia = "world_gedung_pusat_poliban"
+lokasi_target = Vector2(-48, 144)
+metadata/_custom_type_script = "uid://yemykgblevvs"
+
 [node name="ContentPetaKelasUi" type="MarginContainer" unique_id=1911434112]
 anchors_preset = 15
 anchor_right = 1.0
@@ -45,6 +51,7 @@ size_flags_vertical = 4
 text = "Kelas 1
 To Be [1]"
 script = ExtResource("3_0s67f")
+nama_course_ini = "course_0_1"
 konsep_kelas = ExtResource("4_b8q0q")
 target = Array[ExtResource("5_6iooc")]([SubResource("Resource_b8q0q"), SubResource("Resource_6iooc")])
 kata_penyetop_target = "stop_targetting_kelas_1"
@@ -52,19 +59,23 @@ kata_penyetop_target = "stop_targetting_kelas_1"
 [node name="LineControl" parent="KelasContainer" unique_id=263172517 instance=ExtResource("2_0s67f")]
 layout_mode = 2
 
-[node name="ButtonKelas2" type="Button" parent="KelasContainer" unique_id=1409033737]
+[node name="ButtonKelas2" type="Button" parent="KelasContainer" unique_id=1409033737 node_paths=PackedStringArray("line_control")]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Kelas 2"
 script = ExtResource("3_0s67f")
+nama_course_ini = "course_0_2"
+target = Array[ExtResource("5_6iooc")]([SubResource("Resource_b8q0q"), SubResource("Resource_tyefe")])
+kata_penyetop_target = "stop_targetting_kelas_2"
+line_control = NodePath("../LineControl")
 
 [node name="LineControl2" parent="KelasContainer" unique_id=264743792 instance=ExtResource("2_0s67f")]
 modulate = Color(1, 1, 1, 0.39215687)
 layout_mode = 2
 
-[node name="ButtonKelas3" type="Button" parent="KelasContainer" unique_id=1200956484]
+[node name="ButtonKelas3" type="Button" parent="KelasContainer" unique_id=1200956484 node_paths=PackedStringArray("line_control")]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -72,11 +83,12 @@ size_flags_vertical = 4
 disabled = true
 text = "Kelas 3"
 script = ExtResource("3_0s67f")
+line_control = NodePath("../LineControl2")
 
 [node name="LineControl3" parent="KelasContainer" unique_id=851612141 instance=ExtResource("2_0s67f")]
 layout_mode = 2
 
-[node name="ButtonKelas4" type="Button" parent="KelasContainer" unique_id=1763712350]
+[node name="ButtonKelas4" type="Button" parent="KelasContainer" unique_id=1763712350 node_paths=PackedStringArray("line_control")]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -84,11 +96,12 @@ size_flags_vertical = 4
 disabled = true
 text = "Kelas 3"
 script = ExtResource("3_0s67f")
+line_control = NodePath("../LineControl3")
 
 [node name="LineControl4" parent="KelasContainer" unique_id=898626160 instance=ExtResource("2_0s67f")]
 layout_mode = 2
 
-[node name="ButtonKelas5" type="Button" parent="KelasContainer" unique_id=1823961903]
+[node name="ButtonKelas5" type="Button" parent="KelasContainer" unique_id=1823961903 node_paths=PackedStringArray("line_control")]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -96,6 +109,7 @@ size_flags_vertical = 4
 disabled = true
 text = "Kelas 3"
 script = ExtResource("3_0s67f")
+line_control = NodePath("../LineControl4")
 
 [node name="PanelKelasContainer" type="Control" parent="." unique_id=2122863350]
 unique_name_in_owner = true
