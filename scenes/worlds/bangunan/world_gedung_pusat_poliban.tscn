@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c4hdtfg5ye5rt" path="res://scenes/client/ui/konsep_kelas_ui/konsep_kelas_01/konsep_kelas_01.tscn" id="8_ar7sm"]
 [ext_resource type="Texture2D" uid="uid://djpgrovmbftra" path="res://assets/1-bit_Pixel_Icons/agil_edited/course_32.png" id="8_vckb5"]
 [ext_resource type="Resource" uid="uid://bumocx4pxhvfg" path="res://resources/courses/course_0_2.tres" id="10_tyefe"]
+[ext_resource type="PackedScene" uid="uid://dj8dl8icpmgyv" path="res://scenes/client/ui/konsep_kelas_ui/konsep_kelas_02/konsep_kelas_02.tscn" id="11_iqbdl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lwvjh"]
 size = Vector2(96, 98)
@@ -101,6 +102,7 @@ world_button = NodePath("WorldInteractButton")
 text_pelajaran = "[center][font_size=32][b]To Be 2[/b][/font_size]
 Pelajaran kelas To Be 2[/center]"
 course_resource = ExtResource("10_tyefe")
+scene_konsepnya = ExtResource("11_iqbdl")
 kata_stop_targetting = "stop_targetting_kelas_2"
 nama_course_selanjutnya = "course_0_3"
 

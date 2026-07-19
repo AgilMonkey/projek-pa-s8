@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://c56qwepkjre8q" path="res://scenes/client/ui/peta_kelas_ui/content_peta_kelas/button_kelas.gd" id="3_0s67f"]
 [ext_resource type="PackedScene" uid="uid://c4hdtfg5ye5rt" path="res://scenes/client/ui/konsep_kelas_ui/konsep_kelas_01/konsep_kelas_01.tscn" id="4_b8q0q"]
 [ext_resource type="Script" uid="uid://yemykgblevvs" path="res://scenes/components/target_dunia/target_dunia.gd" id="5_6iooc"]
+[ext_resource type="PackedScene" uid="uid://dj8dl8icpmgyv" path="res://scenes/client/ui/konsep_kelas_ui/konsep_kelas_02/konsep_kelas_02.tscn" id="7_o6i5o"]
 
 [sub_resource type="Resource" id="Resource_b8q0q"]
 script = ExtResource("5_6iooc")
@@ -67,6 +68,7 @@ size_flags_vertical = 4
 text = "Kelas 2"
 script = ExtResource("3_0s67f")
 nama_course_ini = "course_0_2"
+konsep_kelas = ExtResource("7_o6i5o")
 target = Array[ExtResource("5_6iooc")]([SubResource("Resource_b8q0q"), SubResource("Resource_tyefe")])
 kata_penyetop_target = "stop_targetting_kelas_2"
 line_control = NodePath("../LineControl")
