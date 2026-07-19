@@ -3,6 +3,7 @@ extends MarginContainer
 
 
 signal konsep_requested(konsep_node: Control)
+signal locate_lokasi_kelas(_button: ButtonKelas)
 
 const PANEL_ISI_KELAS = preload("uid://c5nbia5s7cl05")
 
@@ -37,6 +38,10 @@ func _spawn_new_panel_isi_kelas(_button: ButtonKelas):
 	cur_panel_isi_kelas.lihat_konsep_button.pressed.connect(
 		_panel_isi_kelas_lihat_konsep_pressed.bind(_button)
 	)
+	
+	cur_panel_isi_kelas.lokasi_kelas_button.pressed.connect(
+		_panel_isi_kelas_lokasi_kelas_button_pressed.bind(_button)
+	)
 
 
 func _panel_isi_kelas_lihat_konsep_pressed(_button: ButtonKelas):
@@ -45,3 +50,7 @@ func _panel_isi_kelas_lihat_konsep_pressed(_button: ButtonKelas):
 		return
 	
 	konsep_requested.emit(_button.konsep_kelas.instantiate())
+
+
+func _panel_isi_kelas_lokasi_kelas_button_pressed(_button: ButtonKelas):
+	locate_lokasi_kelas.emit(_button)

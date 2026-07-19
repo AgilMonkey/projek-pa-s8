@@ -14,6 +14,7 @@ var my_username: String
 var this_peer_id: int
 
 @onready var main_camera: Camera2D = %MainCamera
+@onready var targetter_node: TargetterNode = $TargetterNode
 
 
 func _ready() -> void:
@@ -35,8 +36,10 @@ func _ready() -> void:
 	
 	if !is_multiplayer_authority():
 		$CollisionShape2D.disabled = true
+		targetter_node.process_mode = Node.PROCESS_MODE_DISABLED; targetter_node.hide()
 	else:
 		%AudioListener2D.make_current()
+		TargetingManager.cur_player_client = self
 
 
 func _input(_event: InputEvent) -> void:

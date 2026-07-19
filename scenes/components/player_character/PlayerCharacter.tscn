@@ -5,6 +5,8 @@
 [ext_resource type="FontFile" uid="uid://dibrka2rlgi7b" path="res://assets/Noto_Sans/static/NotoSans-Regular.ttf" id="3_0xf2k"]
 [ext_resource type="Script" uid="uid://b2f2dwamixpkt" path="res://scenes/components/player_character/player_entity_syncer.gd" id="3_tmeal"]
 [ext_resource type="Script" uid="uid://cguc07s3nadpu" path="res://scenes/components/player_character/speech_spawner.gd" id="5_0xf2k"]
+[ext_resource type="Script" uid="uid://7rukiigkmujg" path="res://scenes/components/player_character/targetter_node.gd" id="6_fb3uh"]
+[ext_resource type="Texture2D" uid="uid://b66r6oa2wg4al" path="res://assets/Lucid V1.2/SVG/Flat/Up-Arrow.svg" id="6_oeeii"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tmeal"]
 height = 64.0
@@ -81,3 +83,12 @@ offset_top = -384.0
 offset_right = 300.0
 grow_vertical = 0
 alignment = 2
+
+[node name="TargetterNode" type="Node2D" parent="." unique_id=1394440002]
+texture_filter = 1
+script = ExtResource("6_fb3uh")
+
+[node name="Sprite2D" type="Sprite2D" parent="TargetterNode" unique_id=994162484]
+position = Vector2(129, 0)
+rotation = -4.712389
+texture = ExtResource("6_oeeii")
