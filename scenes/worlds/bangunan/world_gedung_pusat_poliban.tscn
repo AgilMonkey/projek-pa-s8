@@ -5,13 +5,9 @@
 [ext_resource type="Script" uid="uid://dnkcn3q68mb8m" path="res://scenes/worlds/overworld/to_world.gd" id="3_vgkgi"]
 [ext_resource type="PackedScene" uid="uid://bew5y6nvpfvq7" path="res://scenes/components/world_interact_button/world_interact_button.tscn" id="4_tjyog"]
 [ext_resource type="Texture2D" uid="uid://ciiew0p1h7yuf" path="res://scenes/components/world_interact_button/button_icons/door_exit_32.png" id="5_ec1k3"]
-[ext_resource type="Script" uid="uid://dw7jw47wtpeh7" path="res://scenes/worlds/bangunan/quick_test_stop_target.gd" id="6_tjyog"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lwvjh"]
 size = Vector2(96, 98)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_tjyog"]
-radius = 64.0
 
 [node name="WorldGedungPusatPoliban" type="Node2D" unique_id=1585138358]
 y_sort_enabled = true
@@ -62,12 +58,3 @@ button_icon = ExtResource("5_ec1k3")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ToWorldGedung/WorldInteractButton" unique_id=1499241199]
 position = Vector2(0, -137)
 shape = SubResource("RectangleShape2D_lwvjh")
-
-[node name="QuickTestStopTarget" type="Area2D" parent="." unique_id=322306534]
-position = Vector2(-168, 200)
-collision_layer = 2
-collision_mask = 2
-script = ExtResource("6_tjyog")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="QuickTestStopTarget" unique_id=1384648932]
-shape = SubResource("CircleShape2D_tjyog")
