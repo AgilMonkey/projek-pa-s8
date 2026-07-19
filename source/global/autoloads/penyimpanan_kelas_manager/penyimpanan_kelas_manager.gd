@@ -22,7 +22,8 @@ func _ready() -> void:
 	CourseManager.kelas_selesai.connect(_kelas_selesai)
 	UserManager.client_logged_in.connect(_load_data_dari_database)
 	
-	CourseManager.kelas_selesai.connect(save_data_kelas_ke_server)
+	UserManager.on_before_log_off.connect(save_data_kelas_ke_server)
+	CourseManager.kelas_selesai.connect(func(_a,_b): save_data_kelas_ke_server())
 	multiplayer.server_disconnected.connect(save_data_kelas_ke_server)
 	on_save_data_kelas.connect(save_data_kelas_ke_server)
 
@@ -52,7 +53,10 @@ func tambah_coba_kelas(_nama_kelas: String):
 		data.kelas_dicoba_count += 1
 
 
-func save_data_kelas_ke_server(_nama_kelas: String, _nama_kelas_unlock: String):
+func save_data_kelas_ke_server():
+	var peer := multiplayer.multiplayer_peer
+	if peer.get_connection_status() == MultiplayerPeer.CONNECTION_DISCONNECTED: return
+	
 	var data_dict := to_save_dict()
 	
 	UserManager.save_data_kelas_to_database.rpc_id(

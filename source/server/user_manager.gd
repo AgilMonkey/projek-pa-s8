@@ -1,6 +1,7 @@
 extends Node
 
 
+signal on_before_log_off
 signal on_dapat_data_kelas(data: Dictionary)
 
 signal client_logged_in(result: LogInResult, other_data: Dictionary)
@@ -103,8 +104,6 @@ func save_data_kelas_to_database(username: String, data_kelas: Dictionary):
 		"UPDATE users SET data_kelas = ? WHERE username = ?",
 		[JSON.stringify(data_kelas), username]
 	)
-	
-	print(data_kelas)
 
 
 func _get_data_from_username(_username: String) -> Dictionary:
@@ -124,6 +123,13 @@ func _check_if_there_is_a_session_with_username(_username: String) -> bool:
 
 func _server_a_client_already_logged_in(_peer_id_old: int):
 	_log_off_and_disconnect_this_client.rpc_id(_peer_id_old)
+
+
+func client_log_off_and_dc():
+	on_before_log_off.emit()
+	
+	multiplayer.multiplayer_peer.close()
+	WorldManager.client_clear_and_remove_all_world_stuff()
 
 
 @rpc

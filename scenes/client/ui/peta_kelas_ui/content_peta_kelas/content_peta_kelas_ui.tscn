@@ -85,6 +85,7 @@ size_flags_vertical = 4
 disabled = true
 text = "Kelas 3"
 script = ExtResource("3_0s67f")
+nama_course_ini = "course_0_3"
 line_control = NodePath("../LineControl2")
 
 [node name="LineControl3" parent="KelasContainer" unique_id=851612141 instance=ExtResource("2_0s67f")]
@@ -98,6 +99,7 @@ size_flags_vertical = 4
 disabled = true
 text = "Kelas 3"
 script = ExtResource("3_0s67f")
+nama_course_ini = "course_0_4"
 line_control = NodePath("../LineControl3")
 
 [node name="LineControl4" parent="KelasContainer" unique_id=898626160 instance=ExtResource("2_0s67f")]
@@ -111,6 +113,7 @@ size_flags_vertical = 4
 disabled = true
 text = "Kelas 3"
 script = ExtResource("3_0s67f")
+nama_course_ini = "course_0_5"
 line_control = NodePath("../LineControl4")
 
 [node name="PanelKelasContainer" type="Control" parent="." unique_id=2122863350]

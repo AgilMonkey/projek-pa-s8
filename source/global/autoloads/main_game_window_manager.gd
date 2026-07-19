@@ -18,5 +18,14 @@ func create_subwindow_with_control(node: Control) -> SubwindowComponent:
 	return new_s
 
 
+func spawn_subwindow_scene(subwindow: PackedScene) -> SubwindowComponent:
+	var new_s: SubwindowComponent = subwindow.instantiate()
+	main_game_window_spawner.add_child(new_s)
+	
+	new_s.set_anchors_and_offsets_preset(Control.PRESET_CENTER)
+	
+	return new_s
+
+
 func set_main_game_window_spawner(control):
 	main_game_window_spawner = control
