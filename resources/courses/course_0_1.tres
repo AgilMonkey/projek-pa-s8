@@ -21,7 +21,49 @@ question = "I am tired"
 answer = "Saya lelah"
 metadata/_custom_type_script = "uid://cabjhkguq5afv"
 
+[sub_resource type="Resource" id="Resource_hyk8p"]
+script = ExtResource("1_n36ax")
+question = "I am busy"
+answer = "Saya sibuk"
+metadata/_custom_type_script = "uid://cabjhkguq5afv"
+
+[sub_resource type="Resource" id="Resource_utcyy"]
+script = ExtResource("1_n36ax")
+question = "I am sleepy"
+answer = "Saya mengantuk"
+metadata/_custom_type_script = "uid://cabjhkguq5afv"
+
+[sub_resource type="Resource" id="Resource_fn6k4"]
+script = ExtResource("1_n36ax")
+question = "I am thirsty"
+answer = "Saya haus"
+metadata/_custom_type_script = "uid://cabjhkguq5afv"
+
+[sub_resource type="Resource" id="Resource_6bw6u"]
+script = ExtResource("1_n36ax")
+question = "I am hungry"
+answer = "Saya lapar"
+metadata/_custom_type_script = "uid://cabjhkguq5afv"
+
+[sub_resource type="Resource" id="Resource_gosiv"]
+script = ExtResource("1_n36ax")
+question = "I am ill"
+answer = "Saya sakit"
+metadata/_custom_type_script = "uid://cabjhkguq5afv"
+
+[sub_resource type="Resource" id="Resource_xobrw"]
+script = ExtResource("1_n36ax")
+question = "I am angry"
+answer = "Saya marah"
+metadata/_custom_type_script = "uid://cabjhkguq5afv"
+
+[sub_resource type="Resource" id="Resource_75i0t"]
+script = ExtResource("1_n36ax")
+question = "I am shy"
+answer = "Saya malu"
+metadata/_custom_type_script = "uid://cabjhkguq5afv"
+
 [resource]
 script = ExtResource("1_rkrnf")
-questions_list = Array[ExtResource("1_n36ax")]([SubResource("Resource_wk3yy"), SubResource("Resource_n36ax"), SubResource("Resource_28qxe")])
+questions_list = Array[ExtResource("1_n36ax")]([SubResource("Resource_wk3yy"), SubResource("Resource_n36ax"), SubResource("Resource_28qxe"), SubResource("Resource_hyk8p"), SubResource("Resource_utcyy"), SubResource("Resource_fn6k4"), SubResource("Resource_6bw6u"), SubResource("Resource_gosiv"), SubResource("Resource_xobrw"), SubResource("Resource_75i0t")])
 metadata/_custom_type_script = "uid://cg5qq68d43nn1"
