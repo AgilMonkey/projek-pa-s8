@@ -5,9 +5,16 @@
 [ext_resource type="Script" uid="uid://dnkcn3q68mb8m" path="res://scenes/worlds/overworld/to_world.gd" id="3_vgkgi"]
 [ext_resource type="PackedScene" uid="uid://bew5y6nvpfvq7" path="res://scenes/components/world_interact_button/world_interact_button.tscn" id="4_tjyog"]
 [ext_resource type="Texture2D" uid="uid://ciiew0p1h7yuf" path="res://scenes/components/world_interact_button/button_icons/door_exit_32.png" id="5_ec1k3"]
+[ext_resource type="Script" uid="uid://dqubjhii83xo8" path="res://scenes/components/course_door/course_door.gd" id="7_ar7sm"]
+[ext_resource type="Resource" uid="uid://bftacsjn6ivgg" path="res://resources/courses/course_0_1.tres" id="7_vckb5"]
+[ext_resource type="PackedScene" uid="uid://c4hdtfg5ye5rt" path="res://scenes/client/ui/konsep_kelas_ui/konsep_kelas_01/konsep_kelas_01.tscn" id="8_ar7sm"]
+[ext_resource type="Texture2D" uid="uid://djpgrovmbftra" path="res://assets/1-bit_Pixel_Icons/agil_edited/course_32.png" id="8_vckb5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lwvjh"]
 size = Vector2(96, 98)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vckb5"]
+radius = 56.0
 
 [node name="WorldGedungPusatPoliban" type="Node2D" unique_id=1585138358]
 y_sort_enabled = true
@@ -39,6 +46,12 @@ scale = Vector2(3, 3)
 tile_map_data = PackedByteArray("AAACAAEAAQABAAsAAAACAAAAAQAFAAoAAAABAAEAAQABAAsAAAABAAAAAQAFAAoAAAAAAAEAAQABAAsAAAAAAAAAAQAFAAoAAAD//wEAAQABAAsAAAD//wAAAQAFAAoAAAD+/wEAAQABAAsAAAD+/wAAAQAFAAoAAAD9/wEAAQABAAsAAAD9/wAAAQAFAAoAAAD8/wEAAQABAAsAAAD8/wAAAQAFAAoAAAD7/wEAAQAAAAsAAAD7/wAAAQAEAAoAAAADAAEAAQACAAsAAAADAAAAAQAGAAoAAAD6/wYAAgAGAAgAAAD6/wUAAgAGAAcAAAD6/wQAAgAGAAcAAAD6/wMAAgAGAAcAAAD6/wIAAgAGAAcAAAD6/wEAAgAGAAcAAAD6/wAAAgAGAAcAAAD7/wYAAgAHAAgAAAD8/wYAAgAHAAgAAAD9/wYAAgAHAAgAAAD+/wYAAgAEAAYAAAAAAAYAAgAFAAYAAAABAAYAAgAHAAgAAAACAAYAAgAHAAgAAAADAAYAAgAHAAgAAAAEAAYAAgAIAAgAAAAEAAUAAgAIAAcAAAAEAAQAAgAIAAcAAAAEAAMAAgAIAAcAAAAEAAIAAgAIAAcAAAAEAAEAAgAIAAcAAAAEAAAAAgAIAAcAAAD+/wcAAgAGAAgAAAAAAAcAAgAIAAgAAAD6////AgAGAAYAAAD7////AQAAAAoAAAD8////AQABAAoAAAD9////AQABAAoAAAD+////AQABAAoAAAD/////AQABAAoAAAAAAP//AQABAAoAAAABAP//AQABAAoAAAACAP//AQABAAoAAAADAP//AQACAAoAAAAEAP//AgAIAAYAAAA=")
 tile_set = ExtResource("1_ec1k3")
 
+[node name="Furniture" type="TileMapLayer" parent="." unique_id=362023126]
+texture_filter = 1
+scale = Vector2(3, 3)
+tile_map_data = PackedByteArray("AAD9/wEABQAAACoAAAA=")
+tile_set = ExtResource("1_ec1k3")
+
 [node name="EntitySpawner" type="Node2D" parent="." unique_id=16996995]
 y_sort_enabled = true
 script = ExtResource("1_717on")
@@ -58,3 +71,21 @@ button_icon = ExtResource("5_ec1k3")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ToWorldGedung/WorldInteractButton" unique_id=1499241199]
 position = Vector2(0, -137)
 shape = SubResource("RectangleShape2D_lwvjh")
+
+[node name="CourseDoorTest01" type="Node2D" parent="." unique_id=1140214170 node_paths=PackedStringArray("world_button")]
+position = Vector2(-240, 232)
+script = ExtResource("7_ar7sm")
+world_button = NodePath("WorldInteractButton")
+text_pelajaran = "[center][font_size=32][b]To Be 1[/b][/font_size]
+Pelajaran kelas To Be 1[/center]"
+course_resource = ExtResource("7_vckb5")
+scene_konsepnya = ExtResource("8_ar7sm")
+kata_stop_targetting = "stop_targetting_kelas_1"
+
+[node name="WorldInteractButton" parent="CourseDoorTest01" unique_id=743670573 instance=ExtResource("4_tjyog")]
+position = Vector2(0, -200)
+button_icon = ExtResource("8_vckb5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CourseDoorTest01/WorldInteractButton" unique_id=934664914]
+position = Vector2(0, 200)
+shape = SubResource("CircleShape2D_vckb5")

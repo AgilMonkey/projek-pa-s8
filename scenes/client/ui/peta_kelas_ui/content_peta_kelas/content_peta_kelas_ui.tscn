@@ -16,7 +16,7 @@ metadata/_custom_type_script = "uid://yemykgblevvs"
 [sub_resource type="Resource" id="Resource_6iooc"]
 script = ExtResource("5_6iooc")
 nama_dunia = "world_gedung_pusat_poliban"
-lokasi_target = Vector2(-96, 160)
+lokasi_target = Vector2(-240, 184)
 metadata/_custom_type_script = "uid://yemykgblevvs"
 
 [node name="ContentPetaKelasUi" type="MarginContainer" unique_id=1911434112]
@@ -47,7 +47,7 @@ To Be [1]"
 script = ExtResource("3_0s67f")
 konsep_kelas = ExtResource("4_b8q0q")
 target = Array[ExtResource("5_6iooc")]([SubResource("Resource_b8q0q"), SubResource("Resource_6iooc")])
-kata_penyetop_target = "stop_targeting_kelas_1"
+kata_penyetop_target = "stop_targetting_kelas_1"
 
 [node name="LineControl" parent="KelasContainer" unique_id=263172517 instance=ExtResource("2_0s67f")]
 layout_mode = 2

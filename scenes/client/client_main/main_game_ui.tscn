@@ -9,6 +9,17 @@
 [ext_resource type="Script" uid="uid://b7caej820irag" path="res://scenes/client/client_main/main_game_ui_controller.gd" id="6_mswwr"]
 [ext_resource type="Script" uid="uid://dlus0hxumnmon" path="res://scenes/client/client_main/main_button.gd" id="6_nn2ny"]
 [ext_resource type="PackedScene" uid="uid://j1slj3iq8386" path="res://scenes/client/ui/peta_kelas_ui/peta_kelas_ui.tscn" id="7_g075w"]
+[ext_resource type="Script" uid="uid://dhw3uvmajv4lx" path="res://scenes/client/ui/peta_kelas_ui/panel_konsep.gd" id="9_pmq7c"]
+[ext_resource type="Texture2D" uid="uid://catvfyshhceop" path="res://source/common/ui/subwindow/assets/cross_normal.png" id="10_gefgm"]
+[ext_resource type="Texture2D" uid="uid://cf6lyygyi6d7n" path="res://source/common/ui/subwindow/assets/cross_pressed.png" id="11_mnb6m"]
+[ext_resource type="Texture2D" uid="uid://ck1fvpiq37v82" path="res://source/common/ui/subwindow/assets/cross_hover.png" id="12_nxxgh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jcfu0"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.9607843)
 
 [node name="MainGameUI" type="Control" unique_id=985594625]
 layout_mode = 3
@@ -96,6 +107,46 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 1
 tooltip_text = "Peta Kelas"
+
+[node name="PanelKonsep2" type="PanelContainer" parent="." unique_id=733380234]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jcfu0")
+script = ExtResource("9_pmq7c")
+
+[node name="PanelKonsepMarginContainer" type="MarginContainer" parent="PanelKonsep2" unique_id=1229202709]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 0
+
+[node name="KonsepContainer" type="MarginContainer" parent="PanelKonsep2/PanelKonsepMarginContainer" unique_id=242039094]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelKonsep2/PanelKonsepMarginContainer" unique_id=1154428930]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_right = 30
+
+[node name="PanelKonsepExitButton" type="TextureButton" parent="PanelKonsep2/PanelKonsepMarginContainer/MarginContainer" unique_id=1205600614]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+texture_normal = ExtResource("10_gefgm")
+texture_pressed = ExtResource("11_mnb6m")
+texture_hover = ExtResource("12_nxxgh")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="MainGameUIController" type="Node" parent="." unique_id=109182868]
 script = ExtResource("6_mswwr")
