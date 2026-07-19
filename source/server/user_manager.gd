@@ -1,6 +1,8 @@
 extends Node
 
 
+signal on_dapat_data_kelas(data: Dictionary)
+
 signal client_logged_in(result: LogInResult, other_data: Dictionary)
 signal on_registering(resutl: RegisterResult)
 
@@ -16,8 +18,9 @@ func register_user(username: String, password: String):
 	if !multiplayer.is_server(): return
 	
 	var insert_user_data = {
-		"username" : username,
-		"password" : password.sha256_text(),
+		"username": username,
+		"password": password.sha256_text(),
+		"data_kelas": JSON.stringify(PenyimpananKelasManager.to_save_dict())
 	}
 	
 	var peer_caller_id = multiplayer.get_remote_sender_id()
@@ -77,6 +80,31 @@ func _call_client_registering(result):
 @rpc
 func client_set_user_data(username):
 	client_cur_username = username
+
+
+@rpc("any_peer")
+func minta_data_kelas_ke_server(username: String):
+	if !multiplayer.is_server(): return
+	var data := _get_data_from_username(username)
+	var data_kelas: Dictionary = JSON.parse_string(data["data_kelas"])
+	dapat_data_kelas.rpc_id(multiplayer.get_remote_sender_id(), data_kelas)
+
+
+@rpc
+func dapat_data_kelas(data: Dictionary):
+	on_dapat_data_kelas.emit(data)
+
+
+@rpc("any_peer")
+func save_data_kelas_to_database(username: String, data_kelas: Dictionary):
+	if !multiplayer.is_server(): return
+	
+	DatabaseManager.database.query_with_bindings(
+		"UPDATE users SET data_kelas = ? WHERE username = ?",
+		[JSON.stringify(data_kelas), username]
+	)
+	
+	print(data_kelas)
 
 
 func _get_data_from_username(_username: String) -> Dictionary:
