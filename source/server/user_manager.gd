@@ -21,7 +21,9 @@ func register_user(username: String, password: String):
 	var insert_user_data = {
 		"username": username,
 		"password": password.sha256_text(),
-		"data_kelas": JSON.stringify(PenyimpananKelasManager.to_save_dict())
+		"data_kelas": JSON.stringify(PenyimpananKelasManager.to_save_dict()),
+		"point": 0,
+		"total_point": 0,
 	}
 	
 	var peer_caller_id = multiplayer.get_remote_sender_id()

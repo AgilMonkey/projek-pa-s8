@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://c6851bfidi41t"]
+
+[ext_resource type="Script" uid="uid://wbtedloqxu78" path="res://scenes/client/client_main/container_leaderboard_cell/container_leaderboard_cell.gd" id="1_gm7nn"]
+
+[node name="ContainerLeaderboardCell" type="PanelContainer" unique_id=1427676871]
+script = ExtResource("1_gm7nn")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2098348115]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="LabelNama" type="RichTextLabel" parent="HBoxContainer" unique_id=1935797795]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Agil"
+fit_content = true
+
+[node name="LabelTotalSkor" type="RichTextLabel" parent="HBoxContainer" unique_id=1771959692]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Agil"
+fit_content = true

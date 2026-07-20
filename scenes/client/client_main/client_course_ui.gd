@@ -73,13 +73,23 @@ func _pertanyaan_habis():
 	menjawab_pertanyaan_ui.hide()
 	selesai_menjawab_ui.show()
 	
-	hasil_selesai_menjawab_label.text = "Berhasil menjawab %d/%d" %[CourseManager.client_jawaban_benar.size(), CourseManager.client_total_question]
+	hasil_selesai_menjawab_label.text = "Berhasil menjawab %d/%d\n" %[CourseManager.client_jawaban_benar.size(), CourseManager.client_total_question]
 	selesai_menjawab_keluar_button.pressed.connect(
 		_selesai_menjawab_keluar_button_pressed
 		, ConnectFlags.CONNECT_ONE_SHOT
 	)
 	
+	var point_didapat = _kalkulasi_point()
+	PointManager.add_point(point_didapat)
+	hasil_selesai_menjawab_label.text += "Anda mendapatakan %d point." % point_didapat
+	
 	CourseManager.emit_kelas_selesai()
+
+
+func _kalkulasi_point() -> int:
+	var is_first_time: bool = PenyimpananKelasManager.cur_penyimpanan_data_kelas[
+		CourseManager.client_course_name].kelas_dicoba_count < 1
+	return CourseManager.client_jawaban_benar.size() + (20 * int(is_first_time))
 
 
 func _selesai_menjawab_keluar_button_pressed():

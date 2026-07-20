@@ -37,6 +37,7 @@ ClientManager="*uid://b6jl3mdmyf7mq"
 TargetingManager="*uid://c6unknhujg6k"
 SystemSubwindow="*uid://dxjdxvaqd4sfd"
 PenyimpananKelasManager="*uid://dl26xc0c0o3i6"
+PointManager="*uid://bo7kssynkklhl"
 
 [debug]
 

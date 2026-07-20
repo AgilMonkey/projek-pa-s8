@@ -3,10 +3,13 @@ extends Control
 
 @onready var panel_konsep_2: PanelKonsep = %PanelKonsep2
 
+@onready var leaderboard_button: Button = %LeaderboardButton
+@onready var panel_leaderboard: PanelLeaderboard = %PanelLeaderboard
 
 
 func _ready() -> void:
 	ClientManager.tunjukkan_konsep.connect(_tunjukkan_konsep)
+	leaderboard_button.pressed.connect(panel_leaderboard.show)
 
 
 func _unhandled_input(event):

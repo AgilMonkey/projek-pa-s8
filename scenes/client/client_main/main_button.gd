@@ -10,6 +10,7 @@ var cur_log_out_window: LogOutWindow
 @onready var peta_kelas_button: Button = %PetaKelasButton
 @onready var cancel_target_lokasi_button: Button = %CancelTargetLokasiButton
 
+@onready var label_stats: RichTextLabel = %LabelStats
 @onready var peta_kelas_ui: Control = %PetaKelasUi
 
 
@@ -20,6 +21,9 @@ func _ready() -> void:
 	
 	TargetingManager.start_targetting.connect(cancel_target_lokasi_button.show)
 	TargetingManager.stop_targetting.connect(cancel_target_lokasi_button.hide)
+	
+	visibility_changed.connect(_visibility_changed)
+	PointManager.point_updated.connect(_point_updated)
 
 
 func _peta_kelas_button_pressed():
@@ -34,3 +38,14 @@ func _cancel_target_lokasi_button_pressed():
 func _log_out_button_pressed():
 	if cur_log_out_window != null: return
 	cur_log_out_window = MainGameWindowManager.spawn_subwindow_scene(LOG_OUT_WINDOW)
+
+
+func _visibility_changed():
+	if is_visible_in_tree():
+		label_stats.text = "Username: " + UserManager.client_cur_username
+		label_stats.text += "\nPoint: " + str(PointManager.cur_point)
+
+
+func _point_updated(_point):
+	label_stats.text = "Username: " + UserManager.client_cur_username
+	label_stats.text += "\nPoint: " + str(_point)

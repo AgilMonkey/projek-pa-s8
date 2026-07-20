@@ -41,7 +41,9 @@ func _create_users_table():
 		"id" = {"data_type":"int", "primary_key": true},
 		"username" = {"data_type":"char(50)", "not_null": true, "unique": true},
 		"password" = {"data_type":"char(255)", "not_null": true},
-		"data_kelas" = {"data_type":"text", "not_null": false}
+		"data_kelas" = {"data_type":"text", "not_null": false},
+		"point" = {"data_type":"int", "not_null": false},
+		"total_point" = {"data_type":"int", "not_null": false}
 	}
 	
 	database.create_table("users", users_table)

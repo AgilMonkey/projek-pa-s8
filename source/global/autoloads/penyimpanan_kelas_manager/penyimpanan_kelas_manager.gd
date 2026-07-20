@@ -29,6 +29,8 @@ func _ready() -> void:
 
 
 func _load_data_dari_database(_result, _data):
+	if _result != UserManager.LogInResult.OK: return
+	
 	UserManager.minta_data_kelas_ke_server.rpc_id(1, UserManager.client_cur_username)
 	var data: Dictionary = await UserManager.on_dapat_data_kelas
 	apply_save_dict(data)
