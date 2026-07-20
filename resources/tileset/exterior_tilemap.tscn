@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://ynjve4m1e1ea"]
+
+[ext_resource type="TileSet" uid="uid://ddyynhofvjlkh" path="res://resources/tileset/tileset_outside.tres" id="1_joq8w"]
+
+[node name="ExteriorTilemap" type="TileMapLayer" unique_id=1566371805]
+texture_filter = 1
+scale = Vector2(3, 3)
+tile_set = ExtResource("1_joq8w")
+collision_enabled = false

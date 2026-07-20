@@ -65,7 +65,8 @@ custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "Kelas 2"
+text = "Kelas 2
+To Be [2]"
 script = ExtResource("3_0s67f")
 nama_course_ini = "course_0_2"
 konsep_kelas = ExtResource("7_o6i5o")
@@ -74,10 +75,12 @@ kata_penyetop_target = "stop_targetting_kelas_2"
 line_control = NodePath("../LineControl")
 
 [node name="LineControl2" parent="KelasContainer" unique_id=264743792 instance=ExtResource("2_0s67f")]
+visible = false
 modulate = Color(1, 1, 1, 0.39215687)
 layout_mode = 2
 
 [node name="ButtonKelas3" type="Button" parent="KelasContainer" unique_id=1200956484 node_paths=PackedStringArray("line_control")]
+visible = false
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -89,9 +92,11 @@ nama_course_ini = "course_0_3"
 line_control = NodePath("../LineControl2")
 
 [node name="LineControl3" parent="KelasContainer" unique_id=851612141 instance=ExtResource("2_0s67f")]
+visible = false
 layout_mode = 2
 
 [node name="ButtonKelas4" type="Button" parent="KelasContainer" unique_id=1763712350 node_paths=PackedStringArray("line_control")]
+visible = false
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -103,9 +108,11 @@ nama_course_ini = "course_0_4"
 line_control = NodePath("../LineControl3")
 
 [node name="LineControl4" parent="KelasContainer" unique_id=898626160 instance=ExtResource("2_0s67f")]
+visible = false
 layout_mode = 2
 
 [node name="ButtonKelas5" type="Button" parent="KelasContainer" unique_id=1823961903 node_paths=PackedStringArray("line_control")]
+visible = false
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 size_flags_horizontal = 4

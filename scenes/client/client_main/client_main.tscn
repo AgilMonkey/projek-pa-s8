@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://vsqyws1ym86c" path="res://scenes/client/client_main/client_main.gd" id="1_cadt6"]
 [ext_resource type="PackedScene" uid="uid://b2drpmji4eop" path="res://scenes/client/start_ui/login_ui.tscn" id="2_evv05"]
 [ext_resource type="PackedScene" uid="uid://dxhc8vpixn80b" path="res://scenes/client/start_ui/register_ui.tscn" id="3_2g1po"]
+[ext_resource type="Texture2D" uid="uid://cipylvlcp4p0h" path="res://scenes/client/start_ui/polban-bgs.jpg" id="4_0hncb"]
 [ext_resource type="Script" uid="uid://c5s5vr6y7xot" path="res://scenes/client/client_main/client_main_ui.gd" id="4_2n5iq"]
 [ext_resource type="PackedScene" uid="uid://b3th36dvsjr7m" path="res://scenes/client/client_main/main_game_ui.tscn" id="5_fgdwa"]
 [ext_resource type="PackedScene" uid="uid://36pigpyi86rk" path="res://scenes/client/client_main/client_course_ui.tscn" id="7_0hncb"]
@@ -12,6 +13,16 @@ script = ExtResource("1_cadt6")
 
 [node name="LoginRegisterUi" type="CanvasLayer" parent="." unique_id=993799723]
 unique_name_in_owner = true
+
+[node name="Bg" type="TextureRect" parent="LoginRegisterUi" unique_id=38051440]
+modulate = Color(0.18487903, 0.18487903, 0.18487903, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("4_0hncb")
 
 [node name="LoginUi" parent="LoginRegisterUi" unique_id=787659980 instance=ExtResource("2_evv05")]
 metadata/_edit_lock_ = true

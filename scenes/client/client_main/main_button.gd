@@ -2,13 +2,15 @@ extends Control
 
 
 const LOG_OUT_WINDOW = preload("uid://dm0kdjwa6n1a6")
+const QUIZ_WINDOW = preload("uid://bi8n531kqc2aw")
 
 var cur_log_out_window: LogOutWindow
-
+var cur_quiz_window: QuizWindow
 
 @onready var log_out_button: Button = %LogOutButton
 @onready var peta_kelas_button: Button = %PetaKelasButton
 @onready var cancel_target_lokasi_button: Button = %CancelTargetLokasiButton
+@onready var kuesioner_button: Button = %KuesionerButton
 
 @onready var label_stats: RichTextLabel = %LabelStats
 @onready var peta_kelas_ui: Control = %PetaKelasUi
@@ -18,6 +20,7 @@ func _ready() -> void:
 	peta_kelas_button.pressed.connect(_peta_kelas_button_pressed)
 	cancel_target_lokasi_button.pressed.connect(_cancel_target_lokasi_button_pressed)
 	log_out_button.pressed.connect(_log_out_button_pressed)
+	kuesioner_button.pressed.connect(_kuesioner_button_pressed)
 	
 	TargetingManager.start_targetting.connect(cancel_target_lokasi_button.show)
 	TargetingManager.stop_targetting.connect(cancel_target_lokasi_button.hide)
@@ -38,6 +41,11 @@ func _cancel_target_lokasi_button_pressed():
 func _log_out_button_pressed():
 	if cur_log_out_window != null: return
 	cur_log_out_window = MainGameWindowManager.spawn_subwindow_scene(LOG_OUT_WINDOW)
+
+
+func _kuesioner_button_pressed():
+	if cur_quiz_window != null: return
+	cur_quiz_window = MainGameWindowManager.spawn_subwindow_scene(QUIZ_WINDOW)
 
 
 func _visibility_changed():

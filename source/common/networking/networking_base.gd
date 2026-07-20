@@ -40,7 +40,11 @@ func create(role: Role, address: String, port: int, tls_options: TLSOptions = nu
 			error = await _connect_with_retries(address, port)
 		Role.SERVER:
 			var bind_address: String = "*" if address.is_empty() else address
-			var _err = peer.create_server(port, bind_address, tls_options)
+			var _err
+			if OS.has_feature("production"):
+				_err = peer.create_server(port, "127.0.0.1")
+			else:
+				_err = peer.create_server(port, bind_address, tls_options)
 			if _err != OK: error = ConnectError.SETUP_FAILED
 			else: error = ConnectError.OK
 			multiplayer.multiplayer_peer = peer
@@ -90,7 +94,10 @@ func _connect_with_timeout(address: String, port: int, timeout_sec := 5.0, tls_o
 		var scheme: String = "ws" if tls_options == null or tls_options.is_unsafe_client() else "wss"
 		url = "%s://%s:%d" % [scheme, address, port]
 	
-	error = peer.create_client(url, tls_options)
+	if OS.has_feature("production") and OS.has_feature("client"):  ## Very bad and quick shit
+		error = peer.create_client("wss://poliban-english-verse.duckdns.org/ws")
+	else:
+		error = peer.create_client(url, tls_options)
 	
 	if error != OK:
 		printerr("Error while creating peer: %s" % error_string(error))

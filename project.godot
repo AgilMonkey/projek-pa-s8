@@ -16,6 +16,7 @@ run/main_scene="uid://b4q4v6wopywa"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="agilmmo"
 config/features=PackedStringArray("4.7", "GL Compatibility")
+boot_splash/show_image=false
 config/icon="res://icon.svg"
 
 [autoload]

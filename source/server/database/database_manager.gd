@@ -20,8 +20,11 @@ func _create_database():
 	database = SQLite.new()
 	
 	if OS.has_feature("production"):
-		# Production enviroment
-		pass
+		if not DirAccess.dir_exists_absolute("user://database"):
+			DirAccess.make_dir_absolute("user://database")
+		
+		database.path = "user://database/game_db.db"
+		database.open_db()
 	else:
 		# Test enviroment
 		if not DirAccess.dir_exists_absolute("user://database"):

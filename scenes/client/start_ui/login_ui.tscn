@@ -78,7 +78,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 32
-text = "No Account? "
+text = "Tidak punya akun?"
 
 [node name="RegisterButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=549295843]
 unique_name_in_owner = true

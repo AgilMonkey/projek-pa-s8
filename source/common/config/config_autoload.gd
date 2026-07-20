@@ -13,6 +13,8 @@ var username: String = ""
 
 func _ready():
 	load_config()
+	if OS.has_feature("production"):
+		server_ip = "poliban-english-verse.duckdns.org"
 
 func load_config():
 	var config = ConfigFile.new()

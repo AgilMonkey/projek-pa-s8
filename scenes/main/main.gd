@@ -24,7 +24,22 @@ func _ready() -> void:
 
 
 func _start_server():
-	Networking.create(NetworkingBase.Role.SERVER, "*", Config.server_port)
+	#var cert := X509Certificate.new()
+	#if cert.load("res://certs/fullchain.pem") != OK:
+		#push_error("cert load failed")
+		#return
+	#
+	#var key := CryptoKey.new()
+	#if key.load("res://certs/privkey.pem") != OK:
+		#push_error("key load failed")
+		#return
+	
+	Networking.create(
+		NetworkingBase.Role.SERVER,
+		"*",
+		Config.server_port, 
+		#TLSOptions.server(key, cert)
+	)
 	
 	print("Server started at port: ", Config.server_port)
 	
