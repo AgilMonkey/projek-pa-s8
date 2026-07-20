@@ -4,6 +4,10 @@ extends Node
 const START_MENU_UI = preload("uid://c7o0k4lx31wtl")
 const CLIENT_MAIN = preload("uid://x0ori5xud1bs")
 
+const SERVER_ADDR_PROD = ""
+const SERVER_ADDR_TEST = ""
+
+
 var client_main: ClientMain
 
 

@@ -44,7 +44,13 @@ func update_ui_pertanyaan_baru():
 	progress_pertanyaan.label_progress_bar.text = "%d/%d" % [_cur_nomor_pertanyaan, _total_nomor_pertanyaan]
 	question_text.text = _pertanyaan
 	
-	menjawab_pertanyaan_ui.set_up_kosakata(_jawaban.split(" "))
+	var split_jawaban := _jawaban.split(" ")
+	var random_kata = CourseManager.kosakata_stuff.random_kata_kata(3)
+	split_jawaban.append_array(PackedStringArray(random_kata))
+	var new_jawaban_text: Array[String] = []
+	new_jawaban_text.assign(Array(split_jawaban))
+	new_jawaban_text.shuffle()
+	menjawab_pertanyaan_ui.set_up_kosakata(new_jawaban_text)
 
 
 func tunjukan_hasil_pertanyaan(sukses: bool):

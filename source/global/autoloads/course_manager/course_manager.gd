@@ -30,6 +30,9 @@ var is_pertanyaan_habis: bool :
 		return (client_total_question - client_cur_question_count) - 1 == 0
 
 
+@onready var kosakata_stuff := KosakataStuff.new()
+
+
 func client_enter_course(_return_pos: Vector2, _course: CourseResource):
 	client_jawaban_benar = []
 	client_jawaban_salah = []
