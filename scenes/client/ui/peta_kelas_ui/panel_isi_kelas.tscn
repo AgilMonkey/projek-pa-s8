@@ -1,10 +1,9 @@
 [gd_scene format=3 uid="uid://c5nbia5s7cl05"]
 
-[ext_resource type="Theme" uid="uid://d3emyrayaw1ld" path="res://resources/themes/main_theme.tres" id="1_gp6o0"]
 [ext_resource type="Script" uid="uid://dhbf6k7pxvlle" path="res://scenes/client/ui/peta_kelas_ui/panel_isi_kelas.gd" id="2_dpg7v"]
-[ext_resource type="Texture2D" uid="uid://catvfyshhceop" path="res://source/common/ui/subwindow/assets/cross_v1/cross_normal.png" id="2_v2nfb"]
-[ext_resource type="Texture2D" uid="uid://cf6lyygyi6d7n" path="res://source/common/ui/subwindow/assets/cross_v1/cross_pressed.png" id="3_dpg7v"]
-[ext_resource type="Texture2D" uid="uid://ck1fvpiq37v82" path="res://source/common/ui/subwindow/assets/cross_v1/cross_hover.png" id="4_qlfxm"]
+[ext_resource type="Texture2D" uid="uid://bdgk1m228appk" path="res://source/common/ui/subwindow/assets/cross_v2/cross_v2_normal.png" id="2_v2nfb"]
+[ext_resource type="Texture2D" uid="uid://dv4cn661q88eg" path="res://source/common/ui/subwindow/assets/cross_v2/cross_v2_pressed.png" id="3_dpg7v"]
+[ext_resource type="Texture2D" uid="uid://bbf50upqhaqu3" path="res://source/common/ui/subwindow/assets/cross_v2/cross_v2_hover.png" id="4_qlfxm"]
 
 [node name="PanelIsiKelas" type="PanelContainer" unique_id=1249939126]
 custom_minimum_size = Vector2(500, 0)
@@ -15,7 +14,6 @@ offset_bottom = 193.0
 pivot_offset_ratio = Vector2(1, 0)
 size_flags_horizontal = 0
 size_flags_vertical = 0
-theme = ExtResource("1_gp6o0")
 script = ExtResource("2_dpg7v")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=135380819]
@@ -40,7 +38,8 @@ fit_content = true
 
 [node name="CloseButton" type="TextureButton" parent="MarginContainer/VBoxContainer/RichTextLabel" unique_id=2001232797]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(32, 32)
+texture_filter = 1
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0

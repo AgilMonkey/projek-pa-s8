@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://bi8n531kqc2aw"]
 
 [ext_resource type="Script" uid="uid://dbno2v5jte3kr" path="res://scenes/client/client_main/quiz_window/quiz_window.gd" id="1_co0fo"]
-[ext_resource type="Texture2D" uid="uid://catvfyshhceop" path="res://source/common/ui/subwindow/assets/cross_v1/cross_normal.png" id="2_v4u5e"]
-[ext_resource type="Texture2D" uid="uid://cf6lyygyi6d7n" path="res://source/common/ui/subwindow/assets/cross_v1/cross_pressed.png" id="3_opbkl"]
-[ext_resource type="Texture2D" uid="uid://ck1fvpiq37v82" path="res://source/common/ui/subwindow/assets/cross_v1/cross_hover.png" id="4_o7qrq"]
+[ext_resource type="Texture2D" uid="uid://bdgk1m228appk" path="res://source/common/ui/subwindow/assets/cross_v2/cross_v2_normal.png" id="2_co0fo"]
+[ext_resource type="Texture2D" uid="uid://dv4cn661q88eg" path="res://source/common/ui/subwindow/assets/cross_v2/cross_v2_pressed.png" id="3_v4u5e"]
+[ext_resource type="Texture2D" uid="uid://bbf50upqhaqu3" path="res://source/common/ui/subwindow/assets/cross_v2/cross_v2_hover.png" id="4_opbkl"]
 
 [node name="QuizWindow" type="PanelContainer" unique_id=2118089250]
 script = ExtResource("1_co0fo")
@@ -41,20 +41,21 @@ alignment = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 0
+size_flags_vertical = 1
 text = "Kuesioner"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CloseButton" type="TextureButton" parent="MainContent/TitleArea/MarginContainer/HBoxContainer" unique_id=1235383804]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(20, 20)
+texture_filter = 1
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
-texture_normal = ExtResource("2_v4u5e")
-texture_pressed = ExtResource("3_opbkl")
-texture_hover = ExtResource("4_o7qrq")
+texture_normal = ExtResource("2_co0fo")
+texture_pressed = ExtResource("3_v4u5e")
+texture_hover = ExtResource("4_opbkl")
 ignore_texture_size = true
 stretch_mode = 4
 
