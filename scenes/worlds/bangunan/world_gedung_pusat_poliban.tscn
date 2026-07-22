@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://d4mtqw8i858ic" path="res://resources/tileset/main_tileset.tres" id="1_ec1k3"]
 [ext_resource type="Script" uid="uid://dnkcn3q68mb8m" path="res://scenes/worlds/overworld/to_world.gd" id="3_vgkgi"]
 [ext_resource type="PackedScene" uid="uid://bew5y6nvpfvq7" path="res://scenes/components/world_interact_button/world_interact_button.tscn" id="4_tjyog"]
-[ext_resource type="Texture2D" uid="uid://ciiew0p1h7yuf" path="res://scenes/components/world_interact_button/button_icons/door_exit_32.png" id="5_ec1k3"]
+[ext_resource type="Texture2D" uid="uid://bh16pjqyoq37u" path="res://assets/1-bit_Pixel_Icons/agil_edited/door_arrow_32.png" id="5_iqbdl"]
 [ext_resource type="Script" uid="uid://dqubjhii83xo8" path="res://scenes/components/course_door/course_door.gd" id="7_ar7sm"]
 [ext_resource type="Resource" uid="uid://bftacsjn6ivgg" path="res://resources/courses/course_0_1.tres" id="7_vckb5"]
 [ext_resource type="PackedScene" uid="uid://c4hdtfg5ye5rt" path="res://scenes/client/ui/konsep_kelas_ui/konsep_kelas_01/konsep_kelas_01.tscn" id="8_ar7sm"]
@@ -68,7 +68,7 @@ teleport_position = Vector2(96, -540)
 
 [node name="WorldInteractButton" parent="ToWorldGedung" unique_id=1750346753 instance=ExtResource("4_tjyog")]
 position = Vector2(0, 136)
-button_icon = ExtResource("5_ec1k3")
+button_icon = ExtResource("5_iqbdl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ToWorldGedung/WorldInteractButton" unique_id=1499241199]
 position = Vector2(0, -137)
