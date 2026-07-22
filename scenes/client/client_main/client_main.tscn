@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://vsqyws1ym86c" path="res://scenes/client/client_main/client_main.gd" id="1_cadt6"]
 [ext_resource type="PackedScene" uid="uid://b2drpmji4eop" path="res://scenes/client/start_ui/login_ui.tscn" id="2_evv05"]
 [ext_resource type="PackedScene" uid="uid://dxhc8vpixn80b" path="res://scenes/client/start_ui/register_ui.tscn" id="3_2g1po"]
+[ext_resource type="Texture2D" uid="uid://b175gstar1lfj" path="res://assets/Logo_Poliban.png" id="3_2n5iq"]
 [ext_resource type="Texture2D" uid="uid://cipylvlcp4p0h" path="res://scenes/client/start_ui/polban-bgs.jpg" id="4_0hncb"]
 [ext_resource type="Script" uid="uid://c5s5vr6y7xot" path="res://scenes/client/client_main/client_main_ui.gd" id="4_2n5iq"]
 [ext_resource type="PackedScene" uid="uid://b3th36dvsjr7m" path="res://scenes/client/client_main/main_game_ui.tscn" id="5_fgdwa"]
@@ -24,6 +25,57 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("4_0hncb")
 metadata/_edit_lock_ = true
+
+[node name="About" type="MarginContainer" parent="LoginRegisterUi" unique_id=1549394327]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Control" type="Control" parent="LoginRegisterUi/About" unique_id=1649712214]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="LoginRegisterUi/About/Control" unique_id=1700937978]
+custom_maximum_size = Vector2(500, -1)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -98.0
+offset_right = 300.0
+grow_vertical = 0
+focus_mode = 2
+text = "Dibuat oleh: Muhammad Agil Fadilah
+NIM: C050422010
+Program Studi: Sistem Informasi Kota Cerdas
+Jurusan: Teknik Elektro"
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+selection_enabled = true
+
+[node name="TextureRect" type="TextureRect" parent="LoginRegisterUi/About/Control" unique_id=1293250891]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("3_2n5iq")
+expand_mode = 1
+stretch_mode = 4
 
 [node name="LoginUi" parent="LoginRegisterUi" unique_id=787659980 instance=ExtResource("2_evv05")]
 metadata/_edit_lock_ = true
