@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://blwhl1gsts3jq"]
 
-[ext_resource type="Theme" uid="uid://d3emyrayaw1ld" path="res://resources/themes/main_theme.tres" id="1_xbear"]
 [ext_resource type="PackedScene" uid="uid://c32aj0so6rmg3" path="res://scenes/client/ui/peta_kelas_ui/content_peta_kelas/line_control/line_control.tscn" id="2_0s67f"]
 [ext_resource type="Script" uid="uid://offv0lh6gvns" path="res://scenes/client/ui/peta_kelas_ui/content_peta_kelas/content_peta_kelas_ui.gd" id="2_tx5u4"]
 [ext_resource type="Script" uid="uid://c56qwepkjre8q" path="res://scenes/client/ui/peta_kelas_ui/content_peta_kelas/button_kelas.gd" id="3_0s67f"]
@@ -32,7 +31,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_xbear")
 theme_override_constants/margin_left = 100
 theme_override_constants/margin_top = 300
 theme_override_constants/margin_right = 100

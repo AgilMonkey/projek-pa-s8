@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://bcrdknddarcc7"]
 
-[ext_resource type="Theme" uid="uid://d3emyrayaw1ld" path="res://resources/themes/main_theme.tres" id="1_hr08s"]
 [ext_resource type="Script" uid="uid://dk3d2n5yy8vk3" path="res://scenes/client/ui/grabable_word/grabable_word.gd" id="2_s01cj"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hr08s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s01cj"]
 
 [node name="GrabableWord" type="PanelContainer" unique_id=1422613802]
 custom_minimum_size = Vector2(10, 10)
@@ -19,7 +20,6 @@ offset_bottom = 27.0
 grow_horizontal = 2
 grow_vertical = 2
 offset_transform_enabled = true
-theme = ExtResource("1_hr08s")
 theme_override_styles/panel = SubResource("StyleBoxEmpty_hr08s")
 script = ExtResource("2_s01cj")
 
@@ -30,16 +30,19 @@ mouse_filter = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1391307193]
 layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
 
 [node name="WordLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer" unique_id=595515183]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 1
+theme_override_styles/normal = SubResource("StyleBoxEmpty_s01cj")
 text = "Testing"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
