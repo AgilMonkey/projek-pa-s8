@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b3yc5dkhrnxas"]
 
-[ext_resource type="Theme" uid="uid://d3emyrayaw1ld" path="res://resources/main_theme.tres" id="1_mi76o"]
+[ext_resource type="Theme" uid="uid://d3emyrayaw1ld" path="res://resources/themes/main_theme.tres" id="1_mi76o"]
 [ext_resource type="Script" uid="uid://bpheb8e527ots" path="res://scenes/client/client_chat_ui/client_chat_ui.gd" id="1_w55p3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mi76o"]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cl22ov2287fb2"]
 
-[ext_resource type="Theme" uid="uid://d3emyrayaw1ld" path="res://resources/main_theme.tres" id="1_o2bei"]
+[ext_resource type="Theme" uid="uid://d3emyrayaw1ld" path="res://resources/themes/main_theme.tres" id="1_o2bei"]
 [ext_resource type="Script" uid="uid://b0hludr7fwra3" path="res://scenes/client/ui/dummy_grabable_word/dummy_grabable_word.gd" id="2_ydmnc"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1d45a"]

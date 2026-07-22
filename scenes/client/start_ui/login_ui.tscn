@@ -19,26 +19,30 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=974408132]
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer" unique_id=1973533210]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer" unique_id=974408132]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1933368163]
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=1933368163]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "Login"
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=83818880]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=83818880]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=998410892]
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer" unique_id=998410892]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Username:"
 
-[node name="UsernameLine" type="LineEdit" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=1387504533]
+[node name="UsernameLine" type="LineEdit" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer" unique_id=1387504533]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -46,15 +50,15 @@ theme_override_font_sizes/font_size = 32
 placeholder_text = "Username"
 expand_to_text_length = true
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=1432932652]
+[node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=1432932652]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer2" unique_id=317444068]
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer2" unique_id=317444068]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Password:"
 
-[node name="PasswordLine" type="LineEdit" parent="CenterContainer/VBoxContainer/HBoxContainer2" unique_id=1061865191]
+[node name="PasswordLine" type="LineEdit" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer2" unique_id=1061865191]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -63,24 +67,24 @@ placeholder_text = "Password"
 expand_to_text_length = true
 secret = true
 
-[node name="LoginButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=996827429]
+[node name="LoginButton" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=996827429]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 32
 text = "Login"
 
-[node name="Control" type="Control" parent="CenterContainer/VBoxContainer" unique_id=2057648400]
+[node name="Control" type="Control" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=2057648400]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1190280683]
+[node name="Label2" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=1190280683]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 32
 text = "Tidak punya akun?"
 
-[node name="RegisterButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=549295843]
+[node name="RegisterButton" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=549295843]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4

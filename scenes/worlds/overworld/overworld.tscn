@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bnw6c3h7xgohk" path="res://assets/poliban_map_crop.png" id="1_dyrh6"]
 [ext_resource type="Script" uid="uid://d02x282ski4xy" path="res://source/client/entity_spawner.gd" id="2_1bu5m"]
 [ext_resource type="TileSet" uid="uid://db5q62xn1rsv0" path="res://resources/tileset/tileset_outside_background.tres" id="2_rja1a"]
-[ext_resource type="Theme" uid="uid://d3emyrayaw1ld" path="res://resources/main_theme.tres" id="5_1efn1"]
+[ext_resource type="Theme" uid="uid://d3emyrayaw1ld" path="res://resources/themes/main_theme.tres" id="5_1efn1"]
 [ext_resource type="FontFile" uid="uid://dibrka2rlgi7b" path="res://assets/Noto_Sans/static/NotoSans-Regular.ttf" id="6_j6h8o"]
 [ext_resource type="Script" uid="uid://bppfyxbfqh5pl" path="res://scenes/worlds/overworld/quick_label_namer.gd" id="7_w5sf5"]
 [ext_resource type="Script" uid="uid://dnkcn3q68mb8m" path="res://scenes/worlds/overworld/to_world.gd" id="12_nkjkt"]

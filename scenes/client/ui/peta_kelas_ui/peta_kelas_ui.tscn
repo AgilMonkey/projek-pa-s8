@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://j1slj3iq8386"]
 
-[ext_resource type="Theme" uid="uid://d3emyrayaw1ld" path="res://resources/main_theme.tres" id="1_mikj1"]
+[ext_resource type="Theme" uid="uid://d3emyrayaw1ld" path="res://resources/themes/main_theme.tres" id="1_mikj1"]
 [ext_resource type="Script" uid="uid://bud3yt13jot5v" path="res://scenes/client/ui/peta_kelas_ui/main_content_container.gd" id="2_l8jrd"]
 [ext_resource type="Script" uid="uid://v4sxb0fq6da6" path="res://scenes/client/ui/peta_kelas_ui/peta_kelas_ui.gd" id="2_r3nfo"]
 [ext_resource type="Texture2D" uid="uid://catvfyshhceop" path="res://source/common/ui/subwindow/assets/cross_normal.png" id="2_u0cgh"]
