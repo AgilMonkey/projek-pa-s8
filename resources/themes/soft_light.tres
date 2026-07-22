@@ -2542,11 +2542,11 @@ corner_radius_bottom_left = 8
 shadow_color = Color(1, 1, 1, 0)
 shadow_offset = Vector2(0, 4)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2447u"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ifto0"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
 bg_color = Color(1, 1, 1, 1)
 border_width_left = 1
 border_width_top = 1
@@ -4038,7 +4038,7 @@ RadioButton/styles/normal = SubResource("StyleBoxFlat_6ctfi")
 RadioButton/styles/pressed = SubResource("StyleBoxFlat_flady")
 RichTextLabel/colors/default_color = Color(0.09411765, 0.13333334, 0.1882353, 1)
 RichTextLabel/colors/font_outline_color = Color(1, 1, 1, 0)
-RichTextLabel/styles/normal = SubResource("StyleBoxFlat_2447u")
+RichTextLabel/styles/normal = SubResource("StyleBoxFlat_ifto0")
 SearchField/base_type = &"LineEdit"
 SearchField/colors/caret_color = Color(0.14117648, 0.41960785, 0.99607843, 1)
 SearchField/colors/font_color = Color(0.09411765, 0.13333334, 0.1882353, 1)

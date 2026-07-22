@@ -9,12 +9,12 @@ signal on_registering(_data: Dictionary)
 
 @onready var username_line: LineEdit = %UsernameLine
 @onready var password_line: LineEdit = %PasswordLine
-@onready var password_again_line: LineEdit = $CenterContainer/RegisterPanel/MarginContainer/VBoxContainer/PasswordAgainContainer/PasswordAgainLine
+@onready var password_again_line: LineEdit = %PasswordAgainLine
 
 @onready var back_button: Button = %BackButton
 @onready var register_button: Button = %RegisterButton
 
-@onready var register_panel: PanelContainer = $CenterContainer/RegisterPanel
+@onready var register_panel: PanelContainer = %RegisterPanel
 @onready var username_container: HBoxContainer = %UsernameContainer
 @onready var password_container: HBoxContainer = %PasswordContainer
 @onready var password_again_container: HBoxContainer = %PasswordAgainContainer
@@ -27,19 +27,19 @@ func _ready() -> void:
 			password_error_label.hide()
 			
 			if username_line.text.is_empty():
-				_show_error("[color=red]Username cannot be empty[/color]")
+				_show_error("[color=red]Username tidak boleh kosong[/color]")
 				return
 			
 			if password_line.text.is_empty():
-				_show_error("", "[color=red]Password cannot be empty[/color]")
+				_show_error("", "[color=red]Password tidak boleh kosong[/color]")
 				return
 			
 			if password_again_line.text.is_empty():
-				_show_error("", "[color=red]Type your password again[/color]")
+				_show_error("", "[color=red]Tulis password mu lagi[/color]")
 				return
 			
 			if password_line.text != password_again_line.text:
-				_show_error("", "[color=red]Password is not the same retyping[/color]")
+				_show_error("", "[color=red]Password tidak sama![/color]")
 				return
 			
 			on_registering.emit({
@@ -50,9 +50,9 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	var register_panel_right_edge = register_panel.global_position.x + register_panel.size.x
-	error_labels.global_position.x = register_panel_right_edge
-	
+	#var register_panel_right_edge = register_panel.global_position.x + register_panel.size.x
+	#
+	#error_labels.global_position.x = register_panel_right_edge
 	username_error_label.global_position.y = username_container.global_position.y
 	password_error_label.global_position.y = password_container.global_position.y
 
