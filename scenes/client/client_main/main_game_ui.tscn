@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://b3th36dvsjr7m"]
 
-[ext_resource type="Theme" uid="uid://d3emyrayaw1ld" path="res://resources/themes/main_theme.tres" id="1_cbmlr"]
 [ext_resource type="Script" uid="uid://bsscg4nrx3oej" path="res://scenes/client/client_main/main_game_ui.gd" id="2_g075w"]
 [ext_resource type="Script" uid="uid://bjmntno005w8p" path="res://scenes/client/client_main/dummy_control.gd" id="3_f5i8d"]
 [ext_resource type="Script" uid="uid://btw24x13756kt" path="res://source/common/ui/keep_in_margin_control/keep_in_margin_control.gd" id="4_nn2ny"]
@@ -13,10 +12,10 @@
 [ext_resource type="Texture2D" uid="uid://db6mb76y53xu3" path="res://assets/1-bit_Pixel_Icons/agil_edited/lokasi_pin_cancel_80.png" id="8_gefgm"]
 [ext_resource type="Texture2D" uid="uid://bmtnbv8pt4f3h" path="res://assets/1-bit_Pixel_Icons/Sprites/Sports_Winner_Award_Medal.png" id="8_jcfu0"]
 [ext_resource type="Script" uid="uid://dhw3uvmajv4lx" path="res://scenes/client/ui/peta_kelas_ui/panel_konsep.gd" id="9_pmq7c"]
-[ext_resource type="Texture2D" uid="uid://catvfyshhceop" path="res://source/common/ui/subwindow/assets/cross_normal.png" id="10_gefgm"]
+[ext_resource type="Texture2D" uid="uid://catvfyshhceop" path="res://source/common/ui/subwindow/assets/cross_v1/cross_normal.png" id="10_gefgm"]
 [ext_resource type="Texture2D" uid="uid://b37kl4nr5q6o5" path="res://assets/1-bit_Pixel_Icons/Sprites/Software_Pen_Paper_Notes_Edit_Text.png" id="10_k6ref"]
-[ext_resource type="Texture2D" uid="uid://cf6lyygyi6d7n" path="res://source/common/ui/subwindow/assets/cross_pressed.png" id="11_mnb6m"]
-[ext_resource type="Texture2D" uid="uid://ck1fvpiq37v82" path="res://source/common/ui/subwindow/assets/cross_hover.png" id="12_nxxgh"]
+[ext_resource type="Texture2D" uid="uid://cf6lyygyi6d7n" path="res://source/common/ui/subwindow/assets/cross_v1/cross_pressed.png" id="11_mnb6m"]
+[ext_resource type="Texture2D" uid="uid://ck1fvpiq37v82" path="res://source/common/ui/subwindow/assets/cross_v1/cross_hover.png" id="12_nxxgh"]
 [ext_resource type="Script" uid="uid://ceclil8hjl7v4" path="res://scenes/client/client_main/panel_leaderboard.gd" id="15_nxxgh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jcfu0"]
@@ -34,7 +33,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-theme = ExtResource("1_cbmlr")
 script = ExtResource("2_g075w")
 metadata/_edit_lock_ = true
 
@@ -99,22 +97,10 @@ mouse_filter = 2
 theme_override_constants/separation = 20
 alignment = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="MainButtonNStuff/MarginContainer/HBoxContainer" unique_id=269525696]
-layout_mode = 2
-size_flags_vertical = 0
-mouse_filter = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="MainButtonNStuff/MarginContainer/HBoxContainer/PanelContainer" unique_id=1948950136]
-layout_mode = 2
-mouse_filter = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
-
-[node name="LabelStats" type="RichTextLabel" parent="MainButtonNStuff/MarginContainer/HBoxContainer/PanelContainer/MarginContainer" unique_id=1945237335]
+[node name="LabelStats" type="RichTextLabel" parent="MainButtonNStuff/MarginContainer/HBoxContainer" unique_id=1945237335]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 0
 mouse_filter = 2
 text = "Nama: asdjadjsadasjdjadssad
 Point: 1212321"

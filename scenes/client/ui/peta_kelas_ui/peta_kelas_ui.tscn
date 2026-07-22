@@ -3,10 +3,10 @@
 [ext_resource type="Theme" uid="uid://d3emyrayaw1ld" path="res://resources/themes/main_theme.tres" id="1_mikj1"]
 [ext_resource type="Script" uid="uid://bud3yt13jot5v" path="res://scenes/client/ui/peta_kelas_ui/main_content_container.gd" id="2_l8jrd"]
 [ext_resource type="Script" uid="uid://v4sxb0fq6da6" path="res://scenes/client/ui/peta_kelas_ui/peta_kelas_ui.gd" id="2_r3nfo"]
-[ext_resource type="Texture2D" uid="uid://catvfyshhceop" path="res://source/common/ui/subwindow/assets/cross_normal.png" id="2_u0cgh"]
+[ext_resource type="Texture2D" uid="uid://catvfyshhceop" path="res://source/common/ui/subwindow/assets/cross_v1/cross_normal.png" id="2_u0cgh"]
 [ext_resource type="PackedScene" uid="uid://blwhl1gsts3jq" path="res://scenes/client/ui/peta_kelas_ui/content_peta_kelas/content_peta_kelas_ui.tscn" id="3_hukls"]
-[ext_resource type="Texture2D" uid="uid://cf6lyygyi6d7n" path="res://source/common/ui/subwindow/assets/cross_pressed.png" id="3_l8jrd"]
-[ext_resource type="Texture2D" uid="uid://ck1fvpiq37v82" path="res://source/common/ui/subwindow/assets/cross_hover.png" id="4_hukls"]
+[ext_resource type="Texture2D" uid="uid://cf6lyygyi6d7n" path="res://source/common/ui/subwindow/assets/cross_v1/cross_pressed.png" id="3_l8jrd"]
+[ext_resource type="Texture2D" uid="uid://ck1fvpiq37v82" path="res://source/common/ui/subwindow/assets/cross_v1/cross_hover.png" id="4_hukls"]
 [ext_resource type="Script" uid="uid://dhw3uvmajv4lx" path="res://scenes/client/ui/peta_kelas_ui/panel_konsep.gd" id="8_d0bwa"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r3nfo"]

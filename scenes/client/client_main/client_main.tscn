@@ -15,7 +15,7 @@ script = ExtResource("1_cadt6")
 unique_name_in_owner = true
 
 [node name="Bg" type="TextureRect" parent="LoginRegisterUi" unique_id=38051440]
-modulate = Color(0.526975, 0.526975, 0.526975, 1)
+modulate = Color(0.2875433, 0.28754333, 0.2875433, 1)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -23,6 +23,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("4_0hncb")
+metadata/_edit_lock_ = true
 
 [node name="LoginUi" parent="LoginRegisterUi" unique_id=787659980 instance=ExtResource("2_evv05")]
 metadata/_edit_lock_ = true
@@ -48,7 +49,9 @@ script = ExtResource("4_2n5iq")
 
 [node name="MainGameUI" parent="ClientMainUI" unique_id=985594625 instance=ExtResource("5_fgdwa")]
 unique_name_in_owner = true
+theme = null
 
 [node name="ClientCourseUI" parent="ClientMainUI" unique_id=2076881983 instance=ExtResource("7_0hncb")]
 unique_name_in_owner = true
 visible = false
+theme = null

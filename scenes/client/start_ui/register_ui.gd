@@ -64,7 +64,9 @@ func _show_error(username_error_msg := "", password_error_msg := ""):
 	if username_error_msg:
 		username_error_label.show()
 		username_error_label.text = username_error_msg
+		username_error_label.reset_size()
 	
 	if password_error_msg:
 		password_error_label.show()
 		password_error_label.text = password_error_msg
+		password_error_label.reset_size()

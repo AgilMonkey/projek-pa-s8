@@ -18,10 +18,11 @@ var is_chat_panel_resized := false
 @onready var main_panel_container: PanelContainer = %MainPanelContainer
 
 @onready var chat_button: Button = %ChatButton
-@onready var text_chat_container_panel: PanelContainer = %TextChatContainerPanel
+#@onready var text_chat_container_panel: PanelContainer = %TextChatContainerPanel
 @onready var chat_buttons_container: HBoxContainer = %ChatButtonsContainer
 @onready var resize_control: Control = %ResizeControl
 @onready var right_down_resize_control: Control = %RightDownResizeControl
+@onready var chat_box_text: RichTextLabel = %ChatBoxText
 
 
 func _ready() -> void:
@@ -86,7 +87,8 @@ func _open_close_chat_panel():
 		main_panel_container.size = chat_panel_size_saved
 		
 		chat_button.text = "Tutup Chat"
-		text_chat_container_panel.show()
+		#text_chat_container_panel.show()
+		chat_box_text.show()
 		chat_buttons_container.show()
 		resize_control.show()
 		is_chat_panel_openned = false
@@ -94,7 +96,8 @@ func _open_close_chat_panel():
 		chat_panel_size_saved = main_panel_container.size
 		
 		chat_button.text = "Buka Chat"
-		text_chat_container_panel.hide()
+		#text_chat_container_panel.hide()
+		chat_box_text.hide()
 		chat_buttons_container.hide()
 		resize_control.hide()
 		is_chat_panel_openned = true
