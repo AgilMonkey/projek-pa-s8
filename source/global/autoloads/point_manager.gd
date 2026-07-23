@@ -13,15 +13,6 @@ func _ready() -> void:
 	point_updated.connect(_point_updated)
 
 
-func _input(event: InputEvent) -> void:
-	if UserManager.client_cur_username == "": return
-	
-	if AgilHelper.key_just_pressed(event, KEY_0):
-		add_point(5)
-	elif AgilHelper.key_just_pressed(event, KEY_1):
-		decrease_point(5)
-
-
 func add_point(value_add: int):
 	cur_point += value_add
 	point_updated.emit(cur_point)
